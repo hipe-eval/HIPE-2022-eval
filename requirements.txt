@@ -1,0 +1,7 @@
+pandas
+tqdm
+tabulate
+seaborn
+stringdist
+docopt
+numpy
