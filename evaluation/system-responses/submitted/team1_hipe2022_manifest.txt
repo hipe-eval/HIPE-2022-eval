@@ -1,0 +1,6 @@
+HISTeria_bundle4_ajmc_de_1.tsv:MCC
+HISTeria_bundle4_ajmc_de_2.tsv:MCC
+HISTeria_bundle4_ajmc_en_1.tsv:MCC
+HISTeria_bundle4_ajmc_en_2.tsv:MCC
+HISTeria_bundle4_ajmc_fr_1.tsv:MCC
+HISTeria_bundle4_ajmc_fr_2.tsv:MCC
