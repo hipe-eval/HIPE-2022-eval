@@ -64,6 +64,7 @@ gold-files:=$(foreach dataset,$(DATASETS),$(wildcard $(GROUND_TRUTH_DIR)/*-$(dat
 $(info )
 $(info # INFO: gold-files: $(gold-files))
 $(info )
+
 # produce normalized version of gold standard
 # version: historical
 gold-histonorm-files:=$(gold-files:.tsv=_histonorm.tsv)
@@ -90,12 +91,13 @@ eval-system-bundles: \
 	eval-system-bundles-hipe2020 \
 	eval-system-bundles-newseye \
 	eval-system-bundles-sonar \
-	eval-system-bundles-letemps
+	eval-system-bundles-letemps \
+	eval-system-bundles-ajmc
 
 eval-system-bundles-%: prepare-eval
 	$(MAKE) -k eval-system-bundle BUNDLE=1 DATASET=$* $(MAKEFLAGS)
 	$(MAKE) -k eval-system-bundle BUNDLE=2 DATASET=$* $(MAKEFLAGS)
-#NOT NEEDED	$(MAKE) -k eval-system-bundle BUNDLE=3 DATASET=$* $(MAKEFLAGS)
+	$(MAKE) -k eval-system-bundle BUNDLE=3 DATASET=$* $(MAKEFLAGS)
 	$(MAKE) -k eval-system-bundle BUNDLE=4 DATASET=$* $(MAKEFLAGS)
 #NOT IMPLEMENTED $(MAKE) eval-system-bundle BUNDLE=5 DATASET=$* $(MAKEFLAGS)
 
@@ -131,7 +133,7 @@ else ifeq ($(BUNDLE),2)
 #NOT IMPLEMENTED 	python3 $(SCORER_DIR)/clef_evaluation.py --hipe_edition hipe-2022 --ref $(GROUND_TRUTH_DIR)/$(LANG_ABBR)/HIPE-data-$(VERSION)-test-$(LANG_ABBR).tsv --pred $< --task nel --outdir $(RES_DIR) --log $(EVAL_LOGS_DIR)/$(@F:.tsv=.nel.log) --tagset $(SCORER_DIR)/tagset.txt --noise-level $(EVAL_NOISE_LEVEL) --time-period $(PERIOD)
 else ifeq ($(BUNDLE),3)
 	# NERC-Coarse  BUNDLE $(BUNDLE) DATASET $(DATASET)
-#NOT NECESSARY 		python3 $(SCORER_DIR)/clef_evaluation.py --task nerc_coarse --ref $(GROUND_TRUTH_DIR)/HIPE-2022-$(VERSION)-$(DATASET)-test-$(call submission_lang,$(<F)).tsv \
+	python3 $(SCORER_DIR)/clef_evaluation.py --task nerc_coarse --ref $(GROUND_TRUTH_DIR)/HIPE-2022-$(VERSION)-$(DATASET)-test-$(call submission_lang,$(<F)).tsv \
 		--pred $< --outdir $(RES_DIR) --log $(EVAL_LOGS_DIR)/$(@F:.tsv=.nerc_coarse.log) --tagset $(SCORER_DIR)/tagset-hipe2022-all.txt --hipe_edition hipe-2022
 #NOT NECESSARY 		python3 $(SCORER_DIR)/clef_evaluation.py --hipe_edition hipe-2022 --ref $(GROUND_TRUTH_DIR)/$(LANG_ABBR)/HIPE-data-$(VERSION)-test-$(LANG_ABBR).tsv --pred $< --task nerc_fine --outdir $(RES_DIR) --log $(EVAL_LOGS_DIR)/$(@F:.tsv=.nerc_fine.log) --tagset $(SCORER_DIR)/tagset.txt --noise-level $(EVAL_NOISE_LEVEL) --time-period $(PERIOD)
 else ifeq ($(BUNDLE),4)
