@@ -3,8 +3,9 @@ SHELL:=/bin/bash
 ############################################################################################
 # SYSTEM EVALUATION (START OF OPEN-SOURCE PART)
 ############################################################################################
-
-
+# currently set to provisional (until the full test data is available from the repository)
+RELEASE_DIR?=HIPE-2022-data-provisional/data
+VERSION?= v2.1
 SCORER_DIR?=HIPE-scorer # ME: updated
 EVAL_DIR?=evaluation # ME: updated
 SUB_DIR?=$(EVAL_DIR)/system-responses/submitted
@@ -13,6 +14,8 @@ SUB_HISTONORM_DIR?=$(EVAL_DIR)/system-responses/histo-normalized
 RES_DIR?=$(EVAL_DIR)/system-evaluations
 EVAL_LOGS_DIR?=$(EVAL_DIR)/system-evaluation-logs
 RANK_DIR?=$(EVAL_DIR)/system-rankings
+
+DATASETS ?= hipe2020 letemps newseye topres19th sonar
 
 # copy this file manually from here and remove spaces in file name:
 # https://docs.google.com/spreadsheets/d/1s2BpIeiqsJIjHLsIecshrHG9UFkMBW1Nfr-h68AB2pY/edit#gid=1606475364
@@ -46,7 +49,8 @@ submission-histonorm-files:=$(subst $(SUB_DIR),$(SUB_HISTONORM_DIR),$(submission
 
 # produce normalized version of gold standard
 # version: historical
-gold-files:=$(wildcard $(RELEASE_DIR)/$(VERSION)/*/*test-??.tsv)
+gold-files:=$(foreach dataset,$(DATASETS),$(wildcard $(RELEASE_DIR)/$(VERSION)/*-$(dataset)-test-??.tsv))
+$(info gold-files: $(gold-files))
 gold-histonorm-files:=$(gold-files:.tsv=_histonorm.tsv)
 
 result-timenorm-files:=$(subst $(SUB_TIMENORM_DIR),$(RES_DIR),$(submission-timenorm-files))

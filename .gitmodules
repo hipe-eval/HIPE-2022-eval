@@ -1,0 +1,4 @@
+[submodule "HIPE-scorer"]
+	path = HIPE-scorer
+	url = git@github.com:hipe-eval/HIPE-scorer.git
+	branch = master
