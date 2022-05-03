@@ -30,6 +30,8 @@ _to be completed._
 
 ## Installation
 ```
+git clone --recurse-submodules git@github.com:hipe-eval/HIPE-2022-eval.git
+cd HIPE-2022-eval
 python3 -mvenv venv
 source venv/bin/activate
 pip install -r requirements.txt
