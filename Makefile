@@ -181,21 +181,31 @@ else ifeq ($(BUNDLE),5)
 	python3 $(SCORER_DIR)/clef_evaluation.py --hipe_edition hipe-2022 --ref $(GROUND_TRUTH_DIR)/$(LANG_ABBR)/HIPE-data-$(VERSION)-test-$(LANG_ABBR)_histonorm.tsv --pred $< --task nel --outdir $(RES_DIR) --log $(EVAL_LOGS_DIR)/$(@F:.tsv=.nel.log) --suffix relaxed --n_best 1,3,5 --tagset $(SCORER_DIR)/tagset.txt --noise-level $(EVAL_NOISE_LEVEL) --time-period $(PERIOD)
 endif
 
+#: Per language; datasets via recursive make
+ranking-dataset-$(DATASET)-%:
+	$(MAKE) -k ranking-$* DATASET=$(DATASET) $(MAKEFLAGS)
 
+
+ranking-alldatasets-alllanguages:
+	$(MAKE) -k $(foreach lng,de fr en,ranking-hipe2020-$(lng)) DATASET=hipe2020 $(MAKEFLAGS)
+	$(MAKE) -k $(foreach lng,de,ranking-sonar-$(lng)) DATASET=sonar $(MAKEFLAGS)
+	$(MAKE) -k $(foreach lng,de en fr fi sv,ranking-newseye-$(lng)) DATASET=newseye $(MAKEFLAGS)
+	$(MAKE) -k $(foreach lng,fr,ranking-letemps-$(lng)) DATASET=letemps $(MAKEFLAGS)
 
 # produce rankings per language, task, sorted by F1-score of micro fuzzy across labels
 # bundle 5 goes into separate table as they have gold annotations
 # English has no fine annotation, other than German and French
-ranking-%: $(result-files) $(result-norm-files) $(gold-norm-files) $(normalized-files)
-	head -q -n1 $(RES_DIR)/*_$*_*.tsv | head -1 > header.tmp
-	grep -hs 'NE-COARSE.*micro-fuzzy.*ALL' $(RES_DIR)/*_$*_*.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$*-coarse-micro-fuzzy-all.tsv
-	grep -hs 'NE-COARSE.*micro-strict.*ALL' $(RES_DIR)/*_$*_*.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$*-coarse-micro-strict-all.tsv
-	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle{1..4}_$*_*.tsv | grep -v 'relaxed' | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$*-nel-micro-fuzzy.tsv
-	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle5_$*_*.tsv | grep -v 'relaxed' | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$*-nel-only-micro-fuzzy.tsv
-	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle{1..4}_$*_*_relaxed.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$*-nel-micro-fuzzy-relaxed.tsv
-	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle5_$*_*_relaxed.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$*-nel-only-micro-fuzzy-relaxed.tsv
+ranking-$(DATASET)-%: $(result-nonorm-files) #$(result-norm-files) $(gold-norm-files) $(normalized-files)
+	head -q -n1 $(RES_DIR)/*_$(DATASET)_$*_*.tsv | head -1 > header.tmp
+	grep -hs 'NE-COARSE.*micro-fuzzy.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-coarse-micro-fuzzy-all.tsv
+	grep -hs 'NE-COARSE.*micro-strict.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-coarse-micro-strict-all.tsv
+#NOT YET IMPLEMENTED	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle{1..4}_$(DATASET)_$*_*.tsv | grep -v 'relaxed' | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-nel-micro-fuzzy.tsv
+#NOT YET IMPLEMENTED	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle5_$(DATASET)_$*_*.tsv | grep -v 'relaxed' | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-nel-only-micro-fuzzy.tsv
+#NOT YET IMPLEMENTED	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle{1..4}_$(DATASET)_$*_?_relaxed.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-nel-micro-fuzzy-relaxed.tsv
+#NOT YET IMPLEMENTED	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle5_$(DATASET)_$*_?_relaxed.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-nel-only-micro-fuzzy-relaxed.tsv
 	rm header.tmp
-ranking-fine-%: $(result-files) $(result-norm-files) $(gold-norm-files) $(normalized-files)
+
+ranking-fine-%: $(result-nonorm-files) #$(result-norm-files) $(gold-norm-files) $(normalized-files)
 	head -q -n1 $(RES_DIR)/*_$*_*.tsv | head -1 > header.tmp
 	grep -Phs '(NE-FINE|NE-NESTED).*micro-fuzzy.*ALL' $(RES_DIR)/*_$*_*.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$*-fine-micro-fuzzy-all.tsv
 	grep -Phs '(NE-FINE|NE-NESTED).*micro-strict.*ALL' $(RES_DIR)/*_$*_*.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$*-fine-micro-strict-all.tsv
