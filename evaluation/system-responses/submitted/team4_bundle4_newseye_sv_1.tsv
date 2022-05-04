@@ -151,6 +151,7 @@ har	O	_	_	_	_	_	_	_	_
 af	O	_	_	_	_	_	_	_	_
 villaägarin	B-PER	_	_	_	_	_	_	_	_
 -	I-PER	_	_	_	_	_	_	_	_
+nan	I-PER	_	O	_	_	O	NIL	_	_
 E	I-PER	_	_	_	_	_	_	_	_
 .	I-PER	_	_	_	_	_	_	_	_
 M	I-PER	_	_	_	_	_	_	_	_
@@ -12005,6 +12006,7 @@ den	O	_	_	_	_	_	_	_	_
 stora	O	_	_	_	_	_	_	_	_
 kan	O	_	_	_	_	_	_	_	_
 -	O	_	_	_	_	_	_	_	_
+nan	O	_	O	_	_	O	_	_	_
 slut	O	_	_	_	_	_	_	_	_
 ,	O	_	_	_	_	_	_	_	_
 reqwirerar	O	_	_	_	_	_	_	_	_
