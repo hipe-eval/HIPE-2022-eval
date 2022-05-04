@@ -7,10 +7,6 @@ This repository contains the **results of the HIPE-2022 [shared task](https://hi
 - the system result files;
 - a makefile to run the whole evaluation process.
 
-## How-To
-
-_to be completed._
-
 
 **Additional links**
 - HIPE-2022 [website](https://hipe-eval.github.io/HIPE-2022/);
@@ -38,6 +34,13 @@ pip install -r requirements.txt
 ( cd HIPE-scorer && pip install -r requirements.txt && python setup.py install )
 
 ```
+## How-To
+
+```
+make eval-system-bundles
+
+```
+
 
 ## Licenses 
 - The test data is released under different licenses, check the [data repository](https://github.com/impresso/CLEF-HIPE-2020/tree/master/data) for more information.
