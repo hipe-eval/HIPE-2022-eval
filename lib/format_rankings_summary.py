@@ -14,15 +14,17 @@ from docopt import docopt
 from tabulate import tabulate
 
 PROLOGUE = """
-We provide an **overview table** of the anonymized results of the runs submitted by 13 teams for the **first and second** phases.
+We provide an **overview table** of the **PRELIMINARY** anonymized results of the runs submitted by the teams for the **first** phase. 
+It also includes a neural baseline created by the organizers.
 
 - Date: 04.05.2022.
-- Bundles: 1 to 5
+- Bundles: 1 to 4
+- The current results for NEL can still change as we are extending the list of equivalent wikidata IDs. 
 - Detailed results for all systems can be found in this .tsv file.
 - Detailed results for each team's runs are sent privately.
-- System name composition is: teamID_bundle_lang_run.
+- System name composition is: teamID_bundle_dataset_lang_run.
 - F1 scores of 0.0 are excluded from the table.
-- Results are ordered by F scores.
+- Results are ordered by F1 scores.
 - Results will be de-anonymized in the future.
 
 ### About the evaluation (reminder)
@@ -69,7 +71,7 @@ def read_ranking(ranking_name: str, rankings_dir: str) -> pd.DataFrame:
 def filter_ranking(ranking_df: pd.DataFrame, evaluation: str) -> pd.DataFrame:
     return ranking_df.copy()[
         ranking_df.Evaluation.str.contains(evaluation) & (ranking_df.Label == "ALL")
-        ]
+    ]
 
 
 def compile_rankings_summary(rankings_dir: str) -> str:
@@ -78,11 +80,17 @@ def compile_rankings_summary(rankings_dir: str) -> str:
 
     summary = ""
 
-    languages = [("de", "German"), ("en", "English"), ("fr", "French"),("sv","Swedish"),("fi","Finnish")]
+    languages = [
+        ("de", "German"),
+        ("en", "English"),
+        ("fr", "French"),
+        ("sv", "Swedish"),
+        ("fi", "Finnish"),
+    ]
 
     h = ["Rank", "System", "F1", "Precision", "Recall"]
 
-    datasets = ["hipe2020","letemps","newseye","sonar","ajcm"]
+    datasets = ["hipe2020", "newseye", "letemps", "sonar", "ajcm"]
 
     scenarios = [
         {
@@ -228,14 +236,21 @@ def compile_rankings_summary(rankings_dir: str) -> str:
 
         for dataset in datasets:
             for lang_id, lang_label in languages:
-
+                if dataset == "sonar" and lang_id != "de":
+                    continue
+                elif dataset == "hipe2020" and lang_id not in {"de", "fr", "en"}:
+                    continue
+                elif dataset == "letemps" and lang_id != "fr":
+                    continue
+                elif dataset == "ajcm" and lang_id not in {"de", "fr", "en"}:
+                    continue
+                elif dataset == "newseye" and lang_id == "en":
+                    continue
                 for measure, eval_level, measure_label in measures:
 
                     if scenario_id == "nerc-coarse":
                         try:
-                            ranking_filename = (
-                                f"ranking-{dataset}-{lang_id}-coarse-micro-{measure}-all.tsv"
-                            )
+                            ranking_filename = f"ranking-{dataset}-{lang_id}-coarse-micro-{measure}-all.tsv"
                             ranking_df = read_ranking(ranking_filename, rankings_dir)
                         except:
                             # print(f"{ranking_filename} not found")
@@ -247,9 +262,7 @@ def compile_rankings_summary(rankings_dir: str) -> str:
                             continue
 
                         try:
-                            ranking_filename = (
-                                f"ranking-{dataset}-{lang_id}-fine-micro-{measure}-all.tsv"
-                            )
+                            ranking_filename = f"ranking-{dataset}-{lang_id}-fine-micro-{measure}-all.tsv"
                             ranking_df = read_ranking(ranking_filename, rankings_dir)
                         except:
                             # print(f"{ranking_filename} not found")
@@ -258,12 +271,12 @@ def compile_rankings_summary(rankings_dir: str) -> str:
                     elif scenario_id == "el":
                         try:
                             if measure == "relaxed":
-                                ranking_filename = (
-                                    f"ranking-{dataset}-{lang_id}-nel-micro-fuzzy-{measure}.tsv"
-                                )
+                                ranking_filename = f"ranking-{dataset}-{lang_id}-nel-micro-fuzzy-{measure}.tsv"
                             else:
                                 # it's strict but no strict in the filename
-                                ranking_filename = f"ranking-{lang_id}-nel-micro-fuzzy.tsv"
+                                ranking_filename = (
+                                    f"ranking-{lang_id}-nel-micro-fuzzy.tsv"
+                                )
                             ranking_df = read_ranking(ranking_filename, rankings_dir)
                         except:
                             # print(f"{ranking_filename} not found")
@@ -272,14 +285,10 @@ def compile_rankings_summary(rankings_dir: str) -> str:
                     elif scenario_id == "el-only":
                         try:
                             if measure == "relaxed":
-                                ranking_filename = (
-                                    f"ranking-{dataset}-{lang_id}-nel-only-micro-fuzzy-{measure}.tsv"
-                                )
+                                ranking_filename = f"ranking-{dataset}-{lang_id}-nel-only-micro-fuzzy-{measure}.tsv"
                             else:
                                 # it's strict but no strict in the filename
-                                ranking_filename = (
-                                    f"ranking-{dataset}-{lang_id}-nel-only-micro-fuzzy.tsv"
-                                )
+                                ranking_filename = f"ranking-{dataset}-{lang_id}-nel-only-micro-fuzzy.tsv"
                             ranking_df = read_ranking(ranking_filename, rankings_dir)
                         except:
                             # print(f"{ranking_filename} not found")
@@ -293,16 +302,17 @@ def compile_rankings_summary(rankings_dir: str) -> str:
                     try:
                         eval_key = list(filter_ranking_df.Evaluation.unique())[0]
                     except IndexError:
-                        logging.error(f"### {label} {lang_label} {measure_label} \[`{eval_key}`\]\n\n")
+                        logging.error(
+                            f"### {label} {dataset} {lang_label} {measure_label} \[`{eval_key}`\]"
+                        )
                         continue
-                    summary += (
-                        f"\n\n### {label} {lang_label} {measure_label} \[`{eval_key}`\]\n\n"
-                    )
+                    summary += f"\n\n### {label} {dataset} {lang_label} {measure_label} \[`{eval_key}`\]\n\n"
                     summary += tabulate(
                         filter_ranking_df[["System", "F1", "P", "R"]],
                         headers=h,
                         tablefmt="pipe",
                         numalign="left",
+                        floatfmt=".3f",
                     )
 
     summary += "\n"
