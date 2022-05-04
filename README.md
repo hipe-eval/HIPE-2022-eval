@@ -43,6 +43,7 @@ git submodule update
 ```
 make eval-system-bundles
 make ranking-alldatasets-alllanguages
+make generate-rankings-summary 
 ```
 
 

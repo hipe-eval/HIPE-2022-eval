@@ -6,24 +6,24 @@ Usage:
 """  # noqa
 
 
-import os
 import logging
-from docopt import docopt
+import os
+
 import pandas as pd
-import numpy as np
+from docopt import docopt
 from tabulate import tabulate
 
 PROLOGUE = """
 We provide an **overview table** of the anonymized results of the runs submitted by 13 teams for the **first and second** phases.
 
-- Date: 09.06.2020.
+- Date: 04.05.2022.
 - Bundles: 1 to 5
 - Detailed results for all systems can be found in this .tsv file.
 - Detailed results for each team's runs are sent privately.
 - System name composition is: teamID_bundle_lang_run.
 - F1 scores of 0.0 are excluded from the table.
 - Results are ordered by F scores.
-- Results will be de-anonymized on Fri 12 June.
+- Results will be de-anonymized in the future.
 
 ### About the evaluation (reminder)
 
@@ -69,7 +69,7 @@ def read_ranking(ranking_name: str, rankings_dir: str) -> pd.DataFrame:
 def filter_ranking(ranking_df: pd.DataFrame, evaluation: str) -> pd.DataFrame:
     return ranking_df.copy()[
         ranking_df.Evaluation.str.contains(evaluation) & (ranking_df.Label == "ALL")
-    ]
+        ]
 
 
 def compile_rankings_summary(rankings_dir: str) -> str:
@@ -78,9 +78,11 @@ def compile_rankings_summary(rankings_dir: str) -> str:
 
     summary = ""
 
-    languages = [("de", "German"), ("en", "English"), ("fr", "French")]
+    languages = [("de", "German"), ("en", "English"), ("fr", "French"),("sv","Swedish"),("fi","Finnish")]
 
     h = ["Rank", "System", "F1", "Precision", "Recall"]
+
+    datasets = ["hipe2020","letemps","newseye","sonar","ajcm"]
 
     scenarios = [
         {
@@ -98,16 +100,16 @@ def compile_rankings_summary(rankings_dir: str) -> str:
                     "NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL",
                     "fuzzy (literal sense)",
                 ),
-                (
-                    "strict",
-                    "NE-COARSE-METO-micro-strict-TIME-ALL-LED-ALL",
-                    "strict (metonymic sense)",
-                ),
-                (
-                    "fuzzy",
-                    "NE-COARSE-METO-micro-fuzzy-TIME-ALL-LED-ALL",
-                    "fuzzy (metonymic sense)",
-                ),
+                # (
+                #     "strict",
+                #     "NE-COARSE-METO-micro-strict-TIME-ALL-LED-ALL",
+                #     "strict (metonymic sense)",
+                # ),
+                # (
+                #     "fuzzy",
+                #     "NE-COARSE-METO-micro-fuzzy-TIME-ALL-LED-ALL",
+                #     "fuzzy (metonymic sense)",
+                # ),
             ],
         },
         {
@@ -125,26 +127,26 @@ def compile_rankings_summary(rankings_dir: str) -> str:
                     "NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL",
                     "fuzzy (literal sense)",
                 ),
-                (
-                    "strict",
-                    "NE-FINE-METO-micro-strict-TIME-ALL-LED-ALL",
-                    "strict (metonymic sense)",
-                ),
-                (
-                    "fuzzy",
-                    "NE-FINE-METO-micro-fuzzy-TIME-ALL-LED-ALL",
-                    "fuzzy (metonymic sense)",
-                ),
-                (
-                    "strict",
-                    "NE-COMP-micro-strict-TIME-ALL-LED-ALL",
-                    "strict NE components",
-                ),
-                (
-                    "fuzzy",
-                    "NE-COMP-micro-fuzzy-TIME-ALL-LED-ALL",
-                    "fuzzy NE components",
-                ),
+                # (
+                #     "strict",
+                #     "NE-FINE-METO-micro-strict-TIME-ALL-LED-ALL",
+                #     "strict (metonymic sense)",
+                # ),
+                # (
+                #     "fuzzy",
+                #     "NE-FINE-METO-micro-fuzzy-TIME-ALL-LED-ALL",
+                #     "fuzzy (metonymic sense)",
+                # ),
+                # (
+                #     "strict",
+                #     "NE-COMP-micro-strict-TIME-ALL-LED-ALL",
+                #     "strict NE components",
+                # ),
+                # (
+                #     "fuzzy",
+                #     "NE-COMP-micro-fuzzy-TIME-ALL-LED-ALL",
+                #     "fuzzy NE components",
+                # ),
                 (
                     "strict",
                     "NE-NESTED-micro-strict-TIME-ALL-LED-ALL",
@@ -167,21 +169,21 @@ def compile_rankings_summary(rankings_dir: str) -> str:
                     "LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1",
                     "strict @1 (literal sense)",
                 ),
-                (
-                    "strict",
-                    "METO-micro-fuzzy-TIME-ALL-LED-ALL-@1",
-                    "strict @1 (metonymic sense)",
-                ),
+                # (
+                #     "strict",
+                #     "METO-micro-fuzzy-TIME-ALL-LED-ALL-@1",
+                #     "strict @1 (metonymic sense)",
+                # ),
                 (
                     "relaxed",
                     "LIT-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1",
                     "relaxed @1 (literal sense)",
                 ),
-                (
-                    "relaxed",
-                    "METO-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1",
-                    "relaxed @1 (metonymic sense)",
-                ),
+                # (
+                #     "relaxed",
+                #     "METO-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1",
+                #     "relaxed @1 (metonymic sense)",
+                # ),
             ],
         },
         {
@@ -213,7 +215,7 @@ def compile_rankings_summary(rankings_dir: str) -> str:
         },
     ]
 
-    summary += "# CLEF HIPE 2020 preliminary results\n"
+    summary += "# CLEF HIPE 2022 preliminary results\n"
     summary += PROLOGUE
     summary += "\n\n<!--ts-->\n<!--te-->\n"
 
@@ -224,79 +226,84 @@ def compile_rankings_summary(rankings_dir: str) -> str:
         measures = scenario["measures"]
         summary += f"\n\n## {label}\n\n{desc}"
 
-        for lang_id, lang_label in languages:
+        for dataset in datasets:
+            for lang_id, lang_label in languages:
 
-            for measure, eval_level, measure_label in measures:
+                for measure, eval_level, measure_label in measures:
 
-                if scenario_id == "nerc-coarse":
+                    if scenario_id == "nerc-coarse":
+                        try:
+                            ranking_filename = (
+                                f"ranking-{dataset}-{lang_id}-coarse-micro-{measure}-all.tsv"
+                            )
+                            ranking_df = read_ranking(ranking_filename, rankings_dir)
+                        except:
+                            # print(f"{ranking_filename} not found")
+                            pass
+
+                    elif scenario_id == "nerc-fine":
+
+                        if lang_id == "en":
+                            continue
+
+                        try:
+                            ranking_filename = (
+                                f"ranking-{dataset}-{lang_id}-fine-micro-{measure}-all.tsv"
+                            )
+                            ranking_df = read_ranking(ranking_filename, rankings_dir)
+                        except:
+                            # print(f"{ranking_filename} not found")
+                            pass
+
+                    elif scenario_id == "el":
+                        try:
+                            if measure == "relaxed":
+                                ranking_filename = (
+                                    f"ranking-{dataset}-{lang_id}-nel-micro-fuzzy-{measure}.tsv"
+                                )
+                            else:
+                                # it's strict but no strict in the filename
+                                ranking_filename = f"ranking-{lang_id}-nel-micro-fuzzy.tsv"
+                            ranking_df = read_ranking(ranking_filename, rankings_dir)
+                        except:
+                            # print(f"{ranking_filename} not found")
+                            pass
+
+                    elif scenario_id == "el-only":
+                        try:
+                            if measure == "relaxed":
+                                ranking_filename = (
+                                    f"ranking-{dataset}-{lang_id}-nel-only-micro-fuzzy-{measure}.tsv"
+                                )
+                            else:
+                                # it's strict but no strict in the filename
+                                ranking_filename = (
+                                    f"ranking-{dataset}-{lang_id}-nel-only-micro-fuzzy.tsv"
+                                )
+                            ranking_df = read_ranking(ranking_filename, rankings_dir)
+                        except:
+                            # print(f"{ranking_filename} not found")
+                            pass
+
+                    filter_ranking_df = filter_ranking(ranking_df, eval_level)
+                    filter_ranking_df["Rank"] = [
+                        n + 1 for n, row in enumerate(filter_ranking_df.iterrows())
+                    ]
+                    filter_ranking_df = filter_ranking_df.set_index("Rank")
                     try:
-                        ranking_filename = (
-                            f"ranking-{lang_id}-coarse-micro-{measure}-all.tsv"
-                        )
-                        ranking_df = read_ranking(ranking_filename, rankings_dir)
-                    except:
-                        # print(f"{ranking_filename} not found")
-                        pass
-
-                elif scenario_id == "nerc-fine":
-
-                    if lang_id == "en":
+                        eval_key = list(filter_ranking_df.Evaluation.unique())[0]
+                    except IndexError:
+                        logging.error(f"### {label} {lang_label} {measure_label} \[`{eval_key}`\]\n\n")
                         continue
-
-                    try:
-                        ranking_filename = (
-                            f"ranking-{lang_id}-fine-micro-{measure}-all.tsv"
-                        )
-                        ranking_df = read_ranking(ranking_filename, rankings_dir)
-                    except:
-                        # print(f"{ranking_filename} not found")
-                        pass
-
-                elif scenario_id == "el":
-                    try:
-                        if measure == "relaxed":
-                            ranking_filename = (
-                                f"ranking-{lang_id}-nel-micro-fuzzy-{measure}.tsv"
-                            )
-                        else:
-                            # it's strict but no strict in the filename
-                            ranking_filename = f"ranking-{lang_id}-nel-micro-fuzzy.tsv"
-                        ranking_df = read_ranking(ranking_filename, rankings_dir)
-                    except:
-                        # print(f"{ranking_filename} not found")
-                        pass
-
-                elif scenario_id == "el-only":
-                    try:
-                        if measure == "relaxed":
-                            ranking_filename = (
-                                f"ranking-{lang_id}-nel-only-micro-fuzzy-{measure}.tsv"
-                            )
-                        else:
-                            # it's strict but no strict in the filename
-                            ranking_filename = (
-                                f"ranking-{lang_id}-nel-only-micro-fuzzy.tsv"
-                            )
-                        ranking_df = read_ranking(ranking_filename, rankings_dir)
-                    except:
-                        # print(f"{ranking_filename} not found")
-                        pass
-
-                filter_ranking_df = filter_ranking(ranking_df, eval_level)
-                filter_ranking_df["Rank"] = [
-                    n + 1 for n, row in enumerate(filter_ranking_df.iterrows())
-                ]
-                filter_ranking_df = filter_ranking_df.set_index("Rank")
-                eval_key = list(filter_ranking_df.Evaluation.unique())[0]
-                summary += (
-                    f"\n\n### {label} {lang_label} {measure_label} \[`{eval_key}`\]\n\n"
-                )
-                summary += tabulate(
-                    filter_ranking_df[["System", "F1", "P", "R"]],
-                    headers=h,
-                    tablefmt="pipe",
-                    numalign="left",
-                )
+                    summary += (
+                        f"\n\n### {label} {lang_label} {measure_label} \[`{eval_key}`\]\n\n"
+                    )
+                    summary += tabulate(
+                        filter_ranking_df[["System", "F1", "P", "R"]],
+                        headers=h,
+                        tablefmt="pipe",
+                        numalign="left",
+                    )
 
     summary += "\n"
     return summary
