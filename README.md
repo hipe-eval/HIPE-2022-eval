@@ -33,12 +33,16 @@ source venv/bin/activate
 pip install -r requirements.txt
 ( cd HIPE-scorer && pip install -r requirements.txt && python setup.py install )
 
+# if submodule HIPE-scorer is updated, the following might be needed
+
+git submodule update 
+( cd HIPE-scorer && pip install -r requirements.txt && python setup.py install )
 ```
 ## How-To
 
 ```
 make eval-system-bundles
-
+make ranking-alldatasets-alllanguages
 ```
 
 
