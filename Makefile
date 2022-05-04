@@ -236,6 +236,7 @@ rankings-summary: generate-rankings-summary rankings-summary-ToC
 
 generate-rankings-summary:
 	python3 lib/format_rankings_summary.py --input-dir=$(RANK_DIR) --output-dir=$(RANK_DIR)
+	# open $(RANK_DIR)/ranking_summary.md for viewing the results
 
 # requires https://github.com/ekalinin/github-markdown-toc
 rankings-summary-ToC:
