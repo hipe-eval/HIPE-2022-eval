@@ -192,7 +192,7 @@ ranking-alldatasets-alllanguages:
 	$(MAKE) -k $(foreach lng,de fr en,ranking-ajmc-$(lng)) DATASET=ajmc $(MAKEFLAGS)
 	$(MAKE) -k $(foreach lng,de fr en,ranking-hipe2020-$(lng)) DATASET=hipe2020 $(MAKEFLAGS)
 	$(MAKE) -k $(foreach lng,de,ranking-sonar-$(lng)) DATASET=sonar $(MAKEFLAGS)
-	$(MAKE) -k $(foreach lng,de,ranking-topres19th-$(lng)) DATASET=topres19th $(MAKEFLAGS)
+	$(MAKE) -k $(foreach lng,en,ranking-topres19th-$(lng)) DATASET=topres19th $(MAKEFLAGS)
 	$(MAKE) -k $(foreach lng,de en fr fi sv,ranking-newseye-$(lng)) DATASET=newseye $(MAKEFLAGS)
 	$(MAKE) -k $(foreach lng,fr,ranking-letemps-$(lng)) DATASET=letemps $(MAKEFLAGS)
 	# RANKING FINE
@@ -252,7 +252,7 @@ generate-rankings-summary:
 
 # requires https://github.com/ekalinin/github-markdown-toc
 rankings-summary-ToC:
-	gh-md-toc --insert $(RANK_DIR)/ranking_summary.md
+	gh-md-toc --no-backup	  $(RANK_DIR)/ranking_summary.md  $(RANK_DIR)/ranking_summary.md
 
 
 ############################################################################################
