@@ -90,7 +90,7 @@ def compile_rankings_summary(rankings_dir: str) -> str:
 
     h = ["Rank", "System", "F1", "Precision", "Recall"]
 
-    datasets = ["hipe2020", "newseye", "letemps", "sonar", "ajcm"]
+    datasets = ["hipe2020", "newseye", "letemps", "sonar", "topres19th", "ajmc"]
 
     scenarios = [
         {
@@ -236,13 +236,15 @@ def compile_rankings_summary(rankings_dir: str) -> str:
 
         for dataset in datasets:
             for lang_id, lang_label in languages:
+                if dataset == "topres19th" and lang_id != "en":
+                    continue
                 if dataset == "sonar" and lang_id != "de":
                     continue
                 elif dataset == "hipe2020" and lang_id not in {"de", "fr", "en"}:
                     continue
                 elif dataset == "letemps" and lang_id != "fr":
                     continue
-                elif dataset == "ajcm" and lang_id not in {"de", "fr", "en"}:
+                elif dataset == "ajmc" and lang_id not in {"de", "fr", "en"}:
                     continue
                 elif dataset == "newseye" and lang_id == "en":
                     continue
@@ -253,20 +255,19 @@ def compile_rankings_summary(rankings_dir: str) -> str:
                             ranking_filename = f"ranking-{dataset}-{lang_id}-coarse-micro-{measure}-all.tsv"
                             ranking_df = read_ranking(ranking_filename, rankings_dir)
                         except:
-                            # print(f"{ranking_filename} not found")
-                            pass
+                            print(f"{ranking_filename} not found")
+                            ranking_df = None
+                            continue
 
                     elif scenario_id == "nerc-fine":
-
-                        if lang_id == "en":
-                            continue
 
                         try:
                             ranking_filename = f"ranking-{dataset}-{lang_id}-fine-micro-{measure}-all.tsv"
                             ranking_df = read_ranking(ranking_filename, rankings_dir)
                         except:
                             # print(f"{ranking_filename} not found")
-                            pass
+                            ranking_df = None
+                            continue
 
                     elif scenario_id == "el":
                         try:
@@ -280,7 +281,8 @@ def compile_rankings_summary(rankings_dir: str) -> str:
                             ranking_df = read_ranking(ranking_filename, rankings_dir)
                         except:
                             # print(f"{ranking_filename} not found")
-                            pass
+                            ranking_df = None
+                            continue
 
                     elif scenario_id == "el-only":
                         try:
@@ -292,7 +294,7 @@ def compile_rankings_summary(rankings_dir: str) -> str:
                             ranking_df = read_ranking(ranking_filename, rankings_dir)
                         except:
                             # print(f"{ranking_filename} not found")
-                            pass
+                            continue
 
                     filter_ranking_df = filter_ranking(ranking_df, eval_level)
                     filter_ranking_df["Rank"] = [
