@@ -258,3 +258,19 @@ endef
 
 #$(info submission_lang-test $(call submission_lang,evaluation/system-responses/submitted/team2_bundle1_hipe2020_en_2.tsv))
 #$(info submission_lang-test $(call submission_lang,evaluation/system-responses/submitted/team2_bundle1_hipe2020_fr_2.tsv))
+
+
+####
+# feedback
+####define
+
+
+create-feedback-zips:
+	rm -fr feedback-phase-1.d && mkdir -p feedback-phase-1.d
+	for team in team1 team2 team3 team4 ; do \
+    zip feedback-phase-1.d/evaluation-data-$${team}.zip  \
+     evaluation/system-evaluation-logs/$${team}*.log \
+	evaluation/system-evaluations/$${team}_*{nerc_fine,nerc_coarse}*.{json,tsv} \
+     evaluation/system-responses/submitted/$${team}*.tsv ;\
+  	done
+#  include ranking? evaluation/system-rankings/ranking-{hipe2020,newseye,sonar,letemps}*coarse*all.tsv ;\
