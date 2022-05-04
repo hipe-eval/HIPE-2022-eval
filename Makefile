@@ -23,7 +23,7 @@ BUNDLEIDS ?= 1 2 3 4 5
 # default bundle for testing
 BUNDLE ?= 1
 
-DATASETS ?= hipe2020 letemps newseye topres19th sonar
+DATASETS ?= hipe2020 letemps newseye topres19th sonar ajmc
 
 # The current dataset we are evaluating for
 # default dataset for testing
@@ -92,6 +92,7 @@ eval-system-bundles: \
 	eval-system-bundles-newseye \
 	eval-system-bundles-sonar \
 	eval-system-bundles-letemps \
+	eval-system-bundles-topres19th \
 	eval-system-bundles-ajmc
 
 eval-system-bundles-%: prepare-eval
@@ -135,7 +136,8 @@ else ifeq ($(BUNDLE),3)
 	# NERC-Coarse  BUNDLE $(BUNDLE) DATASET $(DATASET)
 	python3 $(SCORER_DIR)/clef_evaluation.py --task nerc_coarse --ref $(GROUND_TRUTH_DIR)/HIPE-2022-$(VERSION)-$(DATASET)-test-$(call submission_lang,$(<F)).tsv \
 		--pred $< --outdir $(RES_DIR) --log $(EVAL_LOGS_DIR)/$(@F:.tsv=.nerc_coarse.log) --tagset $(SCORER_DIR)/tagset-hipe2022-all.txt --hipe_edition hipe-2022
-#NOT NECESSARY 		python3 $(SCORER_DIR)/clef_evaluation.py --hipe_edition hipe-2022 --ref $(GROUND_TRUTH_DIR)/$(LANG_ABBR)/HIPE-data-$(VERSION)-test-$(LANG_ABBR).tsv --pred $< --task nerc_fine --outdir $(RES_DIR) --log $(EVAL_LOGS_DIR)/$(@F:.tsv=.nerc_fine.log) --tagset $(SCORER_DIR)/tagset.txt --noise-level $(EVAL_NOISE_LEVEL) --time-period $(PERIOD)
+	python3 $(SCORER_DIR)/clef_evaluation.py --task nerc_fine --ref $(GROUND_TRUTH_DIR)/HIPE-2022-$(VERSION)-$(DATASET)-test-$(call submission_lang,$(<F)).tsv \
+		--pred $< --outdir $(RES_DIR) --log $(EVAL_LOGS_DIR)/$(@F:.tsv=.nerc_fine.log) --tagset $(SCORER_DIR)/tagset-hipe2022-all.txt --hipe_edition hipe-2022
 else ifeq ($(BUNDLE),4)
 	# NERC-Coarse  BUNDLE $(BUNDLE) DATASET $(DATASET)
 	python3 $(SCORER_DIR)/clef_evaluation.py --task nerc_coarse --ref $(GROUND_TRUTH_DIR)/HIPE-2022-$(VERSION)-$(DATASET)-test-$(call submission_lang,$(<F)).tsv \
@@ -187,15 +189,31 @@ ranking-dataset-$(DATASET)-%:
 
 
 ranking-alldatasets-alllanguages:
+	$(MAKE) -k $(foreach lng,de fr en,ranking-ajmc-$(lng)) DATASET=ajmc $(MAKEFLAGS)
 	$(MAKE) -k $(foreach lng,de fr en,ranking-hipe2020-$(lng)) DATASET=hipe2020 $(MAKEFLAGS)
 	$(MAKE) -k $(foreach lng,de,ranking-sonar-$(lng)) DATASET=sonar $(MAKEFLAGS)
+	$(MAKE) -k $(foreach lng,de,ranking-topres19th-$(lng)) DATASET=topres19th $(MAKEFLAGS)
 	$(MAKE) -k $(foreach lng,de en fr fi sv,ranking-newseye-$(lng)) DATASET=newseye $(MAKEFLAGS)
 	$(MAKE) -k $(foreach lng,fr,ranking-letemps-$(lng)) DATASET=letemps $(MAKEFLAGS)
+	# RANKING FINE
+	$(MAKE) -k $(foreach lng,de fr,ranking-hipe2020-fine-$(lng)) DATASET=hipe2020 $(MAKEFLAGS)
+	$(MAKE) -k $(foreach lng,de fr en,ranking-ajmc-fine-$(lng)) DATASET=ajmc $(MAKEFLAGS)
+	$(MAKE) -k $(foreach lng,fr,ranking-letemps-fine-$(lng)) DATASET=letemps $(MAKEFLAGS)
+	$(MAKE) -k $(foreach lng,de en fr fi sv,ranking-newseye-fine-$(lng)) DATASET=newseye $(MAKEFLAGS)
+
+# More specific rule must come first
+ranking-$(DATASET)-fine-%: #$(result-nonorm-files) #$(result-norm-files) $(gold-norm-files) $(normalized-files)
+	head -q -n1 $(RES_DIR)/*_$*_*.tsv | head -1 > header.tmp
+	grep -Phs '(NE-FINE|NE-NESTED).*micro-fuzzy.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-fine-micro-fuzzy-all.tsv
+	grep -Phs '(NE-FINE|NE-NESTED).*micro-strict.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-fine-micro-strict-all.tsv
+	rm header.tmp
+
+
 
 # produce rankings per language, task, sorted by F1-score of micro fuzzy across labels
 # bundle 5 goes into separate table as they have gold annotations
 # English has no fine annotation, other than German and French
-ranking-$(DATASET)-%: $(result-nonorm-files) #$(result-norm-files) $(gold-norm-files) $(normalized-files)
+ranking-$(DATASET)-%: #$(result-nonorm-files) #$(result-norm-files) $(gold-norm-files) $(normalized-files)
 	head -q -n1 $(RES_DIR)/*_$(DATASET)_$*_*.tsv | head -1 > header.tmp
 	grep -hs 'NE-COARSE.*micro-fuzzy.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-coarse-micro-fuzzy-all.tsv
 	grep -hs 'NE-COARSE.*micro-strict.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-coarse-micro-strict-all.tsv
@@ -203,12 +221,6 @@ ranking-$(DATASET)-%: $(result-nonorm-files) #$(result-norm-files) $(gold-norm-f
 #NOT YET IMPLEMENTED	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle5_$(DATASET)_$*_*.tsv | grep -v 'relaxed' | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-nel-only-micro-fuzzy.tsv
 #NOT YET IMPLEMENTED	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle{1..4}_$(DATASET)_$*_?_relaxed.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-nel-micro-fuzzy-relaxed.tsv
 #NOT YET IMPLEMENTED	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle5_$(DATASET)_$*_?_relaxed.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-nel-only-micro-fuzzy-relaxed.tsv
-	rm header.tmp
-
-ranking-fine-%: $(result-nonorm-files) #$(result-norm-files) $(gold-norm-files) $(normalized-files)
-	head -q -n1 $(RES_DIR)/*_$*_*.tsv | head -1 > header.tmp
-	grep -Phs '(NE-FINE|NE-NESTED).*micro-fuzzy.*ALL' $(RES_DIR)/*_$*_*.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$*-fine-micro-fuzzy-all.tsv
-	grep -Phs '(NE-FINE|NE-NESTED).*micro-strict.*ALL' $(RES_DIR)/*_$*_*.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$*-fine-micro-strict-all.tsv
 	rm header.tmp
 
 
