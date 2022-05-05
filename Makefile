@@ -204,8 +204,8 @@ ranking-alldatasets-alllanguages:
 # More specific rule must come first
 ranking-$(DATASET)-fine-%: #$(result-nonorm-files) #$(result-norm-files) $(gold-norm-files) $(normalized-files)
 	cat $(RES_DIR)/*_$(DATASET)_$*_*.tsv | head -n 1 > header.tmp
-	grep -Phs '(NE-FINE|NE-NESTED).*micro-fuzzy.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-fine-micro-fuzzy-all.tsv
-	grep -Phs '(NE-FINE|NE-NESTED).*micro-strict.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-fine-micro-strict-all.tsv
+	grep -hs '(NE-FINE|NE-NESTED).*micro-fuzzy.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-fine-micro-fuzzy-all.tsv
+	grep -hs '(NE-FINE|NE-NESTED).*micro-strict.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-fine-micro-strict-all.tsv
 	rm header.tmp
 
 
