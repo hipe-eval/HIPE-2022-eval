@@ -203,7 +203,7 @@ ranking-alldatasets-alllanguages:
 
 # More specific rule must come first
 ranking-$(DATASET)-fine-%: #$(result-nonorm-files) #$(result-norm-files) $(gold-norm-files) $(normalized-files)
-	head -q -n1 $(RES_DIR)/*_$*_*.tsv | head -1 > header.tmp
+	cat $(RES_DIR)/*_$(DATASET)_$*_*.tsv | head -n 1 > header.tmp
 	grep -Phs '(NE-FINE|NE-NESTED).*micro-fuzzy.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-fine-micro-fuzzy-all.tsv
 	grep -Phs '(NE-FINE|NE-NESTED).*micro-strict.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-fine-micro-strict-all.tsv
 	rm header.tmp
@@ -214,7 +214,7 @@ ranking-$(DATASET)-fine-%: #$(result-nonorm-files) #$(result-norm-files) $(gold-
 # bundle 5 goes into separate table as they have gold annotations
 # English has no fine annotation, other than German and French
 ranking-$(DATASET)-%: #$(result-nonorm-files) #$(result-norm-files) $(gold-norm-files) $(normalized-files)
-	head -q -n1 $(RES_DIR)/*_$(DATASET)_$*_*.tsv | head -1 > header.tmp
+	cat $(RES_DIR)/*_$(DATASET)_$*_*.tsv | head -n 1 > header.tmp
 	grep -hs 'NE-COARSE.*micro-fuzzy.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-coarse-micro-fuzzy-all.tsv
 	grep -hs 'NE-COARSE.*micro-strict.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-coarse-micro-strict-all.tsv
 #NOT YET IMPLEMENTED	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle{1..4}_$(DATASET)_$*_*.tsv | grep -v 'relaxed' | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-nel-micro-fuzzy.tsv
