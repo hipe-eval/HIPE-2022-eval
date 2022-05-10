@@ -6684,6 +6684,7 @@ on	O	_	_	_	_	_	_	_	_
 jätettäwä	O	_	_	_	_	_	_	_	_
 ranskalaisten	O	_	_	_	_	_	_	_	_
 walwon=	O	_	_	_	_	_	_	_	_
+nan	O	_	O	_	_	O	_	_	_
 alle	O	_	_	_	_	_	_	_	_
 ,	O	_	_	_	_	_	_	_	_
 samaten	O	_	_	_	_	_	_	_	_
@@ -6808,6 +6809,7 @@ kuwernööri	O	_	_	_	_	_	_	_	_
 Leutwein	O	_	_	_	_	_	_	_	_
 jo	O	_	_	_	_	_	_	_	_
 kapi=	O	_	_	_	_	_	_	_	_
+nan	O	_	O	_	_	O	_	_	_
 puhjetessa	O	_	_	_	_	_	_	_	_
 kehotti	O	_	_	_	_	_	_	_	_
 noudattamaan	O	_	_	_	_	_	_	_	_
@@ -8418,6 +8420,7 @@ bolshewikit	B-PER	_	_	_	_	_	_	_	_
 ,	O	_	_	_	_	_	_	_	_
 kansakun	O	_	_	_	_	_	_	_	_
 -	O	_	_	_	_	_	_	_	_
+nan	O	_	O	_	_	O	_	_	_
 wähemmistön	O	_	_	_	_	_	_	_	_
 .	O	_	_	_	_	_	_	_	_
 Meikäläiset	O	_	_	_	_	_	_	_	_

@@ -1,0 +1,25 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.87	0.922	0.895				321	48	27
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	DATE	0.0	0.0	0				0	4	3
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC	1.0	0.667	0.8				2	0	1
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PERS	0.841	0.938	0.887				90	17	6
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	SCOPE	0.933	0.921	0.927				139	10	12
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	WORK	0.841	0.947	0.891				90	17	5
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.827	0.876	0.851				305	64	43
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	DATE	0.0	0.0	0				0	4	3
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC	1.0	0.667	0.8				2	0	1
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS	0.813	0.906	0.857				87	20	9
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	SCOPE	0.859	0.848	0.853				128	21	23
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	WORK	0.822	0.926	0.871				88	19	7
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL	0.866	0.907	0.884	0.182	0.197	0.17			
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	DATE	0.0	0.0	0.0	0.0	0.0	0.0			
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC	1.0	0.667	1.0	0.0	0.0	0.471			
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PERS	0.847	0.953	0.871	0.205	0.231	0.092			
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	SCOPE	0.911	0.919	0.908	0.162	0.103	0.197			
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	WORK	0.823	0.952	0.922	0.134	0.31	0.076			
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ALL	0.826	0.865	0.843	0.176	0.193	0.162			
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	DATE	0.0	0.0	0.0	0.0	0.0	0.0			
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC	1.0	0.667	1.0	0.0	0.0	0.471			
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PERS	0.827	0.93	0.85	0.209	0.237	0.103			
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	SCOPE	0.828	0.831	0.823	0.168	0.13	0.195			
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	WORK	0.804	0.931	0.901	0.135	0.305	0.083			

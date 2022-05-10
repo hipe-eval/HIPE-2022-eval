@@ -1,0 +1,37 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.941	0.924	0.933				353	22	29
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC	1.0	1.0	1.0				2	0	0
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	OBJECT.MANUSCR	1.0	1.0	1.0				2	0	0
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PERS.AUTHOR	0.898	0.917	0.907				44	5	4
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PERS.EDITOR	0.667	0.5	0.571				2	1	2
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PERS.MYTH	0.972	0.921	0.946				70	2	6
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	SCOPE	0.933	0.949	0.941				167	12	9
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	WORK.PRIMLIT	0.971	0.892	0.93				66	2	8
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.915	0.898	0.906				343	32	39
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC	1.0	1.0	1.0				2	0	0
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	OBJECT.MANUSCR	1.0	1.0	1.0				2	0	0
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS.AUTHOR	0.898	0.917	0.907				44	5	4
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS.EDITOR	0.667	0.5	0.571				2	1	2
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS.MYTH	0.958	0.908	0.932				69	3	7
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	SCOPE	0.899	0.915	0.907				161	18	15
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	WORK.PRIMLIT	0.926	0.851	0.887				63	5	11
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL	0.945	0.922	0.932	0.041	0.033	0.067			
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC	1.0	1.0	1.0	0.0	0.0	0.0			
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	OBJECT.MANUSCR	1.0	1.0	1.0	0.0	0.0	0.0			
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PERS.AUTHOR	0.872	0.881	0.876	0.257	0.256	0.258			
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PERS.EDITOR	0.667	0.5	0.556	0.416	0.471	0.408			
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PERS.MYTH	0.976	0.875	0.953	0.072	0.056	0.268			
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	SCOPE	0.942	0.952	0.946	0.053	0.054	0.061			
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	WORK.PRIMLIT	0.987	0.913	0.98	0.041	0.033	0.242			
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ALL	0.921	0.897	0.907	0.05	0.052	0.067			
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC	1.0	1.0	1.0	0.0	0.0	0.0			
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	OBJECT.MANUSCR	1.0	1.0	1.0	0.0	0.0	0.0			
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PERS.AUTHOR	0.872	0.881	0.876	0.257	0.256	0.258			
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PERS.EDITOR	0.667	0.5	0.556	0.416	0.471	0.408			
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PERS.MYTH	0.965	0.863	0.941	0.087	0.085	0.266			
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	SCOPE	0.914	0.924	0.918	0.087	0.09	0.09			
+team2_bundle3_ajmc_de_2	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	WORK.PRIMLIT	0.951	0.88	0.944	0.085	0.085	0.244			
+team2_bundle3_ajmc_de_2	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0	0	0				0	0	0
+team2_bundle3_ajmc_de_2	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	ALL	0	0	0				0	0	0
+team2_bundle3_ajmc_de_2	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL									
+team2_bundle3_ajmc_de_2	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	ALL									

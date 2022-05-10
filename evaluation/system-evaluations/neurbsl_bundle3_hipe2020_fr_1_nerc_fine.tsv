@@ -1,0 +1,117 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.769	0.822	0.795				1315	395	285
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.NAT	0.941	0.954	0.947				144	9	7
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.REG	0.536	0.551	0.544				81	70	66
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.SUP	0.55	0.579	0.564				11	9	8
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.TOWN	0.831	0.89	0.859				397	81	49
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC.FAC	0.36	0.5	0.419				9	16	9
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC.ORO	0.682	0.789	0.732				15	7	4
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC.PHYS.GEO	0.324	0.393	0.355				11	23	17
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC.PHYS.HYDRO	0.44	0.478	0.458				11	14	12
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC.UNK	0.0	0.0	0				0	3	3
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ORG.ADM	0.558	0.558	0.558				24	19	19
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ORG.ENT	0.558	0.716	0.627				48	38	19
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ORG.ENT.PRESSAGENCY	0.529	0.45	0.486				9	8	11
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PERS.COLL	0.0	0.0	0				0	3	5
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PERS.IND	0.887	0.938	0.912				457	58	30
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PERS.IND.ARTICLEAUTHOR	0.385	0.5	0.435				5	8	5
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PROD.DOCTR	0.5	0.333	0.4				1	1	2
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PROD.MEDIA	0.75	0.724	0.737				42	14	16
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	TIME.DATE.ABS	0.781	0.943	0.855				50	14	3
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.685	0.733	0.708				1172	538	428
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.ADM.NAT	0.935	0.947	0.941				143	10	8
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.ADM.REG	0.49	0.503	0.497				74	77	73
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.ADM.SUP	0.5	0.526	0.513				10	10	9
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.ADM.TOWN	0.785	0.841	0.812				375	103	71
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.FAC	0.28	0.389	0.326				7	18	11
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.ORO	0.636	0.737	0.683				14	8	5
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.PHYS.GEO	0.265	0.321	0.29				9	25	19
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.PHYS.HYDRO	0.44	0.478	0.458				11	14	12
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.UNK	0.0	0.0	0				0	3	3
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	ORG.ADM	0.465	0.465	0.465				20	23	23
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	ORG.ENT	0.488	0.627	0.549				42	44	25
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	ORG.ENT.PRESSAGENCY	0.529	0.45	0.486				9	8	11
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS.COLL	0.0	0.0	0				0	3	5
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS.IND	0.742	0.784	0.762				382	133	105
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS.IND.ARTICLEAUTHOR	0.385	0.5	0.435				5	8	5
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	PROD.DOCTR	0.0	0.0	0				0	2	3
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	PROD.MEDIA	0.661	0.638	0.649				37	19	21
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	TIME.DATE.ABS	0.531	0.642	0.581				34	30	19
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL	0.807	0.847	0.824	0.09	0.11	0.084			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.NAT	0.924	0.893	0.923	0.193	0.192	0.258			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.REG	0.489	0.555	0.535	0.358	0.37	0.37			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.SUP	0.5	0.5	0.5	0.5	0.5	0.5			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.TOWN	0.846	0.891	0.868	0.137	0.21	0.139			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.FAC	0.311	0.398	0.434	0.412	0.402	0.408			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.ORO	0.633	0.667	0.647	0.436	0.433	0.447			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.PHYS.GEO	0.292	0.38	0.38	0.469	0.441	0.469			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.PHYS.HYDRO	0.354	0.393	0.393	0.459	0.451	0.459			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.UNK	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ORG.ADM	0.567	0.582	0.705	0.339	0.464	0.42			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ORG.ENT	0.467	0.636	0.576	0.399	0.419	0.44			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ORG.ENT.PRESSAGENCY	0.367	0.21	0.367	0.238	0.238	0.256			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PERS.COLL	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PERS.IND	0.9	0.941	0.919	0.168	0.177	0.166			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PERS.IND.ARTICLEAUTHOR	0.344	0.393	0.55	0.458	0.45	0.46			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PROD.DOCTR	0.5	0.333	1.0	0.0	0.5	0.471			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PROD.MEDIA	0.667	0.786	0.836	0.171	0.371	0.288			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	TIME.DATE.ABS	0.816	0.909	0.895	0.169	0.288	0.249			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ALL	0.72	0.752	0.733	0.126	0.144	0.116			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC.ADM.NAT	0.919	0.888	0.918	0.193	0.192	0.258			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC.ADM.REG	0.457	0.515	0.498	0.367	0.375	0.376			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC.ADM.SUP	0.464	0.464	0.464	0.48	0.48	0.48			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC.ADM.TOWN	0.81	0.857	0.833	0.177	0.232	0.183			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC.FAC	0.242	0.315	0.34	0.33	0.321	0.328			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC.ORO	0.6	0.633	0.613	0.446	0.442	0.458			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC.PHYS.GEO	0.277	0.36	0.36	0.454	0.426	0.454			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC.PHYS.HYDRO	0.354	0.393	0.393	0.459	0.451	0.459			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC.UNK	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ORG.ADM	0.383	0.395	0.472	0.407	0.446	0.427			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ORG.ENT	0.372	0.497	0.453	0.41	0.412	0.444			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ORG.ENT.PRESSAGENCY	0.367	0.21	0.367	0.238	0.238	0.256			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PERS.COLL	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PERS.IND	0.776	0.806	0.79	0.217	0.226	0.209			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PERS.IND.ARTICLEAUTHOR	0.344	0.393	0.55	0.458	0.45	0.46			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PROD.DOCTR	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PROD.MEDIA	0.535	0.632	0.671	0.296	0.379	0.35			
+neurbsl_bundle3_hipe2020_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	TIME.DATE.ABS	0.634	0.658	0.681	0.4	0.419	0.425			
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0	0.0	0				0	0	82
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.NAT	0	0.0	0				0	0	8
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.REG	0	0.0	0				0	0	9
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.TOWN	0	0.0	0				0	0	40
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	LOC.PHYS.GEO	0	0.0	0				0	0	1
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	LOC.PHYS.HYDRO	0	0.0	0				0	0	4
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	ORG.ADM	0	0.0	0				0	0	3
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	ORG.ENT	0	0.0	0				0	0	6
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	PERS.IND	0	0.0	0				0	0	9
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	PROD.MEDIA	0	0.0	0				0	0	2
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	ALL	0	0.0	0				0	0	82
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	LOC.ADM.NAT	0	0.0	0				0	0	8
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	LOC.ADM.REG	0	0.0	0				0	0	9
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	LOC.ADM.TOWN	0	0.0	0				0	0	40
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	LOC.PHYS.GEO	0	0.0	0				0	0	1
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	LOC.PHYS.HYDRO	0	0.0	0				0	0	4
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	ORG.ADM	0	0.0	0				0	0	3
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	ORG.ENT	0	0.0	0				0	0	6
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	PERS.IND	0	0.0	0				0	0	9
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	PROD.MEDIA	0	0.0	0				0	0	2
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL		0.0				0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.NAT		0.0				0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.REG		0.0				0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.TOWN		0.0				0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.PHYS.GEO		0.0				0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.PHYS.HYDRO		0.0				0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	ORG.ADM		0.0				0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	ORG.ENT		0.0				0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	PERS.IND		0.0				0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	PROD.MEDIA		0.0				0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	ALL		0.0				0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	LOC.ADM.NAT		0.0				0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	LOC.ADM.REG		0.0				0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	LOC.ADM.TOWN		0.0				0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	LOC.PHYS.GEO		0.0				0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	LOC.PHYS.HYDRO		0.0				0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	ORG.ADM		0.0				0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	ORG.ENT		0.0				0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	PERS.IND		0.0				0.0			
+neurbsl_bundle3_hipe2020_fr_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	PROD.MEDIA		0.0				0.0			

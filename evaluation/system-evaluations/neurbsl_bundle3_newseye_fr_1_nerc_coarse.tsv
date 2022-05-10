@@ -1,0 +1,21 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+neurbsl_bundle3_newseye_fr_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.755	0.805	0.779				2037	662	493
+neurbsl_bundle3_newseye_fr_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	HUMANPROD	0.6	0.727	0.658				24	16	9
+neurbsl_bundle3_newseye_fr_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0.732	0.785	0.758				873	319	239
+neurbsl_bundle3_newseye_fr_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ORG	0.539	0.703	0.61				253	216	107
+neurbsl_bundle3_newseye_fr_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PER	0.889	0.865	0.877				887	111	138
+neurbsl_bundle3_newseye_fr_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.634	0.676	0.654				1710	989	820
+neurbsl_bundle3_newseye_fr_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	HUMANPROD	0.575	0.697	0.63				23	17	10
+neurbsl_bundle3_newseye_fr_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC	0.6	0.643	0.621				715	477	397
+neurbsl_bundle3_newseye_fr_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	ORG	0.424	0.553	0.48				199	270	161
+neurbsl_bundle3_newseye_fr_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	PER	0.775	0.754	0.764				773	225	252
+neurbsl_bundle3_newseye_fr_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL	0.786	0.815	0.791	0.125	0.149	0.127			
+neurbsl_bundle3_newseye_fr_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	HUMANPROD	0.613	0.66	0.692	0.399	0.443	0.439			
+neurbsl_bundle3_newseye_fr_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC	0.792	0.841	0.803	0.161	0.163	0.176			
+neurbsl_bundle3_newseye_fr_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ORG	0.566	0.686	0.626	0.29	0.326	0.29			
+neurbsl_bundle3_newseye_fr_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PER	0.8	0.855	0.846	0.117	0.252	0.108			
+neurbsl_bundle3_newseye_fr_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ALL	0.632	0.66	0.64	0.16	0.16	0.159			
+neurbsl_bundle3_newseye_fr_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	HUMANPROD	0.597	0.627	0.668	0.409	0.451	0.431			
+neurbsl_bundle3_newseye_fr_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC	0.641	0.674	0.645	0.223	0.228	0.234			
+neurbsl_bundle3_newseye_fr_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ORG	0.393	0.494	0.441	0.292	0.306	0.301			
+neurbsl_bundle3_newseye_fr_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PER	0.667	0.722	0.709	0.164	0.239	0.178			

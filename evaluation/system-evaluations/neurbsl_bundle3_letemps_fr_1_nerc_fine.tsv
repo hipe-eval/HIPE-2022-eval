@@ -1,0 +1,81 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.6	0.719	0.654				731	488	286
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0.143	0.188	0.162				3	18	13
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC.ADD.PHYS	0.364	0.5	0.421				4	7	4
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC.ADM	0.0	0.0	0				0	7	10
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.NAT	0.798	0.865	0.83				134	34	21
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.REG	0.608	0.689	0.646				31	20	14
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.TOWN	0.608	0.768	0.679				239	154	72
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC.ADMIN.SUP	0.0	0.0	0				0	3	3
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC.PHYS	0.0	0.0	0				0	4	6
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC.PHYS.GEO	0.389	0.538	0.452				14	22	12
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC.PHYS.HYDRO	0.312	0.455	0.37				5	11	6
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ORG.ADM	0.214	0.167	0.188				6	22	30
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ORG.ENT	0.388	0.442	0.413				19	30	24
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PERS	0.0	0.0	0				0	7	12
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PERS.COLL	0.25	0.25	0.25				2	6	6
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PERS.IND	0.657	0.838	0.737				274	143	53
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.564	0.676	0.615				688	531	329
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC	0.143	0.188	0.162				3	18	13
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.ADD.PHYS	0.273	0.375	0.316				3	8	5
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.ADM	0.0	0.0	0				0	7	10
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.ADM.NAT	0.756	0.819	0.786				127	41	28
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.ADM.REG	0.529	0.6	0.562				27	24	18
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.ADM.TOWN	0.595	0.752	0.665				234	159	77
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.ADMIN.SUP	0.0	0.0	0				0	3	3
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.PHYS	0.0	0.0	0				0	4	6
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.PHYS.GEO	0.389	0.538	0.452				14	22	12
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.PHYS.HYDRO	0.312	0.455	0.37				5	11	6
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	ORG.ADM	0.179	0.139	0.156				5	23	31
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	ORG.ENT	0.245	0.279	0.261				12	37	31
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS	0.0	0.0	0				0	7	12
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS.COLL	0.25	0.25	0.25				2	6	6
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS.IND	0.614	0.783	0.688				256	161	71
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL	0.54	0.694	0.711	0.207	0.4	0.225			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC	0.179	0.273	0.278	0.416	0.361	0.445			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.ADD.PHYS	0.35	0.583	0.7	0.4	0.45	0.449			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.ADM	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.NAT	0.667	0.847	0.88	0.189	0.42	0.272			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.REG	0.591	0.736	0.774	0.237	0.397	0.311			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.TOWN	0.565	0.724	0.793	0.25	0.427	0.344			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.ADMIN.SUP	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.PHYS	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.PHYS.GEO	0.383	0.459	0.527	0.386	0.426	0.427			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.PHYS.HYDRO	0.35	0.417	0.567	0.453	0.45	0.464			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ORG.ADM	0.125	0.066	0.105	0.235	0.331	0.162			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ORG.ENT	0.339	0.3	0.502	0.298	0.337	0.375			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PERS	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PERS.COLL	0.25	0.167	0.4	0.4	0.433	0.289			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PERS.IND	0.635	0.878	0.885	0.105	0.425	0.125			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ALL	0.473	0.622	0.63	0.239	0.374	0.252			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC	0.179	0.273	0.278	0.416	0.361	0.445			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC.ADD.PHYS	0.25	0.417	0.5	0.447	0.403	0.449			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC.ADM	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC.ADM.NAT	0.605	0.759	0.793	0.268	0.423	0.313			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC.ADM.REG	0.474	0.558	0.607	0.378	0.43	0.394			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC.ADM.TOWN	0.546	0.698	0.765	0.26	0.421	0.345			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC.ADMIN.SUP	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC.PHYS	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC.PHYS.GEO	0.383	0.459	0.527	0.386	0.426	0.427			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC.PHYS.HYDRO	0.35	0.417	0.567	0.453	0.45	0.464			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ORG.ADM	0.104	0.055	0.088	0.196	0.276	0.135			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ORG.ENT	0.211	0.198	0.32	0.303	0.277	0.314			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PERS	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PERS.COLL	0.25	0.167	0.4	0.4	0.433	0.289			
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PERS.IND	0.584	0.805	0.812	0.138	0.401	0.15			
+neurbsl_bundle3_letemps_fr_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0	0.0	0				0	0	12
+neurbsl_bundle3_letemps_fr_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.TOWN	0	0.0	0				0	0	10
+neurbsl_bundle3_letemps_fr_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	LOC.PHYS.GEO	0	0.0	0				0	0	1
+neurbsl_bundle3_letemps_fr_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	PERS.IND	0	0.0	0				0	0	1
+neurbsl_bundle3_letemps_fr_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	ALL	0	0.0	0				0	0	12
+neurbsl_bundle3_letemps_fr_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	LOC.ADM.TOWN	0	0.0	0				0	0	10
+neurbsl_bundle3_letemps_fr_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	LOC.PHYS.GEO	0	0.0	0				0	0	1
+neurbsl_bundle3_letemps_fr_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	PERS.IND	0	0.0	0				0	0	1
+neurbsl_bundle3_letemps_fr_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL		0.0				0.0			
+neurbsl_bundle3_letemps_fr_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.TOWN		0.0				0.0			
+neurbsl_bundle3_letemps_fr_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.PHYS.GEO		0.0				0.0			
+neurbsl_bundle3_letemps_fr_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	PERS.IND		0.0				0.0			
+neurbsl_bundle3_letemps_fr_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	ALL		0.0				0.0			
+neurbsl_bundle3_letemps_fr_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	LOC.ADM.TOWN		0.0				0.0			
+neurbsl_bundle3_letemps_fr_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	LOC.PHYS.GEO		0.0				0.0			
+neurbsl_bundle3_letemps_fr_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	PERS.IND		0.0				0.0			
