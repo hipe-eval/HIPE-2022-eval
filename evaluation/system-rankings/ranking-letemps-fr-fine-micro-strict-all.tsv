@@ -1,0 +1,21 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.ADM.NAT	0.756	0.819	0.786				127	41	28
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS.IND	0.614	0.783	0.688				256	161	71
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.ADM.TOWN	0.595	0.752	0.665				234	159	77
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.564	0.676	0.615				688	531	329
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.ADM.REG	0.529	0.6	0.562				27	24	18
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.PHYS.GEO	0.389	0.538	0.452				14	22	12
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.PHYS.HYDRO	0.312	0.455	0.37				5	11	6
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.ADD.PHYS	0.273	0.375	0.316				3	8	5
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	ORG.ENT	0.245	0.279	0.261				12	37	31
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS.COLL	0.25	0.25	0.25				2	6	6
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC	0.143	0.188	0.162				3	18	13
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	ORG.ADM	0.179	0.139	0.156				5	23	31
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.ADM	0.0	0.0	0				0	7	10
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.ADMIN.SUP	0.0	0.0	0				0	3	3
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.PHYS	0.0	0.0	0				0	4	6
+neurbsl_bundle3_letemps_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS	0.0	0.0	0				0	7	12
+neurbsl_bundle3_letemps_fr_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	ALL	0	0.0	0				0	0	12
+neurbsl_bundle3_letemps_fr_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	LOC.ADM.TOWN	0	0.0	0				0	0	10
+neurbsl_bundle3_letemps_fr_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	LOC.PHYS.GEO	0	0.0	0				0	0	1
+neurbsl_bundle3_letemps_fr_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	PERS.IND	0	0.0	0				0	0	1

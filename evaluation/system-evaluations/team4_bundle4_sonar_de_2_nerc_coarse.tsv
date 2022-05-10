@@ -1,0 +1,17 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+team4_bundle4_sonar_de_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.625	0.718	0.668				333	200	131
+team4_bundle4_sonar_de_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0.706	0.835	0.765				142	59	28
+team4_bundle4_sonar_de_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ORG	0.453	0.485	0.468				48	58	51
+team4_bundle4_sonar_de_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PER	0.633	0.733	0.679				143	83	52
+team4_bundle4_sonar_de_2	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.447	0.513	0.477				238	295	226
+team4_bundle4_sonar_de_2	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC	0.632	0.747	0.685				127	74	43
+team4_bundle4_sonar_de_2	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	ORG	0.283	0.303	0.293				30	76	69
+team4_bundle4_sonar_de_2	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	PER	0.358	0.415	0.385				81	145	114
+team4_bundle4_sonar_de_2	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL	0.617	0.667	0.633	0.158	0.138	0.198			
+team4_bundle4_sonar_de_2	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC	0.718	0.785	0.711	0.204	0.225	0.21			
+team4_bundle4_sonar_de_2	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ORG	0.467	0.5	0.451	0.199	0.218	0.203			
+team4_bundle4_sonar_de_2	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PER	0.649	0.708	0.662	0.277	0.281	0.311			
+team4_bundle4_sonar_de_2	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ALL	0.46	0.5	0.474	0.194	0.184	0.213			
+team4_bundle4_sonar_de_2	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC	0.663	0.713	0.649	0.199	0.241	0.191			
+team4_bundle4_sonar_de_2	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ORG	0.268	0.235	0.241	0.23	0.26	0.224			
+team4_bundle4_sonar_de_2	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PER	0.37	0.429	0.391	0.315	0.282	0.363			

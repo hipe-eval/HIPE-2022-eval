@@ -1,0 +1,25 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.836	0.899	0.866				1438	282	162
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0.874	0.93	0.901				794	114	60
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ORG	0.593	0.662	0.625				86	59	44
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PERS	0.867	0.934	0.899				469	72	33
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PROD	0.603	0.623	0.613				38	25	23
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	TIME	0.81	0.962	0.879				51	12	2
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.73	0.785	0.757				1256	464	344
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC	0.816	0.868	0.841				741	167	113
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	ORG	0.503	0.562	0.531				73	72	57
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS	0.695	0.749	0.721				376	165	126
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	PROD	0.54	0.557	0.548				34	29	27
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	TIME	0.508	0.604	0.552				32	31	21
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL	0.873	0.914	0.89	0.072	0.096	0.072			
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC	0.903	0.944	0.918	0.097	0.13	0.082			
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ORG	0.463	0.584	0.568	0.354	0.396	0.424			
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PERS	0.871	0.933	0.899	0.166	0.174	0.168			
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PROD	0.507	0.644	0.722	0.216	0.39	0.35			
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	TIME	0.861	0.964	0.918	0.133	0.266	0.117			
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ALL	0.766	0.797	0.779	0.137	0.154	0.124			
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC	0.836	0.871	0.849	0.153	0.172	0.142			
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ORG	0.369	0.469	0.456	0.371	0.374	0.43			
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PERS	0.728	0.775	0.749	0.229	0.234	0.229			
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PROD	0.452	0.575	0.641	0.268	0.384	0.367			
+neurbsl_bundle3_hipe2020_fr_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	TIME	0.617	0.642	0.64	0.413	0.433	0.423			

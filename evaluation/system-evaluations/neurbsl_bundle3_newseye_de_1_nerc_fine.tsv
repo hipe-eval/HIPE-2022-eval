@@ -1,0 +1,29 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+neurbsl_bundle3_newseye_de_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.75	0.231	0.353				3	1	10
+neurbsl_bundle3_newseye_de_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PER.AUTHOR	0.75	0.231	0.353				3	1	10
+neurbsl_bundle3_newseye_de_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.5	0.154	0.235				2	2	11
+neurbsl_bundle3_newseye_de_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	PER.AUTHOR	0.5	0.154	0.235				2	2	11
+neurbsl_bundle3_newseye_de_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL	0.5	0.062	0.545	0.0	0.5	0.14			
+neurbsl_bundle3_newseye_de_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PER.AUTHOR	0.5	0.062	0.545	0.0	0.5	0.14			
+neurbsl_bundle3_newseye_de_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ALL	0.333	0.042	0.364	0.0	0.333	0.093			
+neurbsl_bundle3_newseye_de_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PER.AUTHOR	0.333	0.042	0.364	0.0	0.333	0.093			
+neurbsl_bundle3_newseye_de_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0	0.0	0				0	0	100
+neurbsl_bundle3_newseye_de_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	HUMANPROD	0	0.0	0				0	0	2
+neurbsl_bundle3_newseye_de_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0	0.0	0				0	0	30
+neurbsl_bundle3_newseye_de_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	ORG	0	0.0	0				0	0	29
+neurbsl_bundle3_newseye_de_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	PER	0	0.0	0				0	0	39
+neurbsl_bundle3_newseye_de_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	ALL	0	0.0	0				0	0	100
+neurbsl_bundle3_newseye_de_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	HUMANPROD	0	0.0	0				0	0	2
+neurbsl_bundle3_newseye_de_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	LOC	0	0.0	0				0	0	30
+neurbsl_bundle3_newseye_de_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	ORG	0	0.0	0				0	0	29
+neurbsl_bundle3_newseye_de_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	PER	0	0.0	0				0	0	39
+neurbsl_bundle3_newseye_de_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL		0.0				0.0			
+neurbsl_bundle3_newseye_de_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	HUMANPROD		0.0				0.0			
+neurbsl_bundle3_newseye_de_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC		0.0				0.0			
+neurbsl_bundle3_newseye_de_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	ORG		0.0				0.0			
+neurbsl_bundle3_newseye_de_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	PER		0.0				0.0			
+neurbsl_bundle3_newseye_de_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	ALL		0.0				0.0			
+neurbsl_bundle3_newseye_de_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	HUMANPROD		0.0				0.0			
+neurbsl_bundle3_newseye_de_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	LOC		0.0				0.0			
+neurbsl_bundle3_newseye_de_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	ORG		0.0				0.0			
+neurbsl_bundle3_newseye_de_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	PER		0.0				0.0			

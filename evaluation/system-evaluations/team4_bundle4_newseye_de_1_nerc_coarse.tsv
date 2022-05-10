@@ -1,0 +1,21 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.481	0.478	0.479				1149	1242	1253
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	HUMANPROD	0.1	0.067	0.08				1	9	14
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0.541	0.561	0.551				686	581	536
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ORG	0.313	0.271	0.29				96	211	258
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PER	0.454	0.451	0.452				366	441	445
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.396	0.394	0.395				947	1444	1455
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	HUMANPROD	0.1	0.067	0.08				1	9	14
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC	0.476	0.493	0.485				603	664	619
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	ORG	0.235	0.203	0.218				72	235	282
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	PER	0.336	0.334	0.335				271	536	540
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL	0.403	0.469	0.538	0.092	0.35	0.066			
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	HUMANPROD	0.1	0.1	0.167	0.236	0.2	0.2			
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC	0.448	0.511	0.585	0.125	0.391	0.106			
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ORG	0.229	0.243	0.278	0.183	0.276	0.162			
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PER	0.399	0.509	0.538	0.172	0.383	0.155			
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ALL	0.316	0.364	0.419	0.104	0.286	0.077			
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	HUMANPROD	0.1	0.1	0.167	0.236	0.2	0.2			
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC	0.382	0.429	0.494	0.157	0.359	0.126			
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ORG	0.156	0.163	0.187	0.151	0.216	0.127			
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PER	0.286	0.349	0.378	0.144	0.293	0.105			

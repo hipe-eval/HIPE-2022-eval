@@ -1,0 +1,17 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+team3_bundle4_letemps_fr_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.627	0.711	0.666				723	430	294
+team3_bundle4_letemps_fr_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0.662	0.78	0.716				461	235	130
+team3_bundle4_letemps_fr_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ORG	0.0	0.0	0				0	16	79
+team3_bundle4_letemps_fr_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PERS	0.594	0.755	0.665				262	179	85
+team3_bundle4_letemps_fr_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.581	0.659	0.618				670	483	347
+team3_bundle4_letemps_fr_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC	0.635	0.748	0.687				442	254	149
+team3_bundle4_letemps_fr_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	ORG	0.0	0.0	0				0	16	79
+team3_bundle4_letemps_fr_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS	0.517	0.657	0.579				228	213	119
+team3_bundle4_letemps_fr_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL	0.541	0.645	0.682	0.248	0.411	0.28			
+team3_bundle4_letemps_fr_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC	0.601	0.745	0.772	0.242	0.439	0.268			
+team3_bundle4_letemps_fr_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ORG	0.0	0.0	0.0	0.0	0.0	0.0			
+team3_bundle4_letemps_fr_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PERS	0.529	0.732	0.767	0.241	0.425	0.292			
+team3_bundle4_letemps_fr_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ALL	0.504	0.589	0.628	0.236	0.391	0.258			
+team3_bundle4_letemps_fr_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC	0.582	0.718	0.745	0.246	0.432	0.27			
+team3_bundle4_letemps_fr_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ORG	0.0	0.0	0.0	0.0	0.0	0.0			
+team3_bundle4_letemps_fr_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PERS	0.46	0.63	0.663	0.258	0.391	0.289			

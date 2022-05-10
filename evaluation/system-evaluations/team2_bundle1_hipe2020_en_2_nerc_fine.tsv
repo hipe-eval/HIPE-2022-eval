@@ -1,0 +1,21 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+team2_bundle1_hipe2020_en_2	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.0	0	0				0	12	0
+team2_bundle1_hipe2020_en_2	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.REG	0.0	0	0				0	2	0
+team2_bundle1_hipe2020_en_2	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ORG.ENT	0.0	0	0				0	1	0
+team2_bundle1_hipe2020_en_2	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PERS.IND	0.0	0	0				0	9	0
+team2_bundle1_hipe2020_en_2	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.0	0	0				0	12	0
+team2_bundle1_hipe2020_en_2	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC.ADM.REG	0.0	0	0				0	2	0
+team2_bundle1_hipe2020_en_2	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	ORG.ENT	0.0	0	0				0	1	0
+team2_bundle1_hipe2020_en_2	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS.IND	0.0	0	0				0	9	0
+team2_bundle1_hipe2020_en_2	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL	0.0				0.0				
+team2_bundle1_hipe2020_en_2	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC.ADM.REG	0.0				0.0				
+team2_bundle1_hipe2020_en_2	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ORG.ENT	0.0				0.0				
+team2_bundle1_hipe2020_en_2	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PERS.IND	0.0				0.0				
+team2_bundle1_hipe2020_en_2	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ALL	0.0				0.0				
+team2_bundle1_hipe2020_en_2	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC.ADM.REG	0.0				0.0				
+team2_bundle1_hipe2020_en_2	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ORG.ENT	0.0				0.0				
+team2_bundle1_hipe2020_en_2	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PERS.IND	0.0				0.0				
+team2_bundle1_hipe2020_en_2	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0	0	0				0	0	0
+team2_bundle1_hipe2020_en_2	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	ALL	0	0	0				0	0	0
+team2_bundle1_hipe2020_en_2	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL									
+team2_bundle1_hipe2020_en_2	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	ALL									
