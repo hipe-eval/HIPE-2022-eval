@@ -6,26 +6,29 @@ Usage:
 """  # noqa
 
 
+from fileinput import filename
 import logging
 import os
-
+import datetime
 import pandas as pd
 from docopt import docopt
 from tabulate import tabulate
 
-PROLOGUE = """
-We provide an **overview table** of the **PRELIMINARY** anonymized results of the runs submitted by the teams for the **first** phase. 
+GH_BASE_URL = "https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings"
+date_of_creation = datetime.datetime.today().strftime('%d.%m.%Y')
+
+PROLOGUE = f"""
+We provide an **overview table** of the **PRELIMINARY** anonymized results of the runs submitted by the teams. 
 It also includes a neural baseline created by the organizers.
 
-- Date: 04.05.2022.
-- Bundles: 1 to 4
-- The current results for NEL can still change as we are extending the list of equivalent wikidata IDs. 
-- Detailed results for all systems can be found in this .tsv file.
+- Date: {date_of_creation}.
+- Bundles: 1 to 5
+- The current results for NEL can still change as we may extend the list of equivalent wikidata IDs. 
+- Detailed results for all systems can be found in the corresponding .tsv file (link provided below each table).
 - Detailed results for each team's runs are sent privately.
 - System name composition is: teamID_bundle_dataset_lang_run.
 - F1 scores of 0.0 are excluded from the table.
 - Results are ordered by F1 scores.
-- Results will be de-anonymized in the future.
 
 ### About the evaluation (reminder)
 
@@ -235,6 +238,9 @@ def compile_rankings_summary(rankings_dir: str) -> str:
         summary += f"\n\n## {label}\n\n{desc}"
 
         for dataset in datasets:
+
+            summary += f"\n\n### {dataset}"
+
             for lang_id, lang_label in languages:
                 if dataset == "topres19th" and lang_id != "en":
                     continue
@@ -308,7 +314,7 @@ def compile_rankings_summary(rankings_dir: str) -> str:
                             f"### {label} {dataset} {lang_label} {measure_label} \[`{eval_key}`\]"
                         )
                         continue
-                    summary += f"\n\n### {label} {dataset} {lang_label} {measure_label} \[`{eval_key}`\]\n\n"
+                    summary += f"\n\n#### {label} {dataset} {lang_label} {measure_label} \[`{eval_key}`\]\n\n"
                     summary += tabulate(
                         filter_ranking_df[["System", "F1", "P", "R"]],
                         headers=h,
@@ -316,6 +322,8 @@ def compile_rankings_summary(rankings_dir: str) -> str:
                         numalign="left",
                         floatfmt=".3f",
                     )
+                    GH_tsv_link = os.path.join(GH_BASE_URL, ranking_filename)
+                    summary += f"\n\nSee [{ranking_filename}]({GH_tsv_link}) for full details."
 
     summary += "\n"
     return summary
