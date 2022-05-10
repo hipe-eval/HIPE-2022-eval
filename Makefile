@@ -252,7 +252,7 @@ generate-rankings-summary:
 
 # requires https://github.com/ekalinin/github-markdown-toc
 rankings-summary-ToC:
-	gh-md-toc --no-backup	  $(RANK_DIR)/ranking_summary.md  $(RANK_DIR)/ranking_summary.md
+	cd $(RANK_DIR); gh-md-toc --no-backup ./ranking_summary.md ./ranking_summary.md
 
 
 ############################################################################################
