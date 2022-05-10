@@ -91,9 +91,15 @@ def format_team_keys(mapping_dict: dict) -> str:
 
 
 def filter_ranking(ranking_df: pd.DataFrame, evaluation: str) -> pd.DataFrame:
-    return ranking_df.copy()[
-        ranking_df.Evaluation.str.contains(evaluation) & (ranking_df.Label == "ALL")
-    ]
+    print(ranking_df)
+    try:
+        filtered = ranking_df.copy()[
+            ranking_df.Evaluation.str.contains(evaluation) & (ranking_df.Label == "ALL")
+            ]
+    except AttributeError:
+        print(ranking_df)
+        raise AttributeError
+    return filtered
 
 
 def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
@@ -230,21 +236,21 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
                     "LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1",
                     "strict @1 (literal sense)",
                 ),
-                (
-                    "strict",
-                    "METO-micro-fuzzy-TIME-ALL-LED-ALL-@1",
-                    "strict @1 (metonymic sense)",
-                ),
+                # (
+                #     "strict",
+                #     "METO-micro-fuzzy-TIME-ALL-LED-ALL-@1",
+                #     "strict @1 (metonymic sense)",
+                # ),
                 (
                     "relaxed",
                     "LIT-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1",
                     "relaxed @1 (literal sense)",
                 ),
-                (
-                    "relaxed",
-                    "METO-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1",
-                    "relaxed @1 (metonymic sense)",
-                ),
+                # (
+                #     "relaxed",
+                #     "METO-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1",
+                #     "relaxed @1 (metonymic sense)",
+                # ),
             ],
         },
     ]
