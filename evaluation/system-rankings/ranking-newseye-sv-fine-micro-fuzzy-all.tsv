@@ -1,0 +1,6 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+neurbsl_bundle3_newseye_sv_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0	0	0				0	0	0
+neurbsl_bundle3_newseye_sv_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0	0.0	0				0	0	26
+neurbsl_bundle3_newseye_sv_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0	0.0	0				0	0	20
+neurbsl_bundle3_newseye_sv_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	ORG	0	0.0	0				0	0	2
+neurbsl_bundle3_newseye_sv_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	PER	0	0.0	0				0	0	4

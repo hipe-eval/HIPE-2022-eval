@@ -1,0 +1,17 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+neurbsl_bundle3_topres19th_en_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.798	0.836	0.816				992	251	195
+neurbsl_bundle3_topres19th_en_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	BUILDING	0.6	0.6	0.6				111	74	74
+neurbsl_bundle3_topres19th_en_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0.842	0.892	0.867				844	158	102
+neurbsl_bundle3_topres19th_en_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	STREET	0.661	0.661	0.661				37	19	19
+neurbsl_bundle3_topres19th_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.747	0.782	0.764				928	315	259
+neurbsl_bundle3_topres19th_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	BUILDING	0.438	0.438	0.438				81	104	104
+neurbsl_bundle3_topres19th_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC	0.811	0.859	0.835				813	189	133
+neurbsl_bundle3_topres19th_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	STREET	0.607	0.607	0.607				34	22	22
+neurbsl_bundle3_topres19th_en_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL	0.804	0.861	0.819	0.158	0.19	0.143			
+neurbsl_bundle3_topres19th_en_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	BUILDING	0.501	0.613	0.604	0.383	0.41	0.44			
+neurbsl_bundle3_topres19th_en_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC	0.842	0.904	0.868	0.15	0.216	0.122			
+neurbsl_bundle3_topres19th_en_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	STREET	0.702	0.709	0.725	0.373	0.408	0.391			
+neurbsl_bundle3_topres19th_en_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ALL	0.761	0.814	0.774	0.17	0.199	0.157			
+neurbsl_bundle3_topres19th_en_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	BUILDING	0.392	0.488	0.476	0.394	0.394	0.442			
+neurbsl_bundle3_topres19th_en_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC	0.813	0.874	0.838	0.164	0.223	0.143			
+neurbsl_bundle3_topres19th_en_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	STREET	0.631	0.635	0.65	0.4	0.428	0.414			

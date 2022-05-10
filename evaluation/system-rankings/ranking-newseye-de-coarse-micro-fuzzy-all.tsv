@@ -1,0 +1,16 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+neurbsl_bundle3_newseye_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PER	0.529	0.72	0.61				584	521	227
+neurbsl_bundle3_newseye_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0.556	0.658	0.602				804	643	418
+neurbsl_bundle3_newseye_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.512	0.642	0.57				1542	1470	860
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0.541	0.561	0.551				686	581	536
+team4_bundle4_newseye_de_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0.52	0.565	0.541				690	637	532
+team4_bundle4_newseye_de_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PER	0.486	0.518	0.501				420	445	391
+team4_bundle4_newseye_de_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.48	0.512	0.495				1229	1333	1173
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.481	0.478	0.479				1149	1242	1253
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PER	0.454	0.451	0.452				366	441	445
+neurbsl_bundle3_newseye_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ORG	0.338	0.435	0.381				154	301	200
+team4_bundle4_newseye_de_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ORG	0.33	0.336	0.333				119	242	235
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ORG	0.313	0.271	0.29				96	211	258
+team4_bundle4_newseye_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	HUMANPROD	0.1	0.067	0.08				1	9	14
+neurbsl_bundle3_newseye_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	HUMANPROD	0.0	0.0	0				0	5	15
+team4_bundle4_newseye_de_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	HUMANPROD	0.0	0.0	0				0	9	15

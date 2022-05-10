@@ -1,0 +1,25 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.892	0.932	0.912				1491	180	109
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0.921	0.951	0.935				812	70	42
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ORG	0.728	0.7	0.714				91	34	39
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PERS	0.89	0.97	0.929				487	60	15
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PROD	0.929	0.852	0.889				52	4	9
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	TIME	0.803	0.925	0.86				49	12	4
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.797	0.832	0.814				1331	340	269
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC	0.859	0.888	0.873				758	124	96
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	ORG	0.672	0.646	0.659				84	41	46
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS	0.746	0.813	0.778				408	139	94
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	PROD	0.857	0.787	0.821				48	8	13
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	TIME	0.541	0.623	0.579				33	28	20
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL	0.921	0.937	0.927	0.066	0.077	0.075			
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC	0.914	0.948	0.924	0.093	0.121	0.088			
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ORG	0.618	0.617	0.661	0.334	0.395	0.394			
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PERS	0.907	0.982	0.952	0.079	0.185	0.043			
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PROD	0.849	0.93	0.944	0.134	0.331	0.15			
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	TIME	0.821	0.948	0.907	0.151	0.331	0.146			
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ALL	0.831	0.843	0.835	0.142	0.149	0.137			
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC	0.856	0.887	0.866	0.155	0.175	0.148			
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ORG	0.555	0.548	0.591	0.348	0.394	0.391			
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PERS	0.793	0.852	0.83	0.174	0.231	0.158			
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PROD	0.77	0.84	0.854	0.193	0.336	0.199			
+team2_bundle1_hipe2020_fr_2	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	TIME	0.579	0.653	0.632	0.417	0.45	0.437			

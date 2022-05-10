@@ -1,0 +1,25 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.766	0.902	0.828				314	96	34
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	DATE	0.0	0.0	0				0	3	3
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0.0	0.0	0				0	2	3
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PERS	0.719	0.958	0.821				92	36	4
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	SCOPE	0.838	0.887	0.862				134	26	17
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	WORK	0.752	0.926	0.83				88	29	7
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.68	0.802	0.736				279	131	69
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	DATE	0.0	0.0	0				0	3	3
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC	0.0	0.0	0				0	2	3
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS	0.68	0.906	0.777				87	41	9
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	SCOPE	0.706	0.748	0.727				113	47	38
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	WORK	0.675	0.832	0.745				79	38	16
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL	0.778	0.894	0.826	0.148	0.176	0.106			
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	DATE	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PERS	0.719	0.956	0.797	0.199	0.227	0.119			
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	SCOPE	0.831	0.878	0.849	0.14	0.143	0.157			
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	WORK	0.768	0.906	0.871	0.157	0.295	0.149			
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ALL	0.703	0.807	0.746	0.149	0.176	0.11			
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	DATE	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PERS	0.658	0.888	0.733	0.2	0.213	0.17			
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	SCOPE	0.695	0.731	0.709	0.188	0.188	0.2			
+neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	WORK	0.699	0.815	0.789	0.227	0.32	0.214			

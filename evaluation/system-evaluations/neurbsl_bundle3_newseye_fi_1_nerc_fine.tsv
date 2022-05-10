@@ -1,0 +1,25 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+neurbsl_bundle3_newseye_fi_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.5	0.143	0.222				1	1	6
+neurbsl_bundle3_newseye_fi_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PER.AUTHOR	0.5	0.143	0.222				1	1	6
+neurbsl_bundle3_newseye_fi_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.0	0.0	0				0	2	7
+neurbsl_bundle3_newseye_fi_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	PER.AUTHOR	0.0	0.0	0				0	2	7
+neurbsl_bundle3_newseye_fi_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL	0.5	0.2	1.0	0.0	0.5	0.4			
+neurbsl_bundle3_newseye_fi_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PER.AUTHOR	0.5	0.2	1.0	0.0	0.5	0.4			
+neurbsl_bundle3_newseye_fi_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ALL	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_newseye_fi_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PER.AUTHOR	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_newseye_fi_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0	0.0	0				0	0	42
+neurbsl_bundle3_newseye_fi_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0	0.0	0				0	0	29
+neurbsl_bundle3_newseye_fi_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	ORG	0	0.0	0				0	0	10
+neurbsl_bundle3_newseye_fi_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	PER	0	0.0	0				0	0	3
+neurbsl_bundle3_newseye_fi_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	ALL	0	0.0	0				0	0	42
+neurbsl_bundle3_newseye_fi_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	LOC	0	0.0	0				0	0	29
+neurbsl_bundle3_newseye_fi_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	ORG	0	0.0	0				0	0	10
+neurbsl_bundle3_newseye_fi_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	PER	0	0.0	0				0	0	3
+neurbsl_bundle3_newseye_fi_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL		0.0				0.0			
+neurbsl_bundle3_newseye_fi_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC		0.0				0.0			
+neurbsl_bundle3_newseye_fi_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	ORG		0.0				0.0			
+neurbsl_bundle3_newseye_fi_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	PER		0.0				0.0			
+neurbsl_bundle3_newseye_fi_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	ALL		0.0				0.0			
+neurbsl_bundle3_newseye_fi_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	LOC		0.0				0.0			
+neurbsl_bundle3_newseye_fi_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	ORG		0.0				0.0			
+neurbsl_bundle3_newseye_fi_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	PER		0.0				0.0			

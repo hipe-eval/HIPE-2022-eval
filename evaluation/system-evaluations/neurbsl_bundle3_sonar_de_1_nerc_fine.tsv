@@ -1,0 +1,9 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+neurbsl_bundle3_sonar_de_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0	0	0				0	0	0
+neurbsl_bundle3_sonar_de_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0	0	0				0	0	0
+neurbsl_bundle3_sonar_de_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL									
+neurbsl_bundle3_sonar_de_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ALL									
+neurbsl_bundle3_sonar_de_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0	0	0				0	0	0
+neurbsl_bundle3_sonar_de_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	ALL	0	0	0				0	0	0
+neurbsl_bundle3_sonar_de_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL									
+neurbsl_bundle3_sonar_de_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	ALL									

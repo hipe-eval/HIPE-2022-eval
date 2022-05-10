@@ -1,0 +1,49 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.616	0.664	0.639				239	149	121
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	DATE	0.0	0.0	0				0	1	3
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0.0	0.0	0				0	6	9
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PERS.AUTHOR	0.575	0.641	0.606				50	37	28
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PERS.EDITOR	0.0	0.0	0				0	34	35
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PERS.MYTH	0.3	0.214	0.25				3	7	11
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PERS.OTHER	0.538	0.583	0.56				7	6	5
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	SCOPE	0.842	0.907	0.873				117	22	12
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	WORK.FRAGM	0	0.0	0				0	0	1
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	WORK.PRIMLIT	0.639	0.795	0.709				62	35	16
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	WORK.SECLIT	0.0	0.0	0				0	1	1
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.526	0.567	0.545				204	184	156
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	DATE	0.0	0.0	0				0	1	3
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC	0.0	0.0	0				0	6	9
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS.AUTHOR	0.494	0.551	0.521				43	44	35
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS.EDITOR	0.0	0.0	0				0	34	35
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS.MYTH	0.3	0.214	0.25				3	7	11
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS.OTHER	0.538	0.583	0.56				7	6	5
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	SCOPE	0.755	0.814	0.784				105	34	24
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	WORK.FRAGM	0	0.0	0				0	0	1
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	WORK.PRIMLIT	0.474	0.59	0.526				46	51	32
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL	WORK.SECLIT	0.0	0.0	0				0	1	1
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL	0.601	0.633	0.614	0.202	0.205	0.204			
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	DATE	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	LOC	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PERS.AUTHOR	0.623	0.725	0.662	0.2	0.209	0.216			
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PERS.EDITOR	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PERS.MYTH	0.333	0.286	0.333	0.471	0.471	0.452			
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	PERS.OTHER	0.383	0.479	0.479	0.291	0.323	0.291			
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	SCOPE	0.842	0.899	0.855	0.126	0.163	0.122			
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	WORK.FRAGM		0.0				0.0			
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	WORK.PRIMLIT	0.635	0.818	0.7	0.174	0.199	0.179			
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL	WORK.SECLIT	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	ALL	0.518	0.541	0.527	0.197	0.204	0.192			
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	DATE	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	LOC	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PERS.AUTHOR	0.522	0.578	0.544	0.272	0.274	0.276			
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PERS.EDITOR	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PERS.MYTH	0.333	0.286	0.333	0.471	0.471	0.452			
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	PERS.OTHER	0.383	0.479	0.479	0.291	0.323	0.291			
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	SCOPE	0.768	0.819	0.779	0.139	0.179	0.14			
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	WORK.FRAGM		0.0				0.0			
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	WORK.PRIMLIT	0.462	0.556	0.496	0.296	0.299	0.29			
+neurbsl_bundle3_ajmc_fr_1	NE-FINE-LIT-macro_doc-strict-TIME-ALL-LED-ALL	WORK.SECLIT	0.0	0.0	0.0	0.0	0.0	0.0			
+neurbsl_bundle3_ajmc_fr_1	NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0	0	0				0	0	0
+neurbsl_bundle3_ajmc_fr_1	NE-NESTED-micro-strict-TIME-ALL-LED-ALL	ALL	0	0	0				0	0	0
+neurbsl_bundle3_ajmc_fr_1	NE-NESTED-macro_doc-fuzzy-TIME-ALL-LED-ALL	ALL									
+neurbsl_bundle3_ajmc_fr_1	NE-NESTED-macro_doc-strict-TIME-ALL-LED-ALL	ALL									
