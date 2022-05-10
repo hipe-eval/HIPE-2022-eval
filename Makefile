@@ -233,8 +233,8 @@ ranking-alldatasets-alllanguages:
 # More specific rule must come first
 ranking-$(DATASET)-fine-%: #$(result-nonorm-files) #$(result-norm-files) $(gold-norm-files) $(normalized-files)
 	cat $(RES_DIR)/*_$(DATASET)_$*_*.tsv | head -n 1 | cut -f $(MICRO_RANKING_COLUMNS) > header.tmp
-	grep -hs '(NE-FINE|NE-NESTED).*micro-fuzzy.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv | cut -f $(MICRO_RANKING_COLUMNS) | sort -u -t$$'\t' -k2 | sort -t$$'\t' -k3,3 -k6,6r -k2,2 -k1,1 | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-fine-micro-fuzzy-all.tsv
-	grep -hs '(NE-FINE|NE-NESTED).*micro-strict.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv| cut -f $(MICRO_RANKING_COLUMNS) | sort -u -t$$'\t' -k2 | sort -t$$'\t' -k3,3 -k6,6r -k2,2 -k1,1 | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-fine-micro-strict-all.tsv
+	grep -Phs '(NE-FINE|NE-NESTED).*micro-fuzzy.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv | cut -f $(MICRO_RANKING_COLUMNS) | sort -u -t$$'\t' -k2 | sort -t$$'\t' -k3,3 -k6,6r -k2,2 -k1,1 | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-fine-micro-fuzzy-all.tsv
+	grep -Phs '(NE-FINE|NE-NESTED).*micro-strict.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv| cut -f $(MICRO_RANKING_COLUMNS) | sort -u -t$$'\t' -k2 | sort -t$$'\t' -k3,3 -k6,6r -k2,2 -k1,1 | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-fine-micro-strict-all.tsv
 	rm header.tmp
 
 
@@ -246,8 +246,8 @@ ranking-$(DATASET)-%: #$(result-nonorm-files) #$(result-norm-files) $(gold-norm-
 	cat $(RES_DIR)/*_$(DATASET)_$*_*.tsv | head -n 1 | cut -f $(MICRO_RANKING_COLUMNS)  > header.tmp
 	grep -hs 'NE-COARSE.*micro-fuzzy.*ALL'  $(RES_DIR)/*_$(DATASET)_$*_*.tsv                      | sort -u -t$$'\t' -k2 | sort -t$$'\t' -k3,3 -k6,6r -k2,2 -k1,1 | cut -f $(MICRO_RANKING_COLUMNS) | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-coarse-micro-fuzzy-all.tsv
 	grep -hs 'NE-COARSE.*micro-strict.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv                      | sort -u -t$$'\t' -k2 | sort -t$$'\t' -k3,3 -k6,6r -k2,2 -k1,1 | cut -f $(MICRO_RANKING_COLUMNS) | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-coarse-micro-strict-all.tsv
-	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle{1..4}_$(DATASET)_$*_*.tsv | grep -v 'relaxed' | sort -u -t$$'\t' -k2 | sort -t$$'\t' -k3,3 -k6,6r -k2,2 -k1,1 | cut -f $(MICRO_RANKING_COLUMNS) |  (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-nel-micro-fuzzy.tsv
-	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle5_$(DATASET)_$*_*.tsv | grep -v 'relaxed'      | sort -u -t$$'\t' -k2 | sort -t$$'\t' -k2,2 -k6,6r -k2,2 -k1,1 | cut -f $(MICRO_RANKING_COLUMNS) | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-nel-only-micro-fuzzy.tsv
+	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle{1..4}_$(DATASET)_$*_*.tsv | grep -v 'relaxed' | sort -u -t$$'\t' -k2 | sort -t$$'\t' -k3,3 -k6,6r -k2,2 -k1,1 | cut -f $(MICRO_RANKING_COLUMNS) | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-nel-micro-fuzzy-all.tsv
+	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle5_$(DATASET)_$*_*.tsv | grep -v 'relaxed'      | sort -u -t$$'\t' -k2 | sort -t$$'\t' -k2,2 -k6,6r -k2,2 -k1,1 | cut -f $(MICRO_RANKING_COLUMNS) | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-nel-only-micro-fuzzy-all.tsv
 #NOT YET IMPLEMENTED	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle{1..4}_$(DATASET)_$*_?_relaxed.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-nel-micro-fuzzy-relaxed.tsv
 #NOT YET IMPLEMENTED	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle5_$(DATASET)_$*_?_relaxed.tsv | sort -t$$'\t' -k2,2 -k6,6r | (cat header.tmp && cat) > $(RANK_DIR)/ranking-$(DATASET)-$*-nel-only-micro-fuzzy-relaxed.tsv
 	rm header.tmp

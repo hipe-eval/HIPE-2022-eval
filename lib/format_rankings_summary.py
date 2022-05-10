@@ -284,6 +284,9 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
                     continue
                 elif dataset == "newseye" and lang_id == "en":
                     continue
+
+                if dataset == "letemps" and scenario_id in { "el", "el-only"}:
+                    continue
                 for measure, eval_level, measure_label in measures:
 
                     if scenario_id == "nerc-coarse":
@@ -308,11 +311,11 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
                     elif scenario_id == "el":
                         try:
                             if measure == "relaxed":
-                                ranking_filename = f"ranking-{dataset}-{lang_id}-nel-micro-fuzzy-{measure}.tsv"
+                                ranking_filename = f"ranking-{dataset}-{lang_id}-nel-micro-fuzzy-{measure}-all.tsv"
                             else:
                                 # it's strict but no strict in the filename
                                 ranking_filename = (
-                                    f"ranking-{lang_id}-nel-micro-fuzzy.tsv"
+                                    f"ranking-{dataset}-{lang_id}-nel-micro-fuzzy-all.tsv"
                                 )
                             ranking_df = read_ranking(ranking_filename, rankings_dir)
                         except:
@@ -323,10 +326,10 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
                     elif scenario_id == "el-only":
                         try:
                             if measure == "relaxed":
-                                ranking_filename = f"ranking-{dataset}-{lang_id}-nel-only-micro-fuzzy-{measure}.tsv"
+                                ranking_filename = f"ranking-{dataset}-{lang_id}-nel-only-micro-fuzzy-{measure}-all.tsv"
                             else:
                                 # it's strict but no strict in the filename
-                                ranking_filename = f"ranking-{dataset}-{lang_id}-nel-only-micro-fuzzy.tsv"
+                                ranking_filename = f"ranking-{dataset}-{lang_id}-nel-only-micro-fuzzy-all.tsv"
                             ranking_df = read_ranking(ranking_filename, rankings_dir)
                         except:
                             # print(f"{ranking_filename} not found")
