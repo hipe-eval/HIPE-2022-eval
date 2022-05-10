@@ -29,11 +29,16 @@ DATASETS ?= hipe2020 letemps newseye topres19th sonar ajmc
 # default dataset for testing
 DATASET ?= hipe2020
 
+
+ifeq ($(DATASET),ajmc)
+FILE_NEL_MAPPING?=$(SCORER_DIR)/ajmc-alternatives-QID-mapping-ID-mapping.tsv
+endif
+
 # copy this file manually from here and remove spaces in file name:
 # https://docs.google.com/spreadsheets/d/1s2BpIeiqsJIjHLsIecshrHG9UFkMBW1Nfr-h68AB2pY/edit#gid=1606475364
 FILE_NEL_MAPPING?=$(SCORER_DIR)/historico-fuzzy-QID-mapping-ID-mapping.tsv
 
-EVAL_NOISE_LEVEL?=
+#EVAL_NOISE_LEVEL?=--noise-level 0.0-0.0,0.001-0.1,0.1-0.3,0.3-1.1
 EVAL_TIME_PERIOD_FR?=
 EVAL_TIME_PERIOD_DE?=
 EVAL_TIME_PERIOD_EN?=
@@ -100,7 +105,7 @@ eval-system-bundles-%: prepare-eval
 	$(MAKE) -k eval-system-bundle BUNDLE=2 DATASET=$* $(MAKEFLAGS)
 	$(MAKE) -k eval-system-bundle BUNDLE=3 DATASET=$* $(MAKEFLAGS)
 	$(MAKE) -k eval-system-bundle BUNDLE=4 DATASET=$* $(MAKEFLAGS)
-#NOT IMPLEMENTED $(MAKE) eval-system-bundle BUNDLE=5 DATASET=$* $(MAKEFLAGS)
+	$(MAKE) -k eval-system-bundle BUNDLE=5 DATASET=$* $(MAKEFLAGS)
 
 # normalize NEL for historical entities in gold standard
 %_histonorm.tsv: %.tsv
@@ -125,8 +130,8 @@ ifeq ($(BUNDLE),1)
 	# NERC-Fine    BUNDLE $(BUNDLE) DATASET $(DATASET)
 	python3 $(SCORER_DIR)/clef_evaluation.py --task nerc_fine --ref $(GROUND_TRUTH_DIR)/HIPE-2022-$(VERSION)-$(DATASET)-test-$(call submission_lang,$(<F)).tsv \
 		--pred $< --outdir $(RES_DIR) --log $(EVAL_LOGS_DIR)/$(@F:.tsv=.nerc_fine.log) --tagset $(SCORER_DIR)/tagset-hipe2022-all.txt --hipe_edition hipe-2022
-#NOT IMPLEMENTED python3 $(SCORER_DIR)/clef_evaluation.py --hipe_edition hipe-2022 --ref $(GROUND_TRUTH_DIR)/$(LANG_ABBR)/HIPE-data-$(VERSION)-test-$(LANG_ABBR).tsv --pred $< --task nerc_fine --outdir $(RES_DIR) --log $(EVAL_LOGS_DIR)/$(@F:.tsv=.nerc_fine.log) --tagset $(SCORER_DIR)/tagset.txt --noise-level $(EVAL_NOISE_LEVEL) --time-period $(PERIOD)
-#NOT IMPLEMENTED python3 $(SCORER_DIR)/clef_evaluation.py --hipe_edition hipe-2022 --ref $(GROUND_TRUTH_DIR)/$(LANG_ABBR)/HIPE-data-$(VERSION)-test-$(LANG_ABBR).tsv --pred $< --task nel --outdir $(RES_DIR) --log $(EVAL_LOGS_DIR)/$(@F:.tsv=.nel.log) --tagset $(SCORER_DIR)/tagset.txt --noise-level $(EVAL_NOISE_LEVEL) --time-period $(PERIOD)
+	python3 $(SCORER_DIR)/clef_evaluation.py --task nel --ref $(GROUND_TRUTH_DIR)/HIPE-2022-$(VERSION)-$(DATASET)-test-$(call submission_lang,$(<F)).tsv \
+	    --pred $< --outdir $(RES_DIR) --log $(EVAL_LOGS_DIR)/$(@F:.tsv=.nel.log) --tagset $(SCORER_DIR)/tagset-hipe2022-all.txt  --hipe_edition hipe-2022
 else ifeq ($(BUNDLE),2)
 	# NERC-Coarse  BUNDLE $(BUNDLE) DATASET $(DATASET)
 	python3 $(SCORER_DIR)/clef_evaluation.py --task nerc_coarse --ref $(GROUND_TRUTH_DIR)/HIPE-2022-$(VERSION)-$(DATASET)-test-$(call submission_lang,$(<F)).tsv \
