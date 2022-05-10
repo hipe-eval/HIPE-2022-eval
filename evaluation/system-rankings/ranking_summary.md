@@ -12,7 +12,7 @@ It also includes a neural baseline created by the organizers.
 - F1 scores of 0.0 are excluded from the table.
 - Results are ordered by F1 scores.
 
-### About the evaluation (reminder)
+**About the evaluation (reminder)**
 
 - NERC and Entity Linking (EL) are evaluated in terms of macro and micro Precision, Recall, F1-measure. Here only micro is reported.
 
@@ -29,7 +29,7 @@ In terms of boundaries, NEL is only evaluated according to fuzzy boundary matchi
 
 <!--ts-->
 * [CLEF HIPE 2022 preliminary results](./ranking_summary.md#clef-hipe-2022-preliminary-results)
-      * [About the evaluation (reminder)](./ranking_summary.md#about-the-evaluation-reminder)
+   * [Team keys](./ranking_summary.md#team-keys)
    * [NERC coarse](./ranking_summary.md#nerc-coarse)
       * [hipe2020](./ranking_summary.md#hipe2020)
          * [NERC coarse hipe2020 German strict (literal sense) [NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-hipe2020-german-strict-literal-sense-ne-coarse-lit-micro-strict-time-all-led-all)
@@ -107,9 +107,16 @@ In terms of boundaries, NEL is only evaluated according to fuzzy boundary matchi
       * [ajmc](./ranking_summary.md#ajmc-3)
 
 <!-- Created by https://github.com/ekalinin/github-markdown-toc -->
-<!-- Added by: matteo, at: Tue May 10 12:41:04 CEST 2022 -->
+<!-- Added by: matteo, at: Tue May 10 12:59:34 CEST 2022 -->
 
 <!--te-->
+## Team keys
+- `team1` = `HISTeria`
+- `team2` = `l3i`
+- `team3` = `WLV`
+- `team4` = `aauzh`
+- `team5` = `SBB`
+
 
 
 ## NERC coarse

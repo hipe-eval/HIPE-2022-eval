@@ -2,7 +2,7 @@
 Script to produce the official ranking summary tables for the HIPE shared task.
 
 Usage:
-    lib/format_rankings_summary.py --input-dir=<id> --output-dir=<od> [--log-file=<log>]
+    lib/format_rankings_summary.py --input-dir=<id> --output-dir=<od> --submissions-dir=<sd> [--log-file=<log>]
 """  # noqa
 
 
@@ -30,7 +30,7 @@ It also includes a neural baseline created by the organizers.
 - F1 scores of 0.0 are excluded from the table.
 - Results are ordered by F1 scores.
 
-### About the evaluation (reminder)
+**About the evaluation (reminder)**
 
 - NERC and Entity Linking (EL) are evaluated in terms of macro and micro Precision, Recall, F1-measure. Here only micro is reported.
 
@@ -71,13 +71,32 @@ def read_ranking(ranking_name: str, rankings_dir: str) -> pd.DataFrame:
     return df[selected_cols]
 
 
+def read_team_keys_file(team_keys_path: str):
+
+    with open(team_keys_path) as keys_file:
+        keys = keys_file.readlines()
+        key_mapping_dict = {
+            key.split(":")[1].strip() : key.split(":")[0]
+            for key in keys
+        }
+
+    return key_mapping_dict
+
+
+def format_team_keys(mapping_dict: dict) -> str:
+    text = ""
+    for team_key in mapping_dict:
+        text += f"- `{team_key}` = `{mapping_dict[team_key]}`\n"
+    return text
+
+
 def filter_ranking(ranking_df: pd.DataFrame, evaluation: str) -> pd.DataFrame:
     return ranking_df.copy()[
         ranking_df.Evaluation.str.contains(evaluation) & (ranking_df.Label == "ALL")
     ]
 
 
-def compile_rankings_summary(rankings_dir: str) -> str:
+def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
 
     # take only micro scores
 
@@ -90,6 +109,10 @@ def compile_rankings_summary(rankings_dir: str) -> str:
         ("sv", "Swedish"),
         ("fi", "Finnish"),
     ]
+
+    team_keys_file_path = os.path.join(submissions_dir, "TEAM_KEYS.txt")
+    team_keys_mapping = read_team_keys_file(team_keys_file_path)
+    team_keys_section = format_team_keys(team_keys_mapping)
 
     h = ["Rank", "System", "F1", "Precision", "Recall"]
 
@@ -229,6 +252,7 @@ def compile_rankings_summary(rankings_dir: str) -> str:
     summary += "# CLEF HIPE 2022 preliminary results\n"
     summary += PROLOGUE
     summary += "\n\n<!--ts-->\n<!--te-->\n"
+    summary += f"## Team keys\n{team_keys_section}\n"
 
     for scenario in scenarios:
         desc = scenario["desc"]
@@ -333,6 +357,7 @@ def main(args):
     log_file = args["--log-file"]
     input_dir = args["--input-dir"]
     output_dir = args["--output-dir"]
+    submissions_dir = args["--submissions-dir"]
 
     logging.basicConfig(
         filename=log_file,
@@ -342,7 +367,7 @@ def main(args):
     )
 
     md_summary_path = os.path.join(input_dir, "ranking_summary.md")
-    md_summary = compile_rankings_summary(input_dir)
+    md_summary = compile_rankings_summary(input_dir, submissions_dir)
     with open(md_summary_path, "w") as f:
         f.write(md_summary)
 
