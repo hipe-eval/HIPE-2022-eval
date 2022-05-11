@@ -20,8 +20,8 @@ SCORER_VERSION = "[vX.X](link)"
 DATA_VERSION = "[vX.X](link)"
 
 PROLOGUE = f"""
-We provide an **overview table** of the **PRELIMINARY** results of the runs submitted by the teams. 
-It also includes a neural baseline created by the organizers.
+We provide an **overview table** of the **PRELIMINARY**  results of the runs submitted by the teams. 
+It also includes a neural baseline created by the organizers. A non-neural CRF-based baseline will be added soon for NERC.
 
 - Date: {date_of_creation}.
 - Bundles: 1 to 5
