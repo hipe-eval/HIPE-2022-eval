@@ -13,6 +13,10 @@ all: prepare-eval  eval-system-bundles ranking-alldatasets-alllanguages rankings
 # emit additional diagnostics output on the matched files
 DEBUG ?= 0
 
+# force build
+# set to -B to force the build
+FORCE_BUILD ?=
+
 ############################################################################################
 # SYSTEM EVALUATION (START OF OPEN-SOURCE PART)
 ############################################################################################
@@ -90,15 +94,6 @@ $(GROUND_TRUTH_DIR)/%_histonorm.tsv: $(GROUND_TRUTH_DIR)/%.tsv
 
 
 
-result-nonorm-files:=$(subst $(SUB_DIR),$(RES_DIR),$(submission-files))
-ifeq ($(DEBUG),1)
-$(info )
-$(info result-nonorm-files: $(result-nonorm-files))
-$(info )
-endif
-result-timenorm-files:=$(subst $(SUB_TIMENORM_DIR),$(RES_DIR),$(submission-timenorm-files))
-result-histonorm-files:=$(subst $(SUB_HISTOTIMENORM_DIR),$(RES_DIR),$(submission-histonorm-files:.tsv=_relaxed.tsv))
-
 
 build-gold-histonorm-files: $(gold-histonorm-files)
 clean-gold-histonorm-files:
@@ -115,6 +110,17 @@ $(info )
 $(info # INFO: submission-files: $(submission-files))
 $(info )
 endif
+
+
+result-nonorm-files:=$(subst $(SUB_DIR),$(RES_DIR),$(submission-files))
+ifeq ($(DEBUG),1)
+$(info )
+$(info result-nonorm-files: $(result-nonorm-files))
+$(info )
+endif
+
+result-timenorm-files:=$(subst $(SUB_TIMENORM_DIR),$(RES_DIR),$(submission-timenorm-files))
+result-histonorm-files:=$(subst $(SUB_HISTOTIMENORM_DIR),$(RES_DIR),$(submission-histonorm-files:.tsv=_relaxed.tsv))
 
 # produce normalized version of system responses
 # versions: time, historical+time
@@ -136,11 +142,11 @@ eval-system-bundles: \
 	eval-system-bundles-ajmc
 
 eval-system-bundles-%: prepare-eval
-	$(MAKE) -k eval-system-bundle BUNDLE=1 DATASET=$* $(MAKEFLAGS)
-	$(MAKE) -k eval-system-bundle BUNDLE=2 DATASET=$* $(MAKEFLAGS)
-	$(MAKE) -k eval-system-bundle BUNDLE=3 DATASET=$* $(MAKEFLAGS)
-	$(MAKE) -k eval-system-bundle BUNDLE=4 DATASET=$* $(MAKEFLAGS)
-	$(MAKE) -k eval-system-bundle BUNDLE=5 DATASET=$* $(MAKEFLAGS)
+	$(MAKE) -k eval-system-bundle BUNDLE=1 DATASET=$* $(FORCE_BUILD)
+	$(MAKE) -k eval-system-bundle BUNDLE=2 DATASET=$* $(FORCE_BUILD)
+	$(MAKE) -k eval-system-bundle BUNDLE=3 DATASET=$* $(FORCE_BUILD)
+	$(MAKE) -k eval-system-bundle BUNDLE=4 DATASET=$* $(FORCE_BUILD)
+	$(MAKE) -k eval-system-bundle BUNDLE=5 DATASET=$* $(FORCE_BUILD)
 
 ## normalize NEL for historical entities in gold standard
 #$(GROUND_TRUTH_DIR)/%_histonorm.tsv: $(GROUND_TRUTH_DIR)/%.tsv
