@@ -347,7 +347,7 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
                             f"### {label} {dataset} {lang_label} {measure_label} \[`{eval_key}`\]"
                         )
                         continue
-                    summary += f"\n\n#### {label} {dataset} {lang_label} {measure_label} \[`{eval_key}`\]\n\n"
+                    summary += f"\n\n**{label} {dataset} {lang_label} {measure_label}** \[`{eval_key}`\]\n\n"
                     summary += tabulate(
                         filter_ranking_df[["System", "F1", "P", "R"]],
                         headers=h,
