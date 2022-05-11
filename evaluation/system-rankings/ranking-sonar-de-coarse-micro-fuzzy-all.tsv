@@ -1,13 +1,13 @@
-System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
-team4_bundle4_sonar_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0.732	0.835	0.78				142	52	28
-team4_bundle4_sonar_de_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0.706	0.835	0.765				142	59	28
-team4_bundle4_sonar_de_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PER	0.633	0.733	0.679				143	83	52
-team4_bundle4_sonar_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PER	0.642	0.708	0.673				138	77	57
-team4_bundle4_sonar_de_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.625	0.718	0.668				333	200	131
-neurbsl_bundle3_sonar_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0.568	0.806	0.667				137	104	33
-team4_bundle4_sonar_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.641	0.696	0.667				323	181	141
-team4_bundle4_sonar_de_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ORG	0.453	0.485	0.468				48	58	51
-neurbsl_bundle3_sonar_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.403	0.554	0.467				257	380	207
-neurbsl_bundle3_sonar_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PER	0.398	0.528	0.454				103	156	92
-team4_bundle4_sonar_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ORG	0.453	0.434	0.443				43	52	56
-neurbsl_bundle3_sonar_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ORG	0.124	0.172	0.144				17	120	82
+System	Evaluation	Label	P	R	F1	TP	FP	FN
+team4_bundle4_sonar_de_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.625	0.718	0.668	333	200	131
+team4_bundle4_sonar_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.641	0.696	0.667	323	181	141
+neurbsl_bundle3_sonar_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ALL	0.403	0.554	0.467	257	380	207
+team4_bundle4_sonar_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0.732	0.835	0.78	142	52	28
+team4_bundle4_sonar_de_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0.706	0.835	0.765	142	59	28
+neurbsl_bundle3_sonar_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	LOC	0.568	0.806	0.667	137	104	33
+team4_bundle4_sonar_de_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ORG	0.453	0.485	0.468	48	58	51
+team4_bundle4_sonar_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ORG	0.453	0.434	0.443	43	52	56
+neurbsl_bundle3_sonar_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	ORG	0.124	0.172	0.144	17	120	82
+team4_bundle4_sonar_de_2	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PER	0.633	0.733	0.679	143	83	52
+team4_bundle4_sonar_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PER	0.642	0.708	0.673	138	77	57
+neurbsl_bundle3_sonar_de_1	NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL	PER	0.398	0.528	0.454	103	156	92

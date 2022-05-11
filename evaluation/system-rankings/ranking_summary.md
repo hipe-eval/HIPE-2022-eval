@@ -1,9 +1,9 @@
 # CLEF HIPE 2022 preliminary results
 
-We provide an **overview table** of the **PRELIMINARY** anonymized results of the runs submitted by the teams. 
-It also includes a neural baseline created by the organizers.
+We provide an **overview table** of the **PRELIMINARY**  results of the runs submitted by the teams. 
+It also includes a neural baseline created by the organizers. A non-neural CRF-based baseline will be added soon for NERC.
 
-- Date: 10.05.2022.
+- Date: 11.05.2022.
 - Bundles: 1 to 5
 - The current results for NEL can still change as we may extend the list of equivalent wikidata IDs. 
 - Detailed results for all systems can be found in the corresponding .tsv file (link provided below each table).
@@ -48,9 +48,9 @@ Relevant bundles: 1-4
 
 | Rank   | System                        | F1    | Precision   | Recall   |
 |:-------|:------------------------------|:------|:------------|:---------|
-| 1      | team2_bundle3_hipe2020_de_1   | 0.794 | 0.784       | 0.805    |
-| 2      | team2_bundle1_hipe2020_de_2   | 0.784 | 0.780       | 0.787    |
-| 3      | team2_bundle1_hipe2020_de_1   | 0.774 | 0.757       | 0.792    |
+| 1      | team2_bundle3_hipe2020_de_1   | 0.802 | 0.795       | 0.808    |
+| 2      | team2_bundle1_hipe2020_de_2   | 0.793 | 0.794       | 0.793    |
+| 3      | team2_bundle1_hipe2020_de_1   | 0.781 | 0.768       | 0.794    |
 | 4      | team4_bundle4_hipe2020_de_1   | 0.725 | 0.716       | 0.735    |
 | 5      | neurbsl_bundle3_hipe2020_de_1 | 0.703 | 0.665       | 0.746    |
 | 6      | team4_bundle4_hipe2020_de_2   | 0.695 | 0.677       | 0.714    |
@@ -61,9 +61,9 @@ See [ranking-hipe2020-de-coarse-micro-strict-all.tsv](https://github.com/hipe-ev
 
 | Rank   | System                        | F1    | Precision   | Recall   |
 |:-------|:------------------------------|:------|:------------|:---------|
-| 1      | team2_bundle3_hipe2020_de_1   | 0.876 | 0.865       | 0.888    |
-| 2      | team2_bundle1_hipe2020_de_2   | 0.874 | 0.870       | 0.878    |
-| 3      | team2_bundle1_hipe2020_de_1   | 0.872 | 0.853       | 0.892    |
+| 1      | team2_bundle3_hipe2020_de_1   | 0.879 | 0.871       | 0.886    |
+| 2      | team2_bundle1_hipe2020_de_2   | 0.878 | 0.879       | 0.877    |
+| 3      | team2_bundle1_hipe2020_de_1   | 0.874 | 0.860       | 0.889    |
 | 4      | team4_bundle4_hipe2020_de_1   | 0.822 | 0.812       | 0.833    |
 | 5      | team4_bundle4_hipe2020_de_2   | 0.804 | 0.783       | 0.826    |
 | 6      | neurbsl_bundle3_hipe2020_de_1 | 0.793 | 0.750       | 0.842    |
@@ -75,7 +75,7 @@ See [ranking-hipe2020-de-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eva
 | Rank   | System                        | F1    | Precision   | Recall   |
 |:-------|:------------------------------|:------|:------------|:---------|
 | 1      | team2_bundle1_hipe2020_en_1   | 0.620 | 0.624       | 0.617    |
-| 2      | team2_bundle1_hipe2020_en_2   | 0.612 | 0.604       | 0.619    |
+| 2      | team2_bundle1_hipe2020_en_2   | 0.615 | 0.609       | 0.621    |
 | 3      | team4_bundle4_hipe2020_en_1   | 0.513 | 0.538       | 0.490    |
 | 4      | neurbsl_bundle3_hipe2020_en_1 | 0.477 | 0.432       | 0.532    |
 | 5      | team3_bundle4_hipe2020_en_1   | 0.414 | 0.400       | 0.430    |
@@ -87,7 +87,7 @@ See [ranking-hipe2020-en-coarse-micro-strict-all.tsv](https://github.com/hipe-ev
 | Rank   | System                        | F1    | Precision   | Recall   |
 |:-------|:------------------------------|:------|:------------|:---------|
 | 1      | team2_bundle1_hipe2020_en_1   | 0.788 | 0.793       | 0.784    |
-| 2      | team2_bundle1_hipe2020_en_2   | 0.781 | 0.772       | 0.791    |
+| 2      | team2_bundle1_hipe2020_en_2   | 0.783 | 0.775       | 0.791    |
 | 3      | team4_bundle4_hipe2020_en_1   | 0.692 | 0.726       | 0.661    |
 | 4      | neurbsl_bundle3_hipe2020_en_1 | 0.623 | 0.564       | 0.695    |
 | 5      | team3_bundle4_hipe2020_en_1   | 0.603 | 0.582       | 0.626    |
@@ -98,9 +98,9 @@ See [ranking-hipe2020-en-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eva
 
 | Rank   | System                        | F1    | Precision   | Recall   |
 |:-------|:------------------------------|:------|:------------|:---------|
-| 1      | team2_bundle1_hipe2020_fr_1   | 0.808 | 0.786       | 0.831    |
-| 2      | team2_bundle1_hipe2020_fr_2   | 0.804 | 0.782       | 0.827    |
-| 3      | team2_bundle3_hipe2020_fr_1   | 0.798 | 0.775       | 0.823    |
+| 1      | team2_bundle1_hipe2020_fr_1   | 0.818 | 0.801       | 0.836    |
+| 2      | team2_bundle1_hipe2020_fr_2   | 0.814 | 0.797       | 0.832    |
+| 3      | team2_bundle3_hipe2020_fr_1   | 0.808 | 0.789       | 0.828    |
 | 4      | neurbsl_bundle3_hipe2020_fr_1 | 0.757 | 0.730       | 0.785    |
 | 5      | team4_bundle4_hipe2020_fr_2   | 0.696 | 0.718       | 0.675    |
 | 6      | team4_bundle4_hipe2020_fr_1   | 0.678 | 0.700       | 0.657    |
@@ -112,9 +112,9 @@ See [ranking-hipe2020-fr-coarse-micro-strict-all.tsv](https://github.com/hipe-ev
 
 | Rank   | System                        | F1    | Precision   | Recall   |
 |:-------|:------------------------------|:------|:------------|:---------|
-| 1      | team2_bundle1_hipe2020_fr_2   | 0.907 | 0.883       | 0.933    |
-| 2      | team2_bundle1_hipe2020_fr_1   | 0.904 | 0.880       | 0.929    |
-| 3      | team2_bundle3_hipe2020_fr_1   | 0.901 | 0.875       | 0.928    |
+| 1      | team2_bundle1_hipe2020_fr_2   | 0.912 | 0.892       | 0.932    |
+| 2      | team2_bundle1_hipe2020_fr_1   | 0.909 | 0.890       | 0.928    |
+| 3      | team2_bundle3_hipe2020_fr_1   | 0.905 | 0.884       | 0.927    |
 | 4      | neurbsl_bundle3_hipe2020_fr_1 | 0.866 | 0.836       | 0.899    |
 | 5      | team3_bundle4_hipe2020_fr_1   | 0.808 | 0.767       | 0.853    |
 | 6      | team4_bundle4_hipe2020_fr_2   | 0.800 | 0.825       | 0.776    |
@@ -305,7 +305,7 @@ See [ranking-ajmc-de-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HI
 | Rank   | System                    | F1    | Precision   | Recall   |
 |:-------|:--------------------------|:------|:------------|:---------|
 | 1      | team1_bundle4_ajmc_en_2   | 0.854 | 0.826       | 0.885    |
-| 2      | team2_bundle1_ajmc_en_1   | 0.850 | 0.824       | 0.876    |
+| 2      | team2_bundle1_ajmc_en_1   | 0.851 | 0.827       | 0.876    |
 | 3      | team2_bundle1_ajmc_en_2   | 0.841 | 0.831       | 0.851    |
 | 4      | team1_bundle4_ajmc_en_1   | 0.819 | 0.783       | 0.859    |
 | 5      | neurbsl_bundle3_ajmc_en_1 | 0.736 | 0.680       | 0.802    |
@@ -318,7 +318,7 @@ See [ranking-ajmc-en-coarse-micro-strict-all.tsv](https://github.com/hipe-eval/H
 |:-------|:--------------------------|:------|:------------|:---------|
 | 1      | team1_bundle4_ajmc_en_2   | 0.910 | 0.879       | 0.943    |
 | 2      | team1_bundle4_ajmc_en_1   | 0.899 | 0.859       | 0.943    |
-| 3      | team2_bundle1_ajmc_en_1   | 0.894 | 0.868       | 0.922    |
+| 3      | team2_bundle1_ajmc_en_1   | 0.895 | 0.870       | 0.922    |
 | 4      | team2_bundle1_ajmc_en_2   | 0.884 | 0.874       | 0.894    |
 | 5      | neurbsl_bundle3_ajmc_en_1 | 0.828 | 0.766       | 0.902    |
 
@@ -329,9 +329,9 @@ See [ranking-ajmc-en-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HI
 | Rank   | System                    | F1    | Precision   | Recall   |
 |:-------|:--------------------------|:------|:------------|:---------|
 | 1      | team1_bundle4_ajmc_fr_2   | 0.842 | 0.834       | 0.850    |
-| 2      | team1_bundle4_ajmc_fr_1   | 0.833 | 0.820       | 0.847    |
-| 3      | team2_bundle3_ajmc_fr_2   | 0.826 | 0.810       | 0.842    |
-| 4      | team2_bundle3_ajmc_fr_1   | 0.798 | 0.780       | 0.817    |
+| 2      | team2_bundle3_ajmc_fr_2   | 0.834 | 0.824       | 0.844    |
+| 3      | team1_bundle4_ajmc_fr_1   | 0.833 | 0.820       | 0.847    |
+| 4      | team2_bundle3_ajmc_fr_1   | 0.814 | 0.801       | 0.828    |
 | 5      | neurbsl_bundle3_ajmc_fr_1 | 0.741 | 0.707       | 0.778    |
 
 See [ranking-ajmc-fr-coarse-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-fr-coarse-micro-strict-all.tsv) for full details.
@@ -342,8 +342,8 @@ See [ranking-ajmc-fr-coarse-micro-strict-all.tsv](https://github.com/hipe-eval/H
 |:-------|:--------------------------|:------|:------------|:---------|
 | 1      | team1_bundle4_ajmc_fr_1   | 0.888 | 0.874       | 0.903    |
 | 2      | team1_bundle4_ajmc_fr_2   | 0.880 | 0.872       | 0.889    |
-| 3      | team2_bundle3_ajmc_fr_2   | 0.872 | 0.856       | 0.889    |
-| 4      | team2_bundle3_ajmc_fr_1   | 0.860 | 0.841       | 0.881    |
+| 3      | team2_bundle3_ajmc_fr_2   | 0.878 | 0.867       | 0.889    |
+| 4      | team2_bundle3_ajmc_fr_1   | 0.866 | 0.852       | 0.881    |
 | 5      | neurbsl_bundle3_ajmc_fr_1 | 0.825 | 0.788       | 0.867    |
 
 See [ranking-ajmc-fr-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-fr-coarse-micro-fuzzy-all.tsv) for full details.

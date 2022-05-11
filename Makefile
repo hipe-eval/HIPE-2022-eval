@@ -24,9 +24,11 @@ GROUND_TRUTH_DIR ?= $(RELEASE_DIR)/$(VERSION)
 SCORER_DIR?=HIPE-scorer
 EVAL_DIR?=evaluation
 
-SUB_DIR?=$(EVAL_DIR)/system-responses/submitted
-SUB_TIMENORM_DIR?=$(EVAL_DIR)/system-responses/time-normalized
-SUB_HISTONORM_DIR?=$(EVAL_DIR)/system-responses/histo-normalized
+# SUB_DIR contains all submitted files
+SUB_DIR ?= $(EVAL_DIR)/system-responses/submitted
+SUB_HISTO_DIR ?= $(EVAL_DIR)/system-responses/histo-normalized
+SUB_TIMENORM_DIR ?= $(EVAL_DIR)/system-responses/time-normalized
+SUB_HISTOTIMENORM_DIR ?= $(EVAL_DIR)/system-responses/histo-time-normalized
 
 RES_DIR?=$(EVAL_DIR)/system-evaluations
 EVAL_LOGS_DIR?=$(EVAL_DIR)/system-evaluation-logs
@@ -61,7 +63,47 @@ EVAL_TIME_PERIOD_EN?=
 
 #: create evaluation directories
 prepare-eval:
-	mkdir -p $(SUB_DIR) $(SUB_TIMENORM_DIR) $(SUB_HISTONORM_DIR) $(RES_DIR) $(EVAL_LOGS_DIR) $(RANK_DIR)
+	mkdir -p $(SUB_DIR) $(SUB_TIMENORM_DIR) $(SUB_HISTOTIMENORM_DIR) $(RES_DIR) $(EVAL_LOGS_DIR) $(RANK_DIR)
+
+############################################################################################
+### Groundtruth files and their automatically generated normalized variants
+#   - %.tsv : original files
+#   - %_histonorm.tsv: Mapping of equivalent historical/modern entities data-specific
+############################################################################################
+
+
+gold-files:=$(foreach dataset,$(DATASETS),$(wildcard $(GROUND_TRUTH_DIR)/*-$(dataset)-test-??.tsv))
+ifeq ($(DEBUG),1)
+$(info )
+$(info # INFO: gold-files: $(gold-files))
+$(info )
+endif
+
+# produce normalized version of gold standard
+# version: historical
+gold-histonorm-files:=$(gold-files:.tsv=_histonorm.tsv)
+
+# normalize NEL for historical entities in gold standard
+$(GROUND_TRUTH_DIR)/%_histonorm.tsv: $(GROUND_TRUTH_DIR)/%.tsv
+	python3 $(SCORER_DIR)/normalize_linking.py -i $< -o $@ --norm-histo -m $(FILE_NEL_MAPPING)
+	echo "CHANGED LINES in $< $$(diff -wy --suppress-common-lines $@ $< | wc -l)" > $@.log
+
+
+
+result-nonorm-files:=$(subst $(SUB_DIR),$(RES_DIR),$(submission-files))
+ifeq ($(DEBUG),1)
+$(info )
+$(info result-nonorm-files: $(result-nonorm-files))
+$(info )
+endif
+result-timenorm-files:=$(subst $(SUB_TIMENORM_DIR),$(RES_DIR),$(submission-timenorm-files))
+result-histonorm-files:=$(subst $(SUB_HISTOTIMENORM_DIR),$(RES_DIR),$(submission-histonorm-files:.tsv=_relaxed.tsv))
+
+
+build-gold-histonorm-files: $(gold-histonorm-files)
+clean-gold-histonorm-files:
+	rm -fv $(gold-histonorm-files)
+
 
 # TEAMNAME_TASKBUNDLE_DATASET_LANG_RUN.tsv
 # e.g. evaluation/system-responses/submitted/team2_bundle1_hipe2020_fr_2.tsv
@@ -77,33 +119,7 @@ endif
 # produce normalized version of system responses
 # versions: time, historical+time
 submission-timenorm-files:=$(subst $(SUB_DIR),$(SUB_TIMENORM_DIR),$(submission-files))
-submission-histonorm-files:=$(subst $(SUB_DIR),$(SUB_HISTONORM_DIR),$(submission-files))
-
-
-gold-files:=$(foreach dataset,$(DATASETS),$(wildcard $(GROUND_TRUTH_DIR)/*-$(dataset)-test-??.tsv))
-ifeq ($(DEBUG),1)
-$(info )
-$(info # INFO: gold-files: $(gold-files))
-$(info )
-endif
-
-# produce normalized version of gold standard
-# version: historical
-gold-histonorm-files:=$(gold-files:.tsv=_histonorm.tsv)
-
-result-nonorm-files:=$(subst $(SUB_DIR),$(RES_DIR),$(submission-files))
-ifeq ($(DEBUG),1)
-$(info )
-$(info result-nonorm-files: $(result-nonorm-files))
-$(info )
-endif
-result-timenorm-files:=$(subst $(SUB_TIMENORM_DIR),$(RES_DIR),$(submission-timenorm-files))
-result-histonorm-files:=$(subst $(SUB_HISTONORM_DIR),$(RES_DIR),$(submission-histonorm-files:.tsv=_relaxed.tsv))
-
-
-build-gold-histonorm-files: $(gold-histonorm-files)
-clean-gold-histonorm-files:
-	rm -fv $(gold-histonorm-files)
+submission-histonorm-files:=$(subst $(SUB_DIR),$(SUB_HISTOTIMENORM_DIR),$(submission-files))
 
 #:
 eval-system-bundle: $(result-nonorm-files) # $(submission-timenorm-files) $(result-timenorm-files) $(submission-histonorm-files) $(result-histonorm-files)
@@ -126,16 +142,16 @@ eval-system-bundles-%: prepare-eval
 	$(MAKE) -k eval-system-bundle BUNDLE=4 DATASET=$* $(MAKEFLAGS)
 	$(MAKE) -k eval-system-bundle BUNDLE=5 DATASET=$* $(MAKEFLAGS)
 
-# normalize NEL for historical entities in gold standard
-%_histonorm.tsv: %.tsv
-	python3 $(SCORER_DIR)/normalize_linking.py -i $< -o $@ --norm-histo -m $(FILE_NEL_MAPPING)
+## normalize NEL for historical entities in gold standard
+#$(GROUND_TRUTH_DIR)/%_histonorm.tsv: $(GROUND_TRUTH_DIR)/%.tsv
+#	python3 $(SCORER_DIR)/normalize_linking.py -i $< -o $@ --norm-histo -m $(FILE_NEL_MAPPING)
 
 # normalize NEL for time mentions in system responses
 $(SUB_TIMENORM_DIR)/%.tsv: $(SUB_DIR)/%.tsv
 	python3 $(SCORER_DIR)/normalize_linking.py -i $< -o $@ --norm-time
 
 # normalize NEL for historical entities and time mentions in system responses
-$(SUB_HISTONORM_DIR)/%.tsv: $(SUB_DIR)/%.tsv
+$(SUB_HISTOTIMENORM_DIR)/%.tsv: $(SUB_DIR)/%.tsv
 	python3 $(SCORER_DIR)/normalize_linking.py -i $< -o $@ --norm-time --norm-histo -m $(FILE_NEL_MAPPING)
 
 # Raw evaluation without any modifications
@@ -200,7 +216,7 @@ else ifeq ($(BUNDLE),5)
 endif
 
 # NEL evaluation on historically normalized system and gold datasets
-$(RES_DIR)/%_relaxed.tsv: $(SUB_HISTONORM_DIR)/%.tsv $(gold-histonorm-files)
+$(RES_DIR)/%_relaxed.tsv: $(SUB_HISTOTIMENORM_DIR)/%.tsv $(gold-histonorm-files)
 	@$(eval LANG_ABBR=$(shell echo $< | grep -Po '(?<=_)[a-z]{2}(?=_[0-3])'))
 	@$(eval PERIOD=$(shell if [ "en" == $(LANG_ABBR) ]; then echo $(EVAL_TIME_PERIOD_EN); elif [ "de" == $(LANG_ABBR) ]; then echo $(EVAL_TIME_PERIOD_DE); else echo $(EVAL_TIME_PERIOD_FR); fi))
 
@@ -260,7 +276,7 @@ plots-paper: ranking-de ranking-fr ranking-en
 eval-clean:
 	rm -f $(RANK_DIR)/*
 	rm -f $(SUB_TIMENORM_DIR)/*
-	rm -f $(SUB_HISTONORM_DIR)/*
+	rm -f $(SUB_HISTOTIMENORM_DIR)/*
 	rm -f $(RES_DIR)/*tsv
 	rm -f $(EVAL_LOGS_DIR)/*
 	rm -f $(gold-histonorm-files)
