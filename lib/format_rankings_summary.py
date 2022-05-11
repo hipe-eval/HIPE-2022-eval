@@ -18,8 +18,8 @@ GH_BASE_URL = "https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluatio
 date_of_creation = datetime.datetime.today().strftime('%d.%m.%Y')
 
 PROLOGUE = f"""
-We provide an **overview table** of the **PRELIMINARY** anonymized results of the runs submitted by the teams. 
-It also includes a neural baseline created by the organizers.
+We provide an **overview table** of the **PRELIMINARY**  results of the runs submitted by the teams. 
+It also includes a neural baseline created by the organizers. A non-neural CRF-based baseline will be added soon for NERC.
 
 - Date: {date_of_creation}.
 - Bundles: 1 to 5
