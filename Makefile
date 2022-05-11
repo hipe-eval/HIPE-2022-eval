@@ -6,7 +6,7 @@ help:
     # make ranking-alldatasets-alllanguages
     # make generate-rankings-summary
 
-all: prepare-eval  eval-system-bundles ranking-alldatasets-alllanguages generate-rankings-summary
+all: prepare-eval  eval-system-bundles ranking-alldatasets-alllanguages rankings-summary
 
 
 
