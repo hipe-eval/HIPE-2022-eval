@@ -306,12 +306,22 @@ endef
 ####define
 
 
-create-feedback-zips:
+create-feedback-zips-nerc:
 	rm -fr feedback-phase-1.d && mkdir -p feedback-phase-1.d
 	for team in team1 team2 team3 team4 ; do \
     zip feedback-phase-1.d/evaluation-data-$${team}.zip  \
      evaluation/system-evaluation-logs/$${team}*.log \
 	evaluation/system-evaluations/$${team}_*{nerc_fine,nerc_coarse}*.{json,tsv} \
+     evaluation/system-responses/submitted/$${team}*.tsv ;\
+  	done
+
+
+create-feedback-zips-linking:
+	rm -fr feedback-phase-2.d && mkdir -p feedback-phase-2.d
+	for team in team2 team5 ; do \
+    zip feedback-phase-2.d/evaluation-data-$${team}.zip  \
+     evaluation/system-evaluation-logs/$${team}*nel.log \
+	 evaluation/system-evaluations/$${team}_*nel.{json,tsv} \
      evaluation/system-responses/submitted/$${team}*.tsv ;\
   	done
 #  include ranking? evaluation/system-rankings/ranking-{hipe2020,newseye,sonar,letemps}*coarse*all.tsv ;\
