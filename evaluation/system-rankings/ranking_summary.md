@@ -1,10 +1,12 @@
-# CLEF HIPE 2022 preliminary results
+# HIPE 2022 evaluation results
 
-We provide an **overview table** of the **PRELIMINARY**  results of the runs submitted by the teams. 
+We provide an **overview table** of the **preliminary**  results of the runs submitted by the teams.     
 It also includes a neural baseline created by the organizers. A non-neural CRF-based baseline will be added soon for NERC.
 
 - Date: 13.05.2022.
 - Bundles: 1 to 5
+- HIPE-2022 data version: [vX.X](link)
+- HIPE scorer version: [vX.X](link)
 - The current results for NEL can still change as we may extend the list of equivalent wikidata IDs. 
 - Detailed results for all systems can be found in the corresponding .tsv file (link provided below each table).
 - Detailed results for each team's runs are sent privately.
@@ -16,112 +18,59 @@ It also includes a neural baseline created by the organizers. A non-neural CRF-b
 
 - NERC and Entity Linking (EL) are evaluated in terms of macro and micro Precision, Recall, F1-measure. Here only micro is reported.
 
-- Evaluation scenarios for **NERC**:
-  - **Strict**: exact boundary matching.
-  - **Fuzzy**: fuzzy (=overlap) boundary matching.
+- Evaluation scenarios for **NERC**:    
+       - **Strict**: exact boundary matching.    
+       - **Fuzzy**: fuzzy (=overlap) boundary matching.    
 
-- Evaluation scenarios for **EL** (Note: In terms of boundaries, NEL is only evaluated according to fuzzy boundary matching in all scenarios. 
-  What is of interest is the capacity to provide the correct link rather than the correct boundaries (NERC task).):
-   - **Strict**: The system's top link prediction (NIL or QID) must be identical with the gold standard annotation.
-   - **Relaxed**: The set of system's predictions is expanded with a set of historically related entities QIDs, e.g "Germany" is expanded with the more specific "Confederation of the Rhine" and both are considered as valid answers. Systems are therefore evaluated more generously.  For this scenario, we additionally report F@1/3/5 in the .tsv files.
-  
+- Evaluation scenarios for **EL**:    
+In terms of boundaries, NEL is only evaluated according to fuzzy boundary matching in all scenarios. What is of interest is the capacity to provide the correct link rather than the correct boundaries (NERC task).         
+        - **Strict**: The system's top link prediction (NIL or QID) must be identical with the gold standard annotation.    
+        - **Relaxed**: The set of system's predictions is expanded with a set of historically related entities QIDs, e.g "Germany" is expended with the more specific "Confederation of the Rhine" and both are considered as valid answers. Systems are therefore evaluated more generously.  For this scenario, we additionally report F@1/3/5 in the .tsv files.    
+
+**Team keys**
+
+*(in numerical order)*
+
+| Team key | Team name   | Team affiliation                                             |
+| -------- | ----------- | ------------------------------------------------------------ |
+| team1     | HISTeria    | Ludwig-Maximilians-Universität and Bayerische Staatsbibliothek München, Munich, Germany |
+| team2    | L3i         | La Rochelle University, La Rochelle, France                  |
+| team3    | WLV    | University of Wolverhampton, Wolverhampton, UK |
+| team4   | aauzh         | Machine Learning MA class, Zurich University, Switzerland  |
+| team5   | SBB         | Berlin State Library, Berlin, Germany    |
 
 
 
 <!--ts-->
-* [CLEF HIPE 2022 preliminary results](./ranking_summary.md#clef-hipe-2022-preliminary-results)
-   * [Team keys](./ranking_summary.md#team-keys)
+* [HIPE 2022 evaluation results](./ranking_summary.md#hipe-2022-evaluation-results)
    * [NERC coarse](./ranking_summary.md#nerc-coarse)
       * [hipe2020](./ranking_summary.md#hipe2020)
-         * [NERC coarse hipe2020 German strict (literal sense) [NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-hipe2020-german-strict-literal-sense-ne-coarse-lit-micro-strict-time-all-led-all)
-         * [NERC coarse hipe2020 German fuzzy (literal sense) [NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-hipe2020-german-fuzzy-literal-sense-ne-coarse-lit-micro-fuzzy-time-all-led-all)
-         * [NERC coarse hipe2020 English strict (literal sense) [NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-hipe2020-english-strict-literal-sense-ne-coarse-lit-micro-strict-time-all-led-all)
-         * [NERC coarse hipe2020 English fuzzy (literal sense) [NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-hipe2020-english-fuzzy-literal-sense-ne-coarse-lit-micro-fuzzy-time-all-led-all)
-         * [NERC coarse hipe2020 French strict (literal sense) [NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-hipe2020-french-strict-literal-sense-ne-coarse-lit-micro-strict-time-all-led-all)
-         * [NERC coarse hipe2020 French fuzzy (literal sense) [NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-hipe2020-french-fuzzy-literal-sense-ne-coarse-lit-micro-fuzzy-time-all-led-all)
       * [newseye](./ranking_summary.md#newseye)
-         * [NERC coarse newseye German strict (literal sense) [NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-newseye-german-strict-literal-sense-ne-coarse-lit-micro-strict-time-all-led-all)
-         * [NERC coarse newseye German fuzzy (literal sense) [NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-newseye-german-fuzzy-literal-sense-ne-coarse-lit-micro-fuzzy-time-all-led-all)
-         * [NERC coarse newseye French strict (literal sense) [NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-newseye-french-strict-literal-sense-ne-coarse-lit-micro-strict-time-all-led-all)
-         * [NERC coarse newseye French fuzzy (literal sense) [NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-newseye-french-fuzzy-literal-sense-ne-coarse-lit-micro-fuzzy-time-all-led-all)
-         * [NERC coarse newseye Swedish strict (literal sense) [NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-newseye-swedish-strict-literal-sense-ne-coarse-lit-micro-strict-time-all-led-all)
-         * [NERC coarse newseye Swedish fuzzy (literal sense) [NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-newseye-swedish-fuzzy-literal-sense-ne-coarse-lit-micro-fuzzy-time-all-led-all)
-         * [NERC coarse newseye Finnish strict (literal sense) [NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-newseye-finnish-strict-literal-sense-ne-coarse-lit-micro-strict-time-all-led-all)
-         * [NERC coarse newseye Finnish fuzzy (literal sense) [NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-newseye-finnish-fuzzy-literal-sense-ne-coarse-lit-micro-fuzzy-time-all-led-all)
       * [letemps](./ranking_summary.md#letemps)
-         * [NERC coarse letemps French strict (literal sense) [NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-letemps-french-strict-literal-sense-ne-coarse-lit-micro-strict-time-all-led-all)
-         * [NERC coarse letemps French fuzzy (literal sense) [NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-letemps-french-fuzzy-literal-sense-ne-coarse-lit-micro-fuzzy-time-all-led-all)
       * [sonar](./ranking_summary.md#sonar)
-         * [NERC coarse sonar German strict (literal sense) [NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-sonar-german-strict-literal-sense-ne-coarse-lit-micro-strict-time-all-led-all)
-         * [NERC coarse sonar German fuzzy (literal sense) [NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-sonar-german-fuzzy-literal-sense-ne-coarse-lit-micro-fuzzy-time-all-led-all)
       * [topres19th](./ranking_summary.md#topres19th)
-         * [NERC coarse topres19th English strict (literal sense) [NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-topres19th-english-strict-literal-sense-ne-coarse-lit-micro-strict-time-all-led-all)
-         * [NERC coarse topres19th English fuzzy (literal sense) [NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-topres19th-english-fuzzy-literal-sense-ne-coarse-lit-micro-fuzzy-time-all-led-all)
       * [ajmc](./ranking_summary.md#ajmc)
-         * [NERC coarse ajmc German strict (literal sense) [NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-ajmc-german-strict-literal-sense-ne-coarse-lit-micro-strict-time-all-led-all)
-         * [NERC coarse ajmc German fuzzy (literal sense) [NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-ajmc-german-fuzzy-literal-sense-ne-coarse-lit-micro-fuzzy-time-all-led-all)
-         * [NERC coarse ajmc English strict (literal sense) [NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-ajmc-english-strict-literal-sense-ne-coarse-lit-micro-strict-time-all-led-all)
-         * [NERC coarse ajmc English fuzzy (literal sense) [NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-ajmc-english-fuzzy-literal-sense-ne-coarse-lit-micro-fuzzy-time-all-led-all)
-         * [NERC coarse ajmc French strict (literal sense) [NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-ajmc-french-strict-literal-sense-ne-coarse-lit-micro-strict-time-all-led-all)
-         * [NERC coarse ajmc French fuzzy (literal sense) [NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-coarse-ajmc-french-fuzzy-literal-sense-ne-coarse-lit-micro-fuzzy-time-all-led-all)
    * [NERC fine](./ranking_summary.md#nerc-fine)
       * [hipe2020](./ranking_summary.md#hipe2020-1)
-         * [NERC fine hipe2020 German strict (literal sense) [NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-fine-hipe2020-german-strict-literal-sense-ne-fine-lit-micro-strict-time-all-led-all)
-         * [NERC fine hipe2020 German fuzzy (literal sense) [NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-fine-hipe2020-german-fuzzy-literal-sense-ne-fine-lit-micro-fuzzy-time-all-led-all)
-         * [NERC fine hipe2020 German strict, nested entities [NE-NESTED-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-fine-hipe2020-german-strict-nested-entities-ne-nested-micro-strict-time-all-led-all)
-         * [NERC fine hipe2020 German fuzzy, nested entities [NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-fine-hipe2020-german-fuzzy-nested-entities-ne-nested-micro-fuzzy-time-all-led-all)
-         * [NERC fine hipe2020 French strict (literal sense) [NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-fine-hipe2020-french-strict-literal-sense-ne-fine-lit-micro-strict-time-all-led-all)
-         * [NERC fine hipe2020 French fuzzy (literal sense) [NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-fine-hipe2020-french-fuzzy-literal-sense-ne-fine-lit-micro-fuzzy-time-all-led-all)
-         * [NERC fine hipe2020 French strict, nested entities [NE-NESTED-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-fine-hipe2020-french-strict-nested-entities-ne-nested-micro-strict-time-all-led-all)
-         * [NERC fine hipe2020 French fuzzy, nested entities [NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-fine-hipe2020-french-fuzzy-nested-entities-ne-nested-micro-fuzzy-time-all-led-all)
       * [letemps](./ranking_summary.md#letemps-1)
-         * [NERC fine letemps French strict (literal sense) [NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-fine-letemps-french-strict-literal-sense-ne-fine-lit-micro-strict-time-all-led-all)
-         * [NERC fine letemps French fuzzy (literal sense) [NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-fine-letemps-french-fuzzy-literal-sense-ne-fine-lit-micro-fuzzy-time-all-led-all)
       * [ajmc](./ranking_summary.md#ajmc-1)
-         * [NERC fine ajmc German strict (literal sense) [NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-fine-ajmc-german-strict-literal-sense-ne-fine-lit-micro-strict-time-all-led-all)
-         * [NERC fine ajmc German fuzzy (literal sense) [NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-fine-ajmc-german-fuzzy-literal-sense-ne-fine-lit-micro-fuzzy-time-all-led-all)
-         * [NERC fine ajmc English strict (literal sense) [NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-fine-ajmc-english-strict-literal-sense-ne-fine-lit-micro-strict-time-all-led-all)
-         * [NERC fine ajmc English fuzzy (literal sense) [NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-fine-ajmc-english-fuzzy-literal-sense-ne-fine-lit-micro-fuzzy-time-all-led-all)
-         * [NERC fine ajmc French strict (literal sense) [NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-fine-ajmc-french-strict-literal-sense-ne-fine-lit-micro-strict-time-all-led-all)
-         * [NERC fine ajmc French fuzzy (literal sense) [NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL]](./ranking_summary.md#nerc-fine-ajmc-french-fuzzy-literal-sense-ne-fine-lit-micro-fuzzy-time-all-led-all)
    * [EL](./ranking_summary.md#el)
       * [hipe2020](./ranking_summary.md#hipe2020-2)
-         * [EL hipe2020 German strict @1 (literal sense) [NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1]](./ranking_summary.md#el-hipe2020-german-strict-1-literal-sense-nel-lit-micro-fuzzy-time-all-led-all-1)
-         * [EL hipe2020 English strict @1 (literal sense) [NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1]](./ranking_summary.md#el-hipe2020-english-strict-1-literal-sense-nel-lit-micro-fuzzy-time-all-led-all-1)
-         * [EL hipe2020 French strict @1 (literal sense) [NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1]](./ranking_summary.md#el-hipe2020-french-strict-1-literal-sense-nel-lit-micro-fuzzy-time-all-led-all-1)
       * [newseye](./ranking_summary.md#newseye-1)
       * [sonar](./ranking_summary.md#sonar-1)
       * [topres19th](./ranking_summary.md#topres19th-1)
       * [ajmc](./ranking_summary.md#ajmc-2)
-         * [EL ajmc English strict @1 (literal sense) [NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1]](./ranking_summary.md#el-ajmc-english-strict-1-literal-sense-nel-lit-micro-fuzzy-time-all-led-all-1)
    * [EL only](./ranking_summary.md#el-only)
       * [hipe2020](./ranking_summary.md#hipe2020-3)
-         * [EL only hipe2020 German strict @1 (literal sense) [NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1]](./ranking_summary.md#el-only-hipe2020-german-strict-1-literal-sense-nel-lit-micro-fuzzy-time-all-led-all-1)
-         * [EL only hipe2020 English strict @1 (literal sense) [NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1]](./ranking_summary.md#el-only-hipe2020-english-strict-1-literal-sense-nel-lit-micro-fuzzy-time-all-led-all-1)
-         * [EL only hipe2020 French strict @1 (literal sense) [NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1]](./ranking_summary.md#el-only-hipe2020-french-strict-1-literal-sense-nel-lit-micro-fuzzy-time-all-led-all-1)
       * [newseye](./ranking_summary.md#newseye-2)
-         * [EL only newseye German strict @1 (literal sense) [NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1]](./ranking_summary.md#el-only-newseye-german-strict-1-literal-sense-nel-lit-micro-fuzzy-time-all-led-all-1)
-         * [EL only newseye French strict @1 (literal sense) [NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1]](./ranking_summary.md#el-only-newseye-french-strict-1-literal-sense-nel-lit-micro-fuzzy-time-all-led-all-1)
       * [sonar](./ranking_summary.md#sonar-2)
-         * [EL only sonar German strict @1 (literal sense) [NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1]](./ranking_summary.md#el-only-sonar-german-strict-1-literal-sense-nel-lit-micro-fuzzy-time-all-led-all-1)
       * [topres19th](./ranking_summary.md#topres19th-2)
-         * [EL only topres19th English strict @1 (literal sense) [NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1]](./ranking_summary.md#el-only-topres19th-english-strict-1-literal-sense-nel-lit-micro-fuzzy-time-all-led-all-1)
       * [ajmc](./ranking_summary.md#ajmc-3)
-         * [EL only ajmc German strict @1 (literal sense) [NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1]](./ranking_summary.md#el-only-ajmc-german-strict-1-literal-sense-nel-lit-micro-fuzzy-time-all-led-all-1)
-         * [EL only ajmc English strict @1 (literal sense) [NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1]](./ranking_summary.md#el-only-ajmc-english-strict-1-literal-sense-nel-lit-micro-fuzzy-time-all-led-all-1)
-         * [EL only ajmc French strict @1 (literal sense) [NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1]](./ranking_summary.md#el-only-ajmc-french-strict-1-literal-sense-nel-lit-micro-fuzzy-time-all-led-all-1)
 
 <!-- Created by https://github.com/ekalinin/github-markdown-toc -->
-<!-- Added by: siclemat, at: Fri May 13 01:27:03 CEST 2022 -->
+<!-- Added by: siclemat, at: Fri May 13 01:53:39 CEST 2022 -->
 
 <!--te-->
-## Team keys
-- `team1` = `HISTeria`
-- `team2` = `l3i`
-- `team3` = `WLV`
-- `team4` = `aauzh`
-- `team5` = `SBB`
-
 
 
 ## NERC coarse
@@ -130,7 +79,7 @@ Relevant bundles: 1-4
 
 ### hipe2020
 
-#### NERC coarse hipe2020 German strict (literal sense) \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
+**NERC coarse hipe2020 German strict (literal sense)** \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                        | F1    | Precision   | Recall   |
 |:-------|:------------------------------|:------|:------------|:---------|
@@ -143,7 +92,7 @@ Relevant bundles: 1-4
 
 See [ranking-hipe2020-de-coarse-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-de-coarse-micro-strict-all.tsv) for full details.
 
-#### NERC coarse hipe2020 German fuzzy (literal sense) \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
+**NERC coarse hipe2020 German fuzzy (literal sense)** \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                        | F1    | Precision   | Recall   |
 |:-------|:------------------------------|:------|:------------|:---------|
@@ -156,7 +105,7 @@ See [ranking-hipe2020-de-coarse-micro-strict-all.tsv](https://github.com/hipe-ev
 
 See [ranking-hipe2020-de-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-de-coarse-micro-fuzzy-all.tsv) for full details.
 
-#### NERC coarse hipe2020 English strict (literal sense) \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
+**NERC coarse hipe2020 English strict (literal sense)** \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                        | F1    | Precision   | Recall   |
 |:-------|:------------------------------|:------|:------------|:---------|
@@ -168,7 +117,7 @@ See [ranking-hipe2020-de-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eva
 
 See [ranking-hipe2020-en-coarse-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-en-coarse-micro-strict-all.tsv) for full details.
 
-#### NERC coarse hipe2020 English fuzzy (literal sense) \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
+**NERC coarse hipe2020 English fuzzy (literal sense)** \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                        | F1    | Precision   | Recall   |
 |:-------|:------------------------------|:------|:------------|:---------|
@@ -180,7 +129,7 @@ See [ranking-hipe2020-en-coarse-micro-strict-all.tsv](https://github.com/hipe-ev
 
 See [ranking-hipe2020-en-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-en-coarse-micro-fuzzy-all.tsv) for full details.
 
-#### NERC coarse hipe2020 French strict (literal sense) \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
+**NERC coarse hipe2020 French strict (literal sense)** \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                        | F1    | Precision   | Recall   |
 |:-------|:------------------------------|:------|:------------|:---------|
@@ -194,7 +143,7 @@ See [ranking-hipe2020-en-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eva
 
 See [ranking-hipe2020-fr-coarse-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-fr-coarse-micro-strict-all.tsv) for full details.
 
-#### NERC coarse hipe2020 French fuzzy (literal sense) \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
+**NERC coarse hipe2020 French fuzzy (literal sense)** \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                        | F1    | Precision   | Recall   |
 |:-------|:------------------------------|:------|:------------|:---------|
@@ -210,7 +159,7 @@ See [ranking-hipe2020-fr-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eva
 
 ### newseye
 
-#### NERC coarse newseye German strict (literal sense) \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
+**NERC coarse newseye German strict (literal sense)** \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                       | F1    | Precision   | Recall   |
 |:-------|:-----------------------------|:------|:------------|:---------|
@@ -220,7 +169,7 @@ See [ranking-hipe2020-fr-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eva
 
 See [ranking-newseye-de-coarse-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-newseye-de-coarse-micro-strict-all.tsv) for full details.
 
-#### NERC coarse newseye German fuzzy (literal sense) \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
+**NERC coarse newseye German fuzzy (literal sense)** \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                       | F1    | Precision   | Recall   |
 |:-------|:-----------------------------|:------|:------------|:---------|
@@ -230,7 +179,7 @@ See [ranking-newseye-de-coarse-micro-strict-all.tsv](https://github.com/hipe-eva
 
 See [ranking-newseye-de-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-newseye-de-coarse-micro-fuzzy-all.tsv) for full details.
 
-#### NERC coarse newseye French strict (literal sense) \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
+**NERC coarse newseye French strict (literal sense)** \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                       | F1    | Precision   | Recall   |
 |:-------|:-----------------------------|:------|:------------|:---------|
@@ -240,7 +189,7 @@ See [ranking-newseye-de-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eval
 
 See [ranking-newseye-fr-coarse-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-newseye-fr-coarse-micro-strict-all.tsv) for full details.
 
-#### NERC coarse newseye French fuzzy (literal sense) \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
+**NERC coarse newseye French fuzzy (literal sense)** \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                       | F1    | Precision   | Recall   |
 |:-------|:-----------------------------|:------|:------------|:---------|
@@ -250,7 +199,7 @@ See [ranking-newseye-fr-coarse-micro-strict-all.tsv](https://github.com/hipe-eva
 
 See [ranking-newseye-fr-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-newseye-fr-coarse-micro-fuzzy-all.tsv) for full details.
 
-#### NERC coarse newseye Swedish strict (literal sense) \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
+**NERC coarse newseye Swedish strict (literal sense)** \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                       | F1    | Precision   | Recall   |
 |:-------|:-----------------------------|:------|:------------|:---------|
@@ -260,7 +209,7 @@ See [ranking-newseye-fr-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eval
 
 See [ranking-newseye-sv-coarse-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-newseye-sv-coarse-micro-strict-all.tsv) for full details.
 
-#### NERC coarse newseye Swedish fuzzy (literal sense) \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
+**NERC coarse newseye Swedish fuzzy (literal sense)** \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                       | F1    | Precision   | Recall   |
 |:-------|:-----------------------------|:------|:------------|:---------|
@@ -270,7 +219,7 @@ See [ranking-newseye-sv-coarse-micro-strict-all.tsv](https://github.com/hipe-eva
 
 See [ranking-newseye-sv-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-newseye-sv-coarse-micro-fuzzy-all.tsv) for full details.
 
-#### NERC coarse newseye Finnish strict (literal sense) \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
+**NERC coarse newseye Finnish strict (literal sense)** \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                       | F1    | Precision   | Recall   |
 |:-------|:-----------------------------|:------|:------------|:---------|
@@ -280,7 +229,7 @@ See [ranking-newseye-sv-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eval
 
 See [ranking-newseye-fi-coarse-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-newseye-fi-coarse-micro-strict-all.tsv) for full details.
 
-#### NERC coarse newseye Finnish fuzzy (literal sense) \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
+**NERC coarse newseye Finnish fuzzy (literal sense)** \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                       | F1    | Precision   | Recall   |
 |:-------|:-----------------------------|:------|:------------|:---------|
@@ -292,7 +241,7 @@ See [ranking-newseye-fi-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eval
 
 ### letemps
 
-#### NERC coarse letemps French strict (literal sense) \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
+**NERC coarse letemps French strict (literal sense)** \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                       | F1    | Precision   | Recall   |
 |:-------|:-----------------------------|:------|:------------|:---------|
@@ -303,7 +252,7 @@ See [ranking-newseye-fi-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eval
 
 See [ranking-letemps-fr-coarse-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-letemps-fr-coarse-micro-strict-all.tsv) for full details.
 
-#### NERC coarse letemps French fuzzy (literal sense) \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
+**NERC coarse letemps French fuzzy (literal sense)** \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                       | F1    | Precision   | Recall   |
 |:-------|:-----------------------------|:------|:------------|:---------|
@@ -316,29 +265,29 @@ See [ranking-letemps-fr-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eval
 
 ### sonar
 
-#### NERC coarse sonar German strict (literal sense) \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
+**NERC coarse sonar German strict (literal sense)** \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                     | F1    | Precision   | Recall   |
 |:-------|:---------------------------|:------|:------------|:---------|
-| 1      | team4_bundle4_sonar_de_1   | 0.490 | 0.470       | 0.511    |
-| 2      | team4_bundle4_sonar_de_2   | 0.477 | 0.447       | 0.513    |
-| 3      | neurbsl_bundle3_sonar_de_1 | 0.314 | 0.272       | 0.373    |
+| 1      | team4_bundle4_sonar_de_1   | 0.529 | 0.512       | 0.548    |
+| 2      | team4_bundle4_sonar_de_2   | 0.516 | 0.486       | 0.550    |
+| 3      | neurbsl_bundle3_sonar_de_1 | 0.307 | 0.267       | 0.361    |
 
 See [ranking-sonar-de-coarse-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-sonar-de-coarse-micro-strict-all.tsv) for full details.
 
-#### NERC coarse sonar German fuzzy (literal sense) \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
+**NERC coarse sonar German fuzzy (literal sense)** \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                     | F1    | Precision   | Recall   |
 |:-------|:---------------------------|:------|:------------|:---------|
-| 1      | team4_bundle4_sonar_de_2   | 0.668 | 0.625       | 0.718    |
-| 2      | team4_bundle4_sonar_de_1   | 0.667 | 0.641       | 0.696    |
-| 3      | neurbsl_bundle3_sonar_de_1 | 0.467 | 0.403       | 0.554    |
+| 1      | team4_bundle4_sonar_de_2   | 0.695 | 0.655       | 0.741    |
+| 2      | team4_bundle4_sonar_de_1   | 0.693 | 0.671       | 0.718    |
+| 3      | neurbsl_bundle3_sonar_de_1 | 0.471 | 0.410       | 0.554    |
 
 See [ranking-sonar-de-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-sonar-de-coarse-micro-fuzzy-all.tsv) for full details.
 
 ### topres19th
 
-#### NERC coarse topres19th English strict (literal sense) \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
+**NERC coarse topres19th English strict (literal sense)** \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                          | F1    | Precision   | Recall   |
 |:-------|:--------------------------------|:------|:------------|:---------|
@@ -349,7 +298,7 @@ See [ranking-sonar-de-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eval/H
 
 See [ranking-topres19th-en-coarse-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-topres19th-en-coarse-micro-strict-all.tsv) for full details.
 
-#### NERC coarse topres19th English fuzzy (literal sense) \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
+**NERC coarse topres19th English fuzzy (literal sense)** \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                          | F1    | Precision   | Recall   |
 |:-------|:--------------------------------|:------|:------------|:---------|
@@ -362,7 +311,7 @@ See [ranking-topres19th-en-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-e
 
 ### ajmc
 
-#### NERC coarse ajmc German strict (literal sense) \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
+**NERC coarse ajmc German strict (literal sense)** \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                    | F1    | Precision   | Recall   |
 |:-------|:--------------------------|:------|:------------|:---------|
@@ -374,7 +323,7 @@ See [ranking-topres19th-en-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-e
 
 See [ranking-ajmc-de-coarse-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-de-coarse-micro-strict-all.tsv) for full details.
 
-#### NERC coarse ajmc German fuzzy (literal sense) \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
+**NERC coarse ajmc German fuzzy (literal sense)** \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                    | F1    | Precision   | Recall   |
 |:-------|:--------------------------|:------|:------------|:---------|
@@ -386,7 +335,7 @@ See [ranking-ajmc-de-coarse-micro-strict-all.tsv](https://github.com/hipe-eval/H
 
 See [ranking-ajmc-de-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-de-coarse-micro-fuzzy-all.tsv) for full details.
 
-#### NERC coarse ajmc English strict (literal sense) \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
+**NERC coarse ajmc English strict (literal sense)** \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                    | F1    | Precision   | Recall   |
 |:-------|:--------------------------|:------|:------------|:---------|
@@ -398,7 +347,7 @@ See [ranking-ajmc-de-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HI
 
 See [ranking-ajmc-en-coarse-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-en-coarse-micro-strict-all.tsv) for full details.
 
-#### NERC coarse ajmc English fuzzy (literal sense) \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
+**NERC coarse ajmc English fuzzy (literal sense)** \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                    | F1    | Precision   | Recall   |
 |:-------|:--------------------------|:------|:------------|:---------|
@@ -410,7 +359,7 @@ See [ranking-ajmc-en-coarse-micro-strict-all.tsv](https://github.com/hipe-eval/H
 
 See [ranking-ajmc-en-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-en-coarse-micro-fuzzy-all.tsv) for full details.
 
-#### NERC coarse ajmc French strict (literal sense) \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
+**NERC coarse ajmc French strict (literal sense)** \[`NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                    | F1    | Precision   | Recall   |
 |:-------|:--------------------------|:------|:------------|:---------|
@@ -422,7 +371,7 @@ See [ranking-ajmc-en-coarse-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HI
 
 See [ranking-ajmc-fr-coarse-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-fr-coarse-micro-strict-all.tsv) for full details.
 
-#### NERC coarse ajmc French fuzzy (literal sense) \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
+**NERC coarse ajmc French fuzzy (literal sense)** \[`NE-COARSE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                    | F1    | Precision   | Recall   |
 |:-------|:--------------------------|:------|:------------|:---------|
@@ -440,7 +389,7 @@ Relevant bundles: 1, 3
 
 ### hipe2020
 
-#### NERC fine hipe2020 German strict (literal sense) \[`NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
+**NERC fine hipe2020 German strict (literal sense)** \[`NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                        | F1    | Precision   | Recall   |
 |:-------|:------------------------------|:------|:------------|:---------|
@@ -451,7 +400,7 @@ Relevant bundles: 1, 3
 
 See [ranking-hipe2020-de-fine-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-de-fine-micro-strict-all.tsv) for full details.
 
-#### NERC fine hipe2020 German fuzzy (literal sense) \[`NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
+**NERC fine hipe2020 German fuzzy (literal sense)** \[`NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                        | F1    | Precision   | Recall   |
 |:-------|:------------------------------|:------|:------------|:---------|
@@ -462,7 +411,7 @@ See [ranking-hipe2020-de-fine-micro-strict-all.tsv](https://github.com/hipe-eval
 
 See [ranking-hipe2020-de-fine-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-de-fine-micro-fuzzy-all.tsv) for full details.
 
-#### NERC fine hipe2020 German strict, nested entities \[`NE-NESTED-micro-strict-TIME-ALL-LED-ALL`\]
+**NERC fine hipe2020 German strict, nested entities** \[`NE-NESTED-micro-strict-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                      | F1    | Precision   | Recall   |
 |:-------|:----------------------------|:------|:------------|:---------|
@@ -472,7 +421,7 @@ See [ranking-hipe2020-de-fine-micro-fuzzy-all.tsv](https://github.com/hipe-eval/
 
 See [ranking-hipe2020-de-fine-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-de-fine-micro-strict-all.tsv) for full details.
 
-#### NERC fine hipe2020 German fuzzy, nested entities \[`NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL`\]
+**NERC fine hipe2020 German fuzzy, nested entities** \[`NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                      | F1    | Precision   | Recall   |
 |:-------|:----------------------------|:------|:------------|:---------|
@@ -482,7 +431,7 @@ See [ranking-hipe2020-de-fine-micro-strict-all.tsv](https://github.com/hipe-eval
 
 See [ranking-hipe2020-de-fine-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-de-fine-micro-fuzzy-all.tsv) for full details.
 
-#### NERC fine hipe2020 French strict (literal sense) \[`NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
+**NERC fine hipe2020 French strict (literal sense)** \[`NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                        | F1    | Precision   | Recall   |
 |:-------|:------------------------------|:------|:------------|:---------|
@@ -493,7 +442,7 @@ See [ranking-hipe2020-de-fine-micro-fuzzy-all.tsv](https://github.com/hipe-eval/
 
 See [ranking-hipe2020-fr-fine-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-fr-fine-micro-strict-all.tsv) for full details.
 
-#### NERC fine hipe2020 French fuzzy (literal sense) \[`NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
+**NERC fine hipe2020 French fuzzy (literal sense)** \[`NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                        | F1    | Precision   | Recall   |
 |:-------|:------------------------------|:------|:------------|:---------|
@@ -504,7 +453,7 @@ See [ranking-hipe2020-fr-fine-micro-strict-all.tsv](https://github.com/hipe-eval
 
 See [ranking-hipe2020-fr-fine-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-fr-fine-micro-fuzzy-all.tsv) for full details.
 
-#### NERC fine hipe2020 French strict, nested entities \[`NE-NESTED-micro-strict-TIME-ALL-LED-ALL`\]
+**NERC fine hipe2020 French strict, nested entities** \[`NE-NESTED-micro-strict-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                      | F1    | Precision   | Recall   |
 |:-------|:----------------------------|:------|:------------|:---------|
@@ -514,7 +463,7 @@ See [ranking-hipe2020-fr-fine-micro-fuzzy-all.tsv](https://github.com/hipe-eval/
 
 See [ranking-hipe2020-fr-fine-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-fr-fine-micro-strict-all.tsv) for full details.
 
-#### NERC fine hipe2020 French fuzzy, nested entities \[`NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL`\]
+**NERC fine hipe2020 French fuzzy, nested entities** \[`NE-NESTED-micro-fuzzy-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                      | F1    | Precision   | Recall   |
 |:-------|:----------------------------|:------|:------------|:---------|
@@ -526,7 +475,7 @@ See [ranking-hipe2020-fr-fine-micro-fuzzy-all.tsv](https://github.com/hipe-eval/
 
 ### letemps
 
-#### NERC fine letemps French strict (literal sense) \[`NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
+**NERC fine letemps French strict (literal sense)** \[`NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                       | F1    | Precision   | Recall   |
 |:-------|:-----------------------------|:------|:------------|:---------|
@@ -534,7 +483,7 @@ See [ranking-hipe2020-fr-fine-micro-fuzzy-all.tsv](https://github.com/hipe-eval/
 
 See [ranking-letemps-fr-fine-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-letemps-fr-fine-micro-strict-all.tsv) for full details.
 
-#### NERC fine letemps French fuzzy (literal sense) \[`NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
+**NERC fine letemps French fuzzy (literal sense)** \[`NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                       | F1    | Precision   | Recall   |
 |:-------|:-----------------------------|:------|:------------|:---------|
@@ -544,7 +493,7 @@ See [ranking-letemps-fr-fine-micro-fuzzy-all.tsv](https://github.com/hipe-eval/H
 
 ### ajmc
 
-#### NERC fine ajmc German strict (literal sense) \[`NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
+**NERC fine ajmc German strict (literal sense)** \[`NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                    | F1    | Precision   | Recall   |
 |:-------|:--------------------------|:------|:------------|:---------|
@@ -554,7 +503,7 @@ See [ranking-letemps-fr-fine-micro-fuzzy-all.tsv](https://github.com/hipe-eval/H
 
 See [ranking-ajmc-de-fine-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-de-fine-micro-strict-all.tsv) for full details.
 
-#### NERC fine ajmc German fuzzy (literal sense) \[`NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
+**NERC fine ajmc German fuzzy (literal sense)** \[`NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                    | F1    | Precision   | Recall   |
 |:-------|:--------------------------|:------|:------------|:---------|
@@ -564,7 +513,7 @@ See [ranking-ajmc-de-fine-micro-strict-all.tsv](https://github.com/hipe-eval/HIP
 
 See [ranking-ajmc-de-fine-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-de-fine-micro-fuzzy-all.tsv) for full details.
 
-#### NERC fine ajmc English strict (literal sense) \[`NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
+**NERC fine ajmc English strict (literal sense)** \[`NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                    | F1    | Precision   | Recall   |
 |:-------|:--------------------------|:------|:------------|:---------|
@@ -574,7 +523,7 @@ See [ranking-ajmc-de-fine-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE
 
 See [ranking-ajmc-en-fine-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-en-fine-micro-strict-all.tsv) for full details.
 
-#### NERC fine ajmc English fuzzy (literal sense) \[`NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
+**NERC fine ajmc English fuzzy (literal sense)** \[`NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                    | F1    | Precision   | Recall   |
 |:-------|:--------------------------|:------|:------------|:---------|
@@ -584,7 +533,7 @@ See [ranking-ajmc-en-fine-micro-strict-all.tsv](https://github.com/hipe-eval/HIP
 
 See [ranking-ajmc-en-fine-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-en-fine-micro-fuzzy-all.tsv) for full details.
 
-#### NERC fine ajmc French strict (literal sense) \[`NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
+**NERC fine ajmc French strict (literal sense)** \[`NE-FINE-LIT-micro-strict-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                    | F1    | Precision   | Recall   |
 |:-------|:--------------------------|:------|:------------|:---------|
@@ -594,7 +543,7 @@ See [ranking-ajmc-en-fine-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE
 
 See [ranking-ajmc-fr-fine-micro-strict-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-fr-fine-micro-strict-all.tsv) for full details.
 
-#### NERC fine ajmc French fuzzy (literal sense) \[`NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
+**NERC fine ajmc French fuzzy (literal sense)** \[`NE-FINE-LIT-micro-fuzzy-TIME-ALL-LED-ALL`\]
 
 | Rank   | System                    | F1    | Precision   | Recall   |
 |:-------|:--------------------------|:------|:------------|:---------|
@@ -610,7 +559,7 @@ Relevant bundles: 1, 2
 
 ### hipe2020
 
-#### EL hipe2020 German strict @1 (literal sense) \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
+**EL hipe2020 German strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
 
 | Rank   | System                      | F1    | Precision   | Recall   |
 |:-------|:----------------------------|:------|:------------|:---------|
@@ -619,7 +568,7 @@ Relevant bundles: 1, 2
 
 See [ranking-hipe2020-de-nel-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-de-nel-micro-fuzzy-all.tsv) for full details.
 
-#### EL hipe2020 English strict @1 (literal sense) \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
+**EL hipe2020 English strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
 
 | Rank   | System                      | F1    | Precision   | Recall   |
 |:-------|:----------------------------|:------|:------------|:---------|
@@ -628,7 +577,7 @@ See [ranking-hipe2020-de-nel-micro-fuzzy-all.tsv](https://github.com/hipe-eval/H
 
 See [ranking-hipe2020-en-nel-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-en-nel-micro-fuzzy-all.tsv) for full details.
 
-#### EL hipe2020 French strict @1 (literal sense) \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
+**EL hipe2020 French strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
 
 | Rank   | System                      | F1    | Precision   | Recall   |
 |:-------|:----------------------------|:------|:------------|:---------|
@@ -645,7 +594,7 @@ See [ranking-hipe2020-fr-nel-micro-fuzzy-all.tsv](https://github.com/hipe-eval/H
 
 ### ajmc
 
-#### EL ajmc English strict @1 (literal sense) \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
+**EL ajmc English strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
 
 | Rank   | System                  | F1    | Precision   | Recall   |
 |:-------|:------------------------|:------|:------------|:---------|
@@ -660,7 +609,7 @@ Relevant bundles: 5
 
 ### hipe2020
 
-#### EL only hipe2020 German strict @1 (literal sense) \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
+**EL only hipe2020 German strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
 
 | Rank   | System                      | F1    | Precision   | Recall   |
 |:-------|:----------------------------|:------|:------------|:---------|
@@ -670,7 +619,7 @@ Relevant bundles: 5
 
 See [ranking-hipe2020-de-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-de-nel-only-micro-fuzzy-all.tsv) for full details.
 
-#### EL only hipe2020 English strict @1 (literal sense) \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
+**EL only hipe2020 English strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
 
 | Rank   | System                      | F1    | Precision   | Recall   |
 |:-------|:----------------------------|:------|:------------|:---------|
@@ -680,7 +629,7 @@ See [ranking-hipe2020-de-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-e
 
 See [ranking-hipe2020-en-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-en-nel-only-micro-fuzzy-all.tsv) for full details.
 
-#### EL only hipe2020 French strict @1 (literal sense) \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
+**EL only hipe2020 French strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
 
 | Rank   | System                      | F1    | Precision   | Recall   |
 |:-------|:----------------------------|:------|:------------|:---------|
@@ -692,7 +641,7 @@ See [ranking-hipe2020-fr-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-e
 
 ### newseye
 
-#### EL only newseye German strict @1 (literal sense) \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
+**EL only newseye German strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
 
 | Rank   | System                     | F1    | Precision   | Recall   |
 |:-------|:---------------------------|:------|:------------|:---------|
@@ -701,7 +650,7 @@ See [ranking-hipe2020-fr-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-e
 
 See [ranking-newseye-de-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-newseye-de-nel-only-micro-fuzzy-all.tsv) for full details.
 
-#### EL only newseye French strict @1 (literal sense) \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
+**EL only newseye French strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
 
 | Rank   | System                     | F1    | Precision   | Recall   |
 |:-------|:---------------------------|:------|:------------|:---------|
@@ -712,18 +661,18 @@ See [ranking-newseye-fr-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-ev
 
 ### sonar
 
-#### EL only sonar German strict @1 (literal sense) \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
+**EL only sonar German strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
 
 | Rank   | System                   | F1    | Precision   | Recall   |
 |:-------|:-------------------------|:------|:------------|:---------|
-| 1      | team5_bundle5_sonar_de_1 | 0.417 | 0.493       | 0.362    |
-| 2      | team5_bundle5_sonar_de_2 | 0.373 | 0.466       | 0.310    |
+| 1      | team5_bundle5_sonar_de_1 | 0.517 | 0.616       | 0.446    |
+| 2      | team5_bundle5_sonar_de_2 | 0.503 | 0.634       | 0.416    |
 
 See [ranking-sonar-de-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-sonar-de-nel-only-micro-fuzzy-all.tsv) for full details.
 
 ### topres19th
 
-#### EL only topres19th English strict @1 (literal sense) \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
+**EL only topres19th English strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
 
 | Rank   | System                        | F1    | Precision   | Recall   |
 |:-------|:------------------------------|:------|:------------|:---------|
@@ -734,7 +683,7 @@ See [ranking-topres19th-en-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe
 
 ### ajmc
 
-#### EL only ajmc German strict @1 (literal sense) \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
+**EL only ajmc German strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
 
 | Rank   | System                  | F1    | Precision   | Recall   |
 |:-------|:------------------------|:------|:------------|:---------|
@@ -743,7 +692,7 @@ See [ranking-topres19th-en-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe
 
 See [ranking-ajmc-de-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-de-nel-only-micro-fuzzy-all.tsv) for full details.
 
-#### EL only ajmc English strict @1 (literal sense) \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
+**EL only ajmc English strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
 
 | Rank   | System                  | F1    | Precision   | Recall   |
 |:-------|:------------------------|:------|:------------|:---------|
@@ -752,7 +701,7 @@ See [ranking-ajmc-de-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-eval/
 
 See [ranking-ajmc-en-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-en-nel-only-micro-fuzzy-all.tsv) for full details.
 
-#### EL only ajmc French strict @1 (literal sense) \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
+**EL only ajmc French strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
 
 | Rank   | System                  | F1    | Precision   | Recall   |
 |:-------|:------------------------|:------|:------------|:---------|
