@@ -1,6 +1,6 @@
 System	Evaluation	Label	P	R	F1	TP	FP	FN
 team1_bundle4_ajmc_en_2	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.826	0.885	0.854	308	65	40
-team2_bundle1_ajmc_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.827	0.876	0.851	305	64	43
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.824	0.876	0.85	305	65	43
 team2_bundle1_ajmc_en_2	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.831	0.851	0.841	296	60	52
 team1_bundle4_ajmc_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.783	0.859	0.819	299	83	49
 neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	ALL	0.68	0.802	0.736	279	131	69
@@ -14,7 +14,7 @@ neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	LOC	0.0	0.
 team1_bundle4_ajmc_en_2	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS	0.903	0.969	0.935	93	10	3
 team1_bundle4_ajmc_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS	0.883	0.948	0.915	91	12	5
 team2_bundle1_ajmc_en_2	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS	0.874	0.865	0.869	83	12	13
-team2_bundle1_ajmc_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS	0.813	0.906	0.857	87	20	9
+team2_bundle1_ajmc_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS	0.806	0.906	0.853	87	21	9
 neurbsl_bundle3_ajmc_en_1	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	PERS	0.68	0.906	0.777	87	41	9
 team2_bundle1_ajmc_en_2	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	SCOPE	0.881	0.834	0.857	126	17	25
 team1_bundle4_ajmc_en_2	NE-COARSE-LIT-micro-strict-TIME-ALL-LED-ALL	SCOPE	0.854	0.854	0.854	129	22	22
