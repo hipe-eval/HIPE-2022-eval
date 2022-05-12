@@ -47,7 +47,7 @@ In terms of boundaries, NEL is only evaluated according to fuzzy boundary matchi
         - **Strict**: The system's top link prediction (NIL or QID) must be identical with the gold standard annotation.    
         - **Relaxed**: The set of system's predictions is expanded with a set of historically related entities QIDs, e.g "Germany" is expended with the more specific "Confederation of the Rhine" and both are considered as valid answers. Systems are therefore evaluated more generously.  For this scenario, we additionally report F@1/3/5 in the .tsv files.    
 
-### Team keys
+**Team keys**
 
 *(in numerical order)*
 
