@@ -14,15 +14,15 @@ all: prepare-eval  eval-system-bundles ranking-alldatasets-alllanguages rankings
 DEBUG ?= 0
 
 # force build
-# set to -B to force the build
+# set to -B to force the recursive make builds
 FORCE_BUILD ?=
 
 ############################################################################################
 # SYSTEM EVALUATION (START OF OPEN-SOURCE PART)
 ############################################################################################
 # currently set to provisional (until the full test data is available from the repository)
-RELEASE_DIR?=HIPE-2022-data-provisional/data
-VERSION?= v2.1
+RELEASE_DIR ?= HIPE-2022-data-provisional/data
+VERSION ?= v2.1
 GROUND_TRUTH_DIR ?= $(RELEASE_DIR)/$(VERSION)
 
 SCORER_DIR?=HIPE-scorer
@@ -90,10 +90,7 @@ gold-histonorm-files:=$(gold-files:.tsv=_histonorm.tsv)
 # normalize NEL for historical entities in gold standard
 $(GROUND_TRUTH_DIR)/%_histonorm.tsv: $(GROUND_TRUTH_DIR)/%.tsv
 	python3 $(SCORER_DIR)/normalize_linking.py -i $< -o $@ --norm-histo -m $(FILE_NEL_MAPPING)
-	echo "CHANGED LINES in $< $$(diff -wy --suppress-common-lines $@ $< | wc -l)" > $@.log
-
-
-
+	@echo "HISTONORM CHANGED LINES in $< $$(diff -wy --suppress-common-lines $@ $< | wc -l)" | tee  $@.log
 
 build-gold-histonorm-files: $(gold-histonorm-files)
 clean-gold-histonorm-files:
@@ -107,28 +104,30 @@ clean-gold-histonorm-files:
 submission-files := $(wildcard $(SUB_DIR)/*bundle$(BUNDLE)_$(DATASET)*.tsv)
 ifeq ($(DEBUG),1)
 $(info )
-$(info # INFO: submission-files: $(submission-files))
+$(info  # INFO: submission-files: $(submission-files))
 $(info )
 endif
 
 
-result-nonorm-files:=$(subst $(SUB_DIR),$(RES_DIR),$(submission-files))
+result-nonorm-files := $(subst $(SUB_DIR),$(RES_DIR),$(submission-files))
 ifeq ($(DEBUG),1)
 $(info )
 $(info result-nonorm-files: $(result-nonorm-files))
 $(info )
 endif
 
-result-timenorm-files:=$(subst $(SUB_TIMENORM_DIR),$(RES_DIR),$(submission-timenorm-files))
-result-histonorm-files:=$(subst $(SUB_HISTOTIMENORM_DIR),$(RES_DIR),$(submission-histonorm-files:.tsv=_relaxed.tsv))
+submission-timenorm-files := $(subst $(SUB_TIMENORM_DIR),$(RES_DIR),$(submission-timenorm-files))
+submission-histonorm-files := $(subst $(SUB_HISTOTIMENORM_DIR),$(RES_DIR),$(submission-histonorm-files:.tsv=_relaxed.tsv))
 
 # produce normalized version of system responses
 # versions: time, historical+time
 submission-timenorm-files:=$(subst $(SUB_DIR),$(SUB_TIMENORM_DIR),$(submission-files))
 submission-histonorm-files:=$(subst $(SUB_DIR),$(SUB_HISTOTIMENORM_DIR),$(submission-files))
 
+build-submission-timenorm-files: $(submission-timenorm-files)
+
 #:
-eval-system-bundle: $(result-nonorm-files) # $(submission-timenorm-files) $(result-timenorm-files) $(submission-histonorm-files) $(result-histonorm-files)
+eval-system-bundle: $(result-nonorm-files) # $(submission-timenorm-files) $(submission-timenorm-files) $(submission-histonorm-files) $(submission-histonorm-files)
 
 eval-full: $(gold-histonorm-files) baseline-nerc eval-clean eval-system ranking-de ranking-fr ranking-en ranking-fine-de ranking-fine-fr plots-paper #rankings-summary
 
@@ -154,11 +153,13 @@ eval-system-bundles-%: prepare-eval
 
 # normalize NEL for time mentions in system responses
 $(SUB_TIMENORM_DIR)/%.tsv: $(SUB_DIR)/%.tsv
-	python3 $(SCORER_DIR)/normalize_linking.py -i $< -o $@ --norm-time
+	python3 $(SCORER_DIR)/normalize_linking.py -i $< -o $@ --norm-time -e hipe-2022
+	@echo "TIMENORM CHANGED LINES in $< $$(diff -wy --suppress-common-lines $@ $< | wc -l)" | tee  $@.log
 
 # normalize NEL for historical entities and time mentions in system responses
 $(SUB_HISTOTIMENORM_DIR)/%.tsv: $(SUB_DIR)/%.tsv
-	python3 $(SCORER_DIR)/normalize_linking.py -i $< -o $@ --norm-time --norm-histo -m $(FILE_NEL_MAPPING)
+	python3 $(SCORER_DIR)/normalize_linking.py -i $< -o $@ --norm-time --norm-histo -m $(FILE_NEL_MAPPING) -e hipe-2022
+	@echo "HISTOTIMENORM CHANGED LINES in $< $$(diff -wy --suppress-common-lines $@ $< | wc -l)" | tee  $@.log
 
 # Raw evaluation without any modifications
 # e.g. evaluation/system-responses/submitted/team2_bundle1_hipe2020_en_2.tsv
