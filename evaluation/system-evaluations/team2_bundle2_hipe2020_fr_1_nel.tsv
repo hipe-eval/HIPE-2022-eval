@@ -1,0 +1,5 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+team2_bundle2_hipe2020_fr_1	NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1	ALL	0.546	0.576	0.56				922	768	678
+team2_bundle2_hipe2020_fr_1	NEL-LIT-micro-strict-TIME-ALL-LED-ALL-@1	ALL	0.485	0.512	0.498				819	871	781
+team2_bundle2_hipe2020_fr_1	NEL-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL-@1	ALL	0.586	0.608	0.595	0.18	0.174	0.189			
+team2_bundle2_hipe2020_fr_1	NEL-LIT-macro_doc-strict-TIME-ALL-LED-ALL-@1	ALL	0.534	0.55	0.541	0.173	0.171	0.178			

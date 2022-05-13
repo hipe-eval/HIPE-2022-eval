@@ -1,0 +1,5 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+team5_bundle5_ajmc_fr_2	NEL-LIT-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1	ALL	0.609	0.373	0.463				81	52	136
+team5_bundle5_ajmc_fr_2	NEL-LIT-micro-strict-relaxed-TIME-ALL-LED-ALL-@1	ALL	0.609	0.373	0.463				81	52	136
+team5_bundle5_ajmc_fr_2	NEL-LIT-macro_doc-fuzzy-relaxed-TIME-ALL-LED-ALL-@1	ALL	0.602	0.371	0.452	0.155	0.192	0.145			
+team5_bundle5_ajmc_fr_2	NEL-LIT-macro_doc-strict-relaxed-TIME-ALL-LED-ALL-@1	ALL	0.602	0.371	0.452	0.155	0.192	0.145			

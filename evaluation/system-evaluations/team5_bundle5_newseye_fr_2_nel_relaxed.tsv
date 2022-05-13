@@ -1,0 +1,5 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+team5_bundle5_newseye_fr_2	NEL-LIT-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1	ALL	0.531	0.365	0.433				924	816	1606
+team5_bundle5_newseye_fr_2	NEL-LIT-micro-strict-relaxed-TIME-ALL-LED-ALL-@1	ALL	0.53	0.365	0.432				923	817	1607
+team5_bundle5_newseye_fr_2	NEL-LIT-macro_doc-fuzzy-relaxed-TIME-ALL-LED-ALL-@1	ALL	0.527	0.373	0.434	0.16	0.175	0.149			
+team5_bundle5_newseye_fr_2	NEL-LIT-macro_doc-strict-relaxed-TIME-ALL-LED-ALL-@1	ALL	0.527	0.373	0.434	0.16	0.175	0.149			

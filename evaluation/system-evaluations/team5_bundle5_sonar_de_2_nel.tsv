@@ -1,0 +1,5 @@
+System	Evaluation	Label	P	R	F1	F1_std	P_std	R_std	TP	FP	FN
+team5_bundle5_sonar_de_2	NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1	ALL	0.634	0.416	0.503				196	113	275
+team5_bundle5_sonar_de_2	NEL-LIT-micro-strict-TIME-ALL-LED-ALL-@1	ALL	0.634	0.416	0.503				196	113	275
+team5_bundle5_sonar_de_2	NEL-LIT-macro_doc-fuzzy-TIME-ALL-LED-ALL-@1	ALL	0.684	0.439	0.526	0.141	0.148	0.155			
+team5_bundle5_sonar_de_2	NEL-LIT-macro_doc-strict-TIME-ALL-LED-ALL-@1	ALL	0.684	0.439	0.526	0.141	0.148	0.155			
