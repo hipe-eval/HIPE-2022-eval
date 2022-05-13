@@ -371,10 +371,10 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
                         eval_key = list(filter_ranking_df.Evaluation.unique())[0]
                     except IndexError:
                         logging.error(
-                            f"### EMPTY INDEX {label} {dataset} {lang_label} {measure_label} \[`{eval_key}`\]"
+                            f"### EMPTY INDEX {label} {dataset} {lang_label} {measure_label} [`{eval_key}`]"
                         )
                         continue
-                    summary += f"\n\n**{label} {dataset} {lang_label} {measure_label}** \[`{eval_key}`\]\n\n"
+                    summary += f"\n\n**{label} {dataset} {lang_label} {measure_label}** [`{eval_key}`]\n\n"
                     summary += tabulate(
                         filter_ranking_df[["System", "F1", "P", "R"]],
                         headers=h,
