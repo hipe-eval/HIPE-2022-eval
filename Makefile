@@ -26,7 +26,7 @@ SCORER_DIR?=HIPE-scorer
 EVAL_DIR?=evaluation
 #:
 #EVALUATION_N_BEST_OPTION ?= --n_best 1,3,5
-EVALUATION_N_BEST_OPTION ?= --n_best 1
+EVALUATION_N_BEST_OPTION ?= --n_best 1,3,5
 
 # SUB_DIR contains all submitted files
 SUB_DIR ?= $(EVAL_DIR)/system-responses/submitted
@@ -355,11 +355,11 @@ endif
 
 $(RANK_DIR)/ranking-$(DATASET)-%-fine-micro-fuzzy-all.tsv:
 	cat $(RES_DIR)/*_$(DATASET)_$*_*.tsv | head -n 1 | cut -f $(MICRO_RANKING_COLUMNS) > $@
-	grep -Phs '(NE-FINE|NE-NESTED).*micro-fuzzy.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv | cut -f $(MICRO_RANKING_COLUMNS) | sort -u -t$$'\t' -k2 | sort -t$$'\t' -k3,3 -k6,6r -k2,2 -k1,1 >> $@
+	grep -Ehs '(NE-FINE|NE-NESTED).*micro-fuzzy.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv | cut -f $(MICRO_RANKING_COLUMNS) | sort -u -t$$'\t' -k2 | sort -t$$'\t' -k3,3 -k6,6r -k2,2 -k1,1 >> $@
 
 $(RANK_DIR)/ranking-$(DATASET)-%-fine-micro-strict-all.tsv:
 	cat $(RES_DIR)/*_$(DATASET)_$*_*.tsv | head -n 1 | cut -f $(MICRO_RANKING_COLUMNS) > $@
-	grep -Phs '(NE-FINE|NE-NESTED).*micro-strict.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv| cut -f $(MICRO_RANKING_COLUMNS) | sort -u -t$$'\t' -k2 | sort -t$$'\t' -k3,3 -k6,6r -k2,2 -k1,1 >> $@
+	grep -Ehs '(NE-FINE|NE-NESTED).*micro-strict.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv| cut -f $(MICRO_RANKING_COLUMNS) | sort -u -t$$'\t' -k2 | sort -t$$'\t' -k3,3 -k6,6r -k2,2 -k1,1 >> $@
 
 
 
