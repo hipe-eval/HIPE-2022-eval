@@ -68,7 +68,7 @@ In terms of boundaries, NEL is only evaluated according to fuzzy boundary matchi
       * [ajmc](./ranking_summary.md#ajmc-3)
 
 <!-- Created by https://github.com/ekalinin/github-markdown-toc -->
-<!-- Added by: siclemat, at: Fri May 13 01:53:39 CEST 2022 -->
+<!-- Added by: siclemat, at: Fri May 13 08:21:13 CEST 2022 -->
 
 <!--te-->
 
@@ -568,6 +568,15 @@ Relevant bundles: 1, 2
 
 See [ranking-hipe2020-de-nel-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-de-nel-micro-fuzzy-all.tsv) for full details.
 
+**EL hipe2020 German relaxed @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1`\]
+
+| Rank   | System                      | F1    | Precision   | Recall   |
+|:-------|:----------------------------|:------|:------------|:---------|
+| 1      | team2_bundle1_hipe2020_de_2 | 0.464 | 0.462       | 0.466    |
+| 2      | team2_bundle1_hipe2020_de_1 | 0.463 | 0.453       | 0.473    |
+
+See [ranking-hipe2020-de-nel-micro-fuzzy-relaxed-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-de-nel-micro-fuzzy-relaxed-all.tsv) for full details.
+
 **EL hipe2020 English strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
 
 | Rank   | System                      | F1    | Precision   | Recall   |
@@ -577,6 +586,15 @@ See [ranking-hipe2020-de-nel-micro-fuzzy-all.tsv](https://github.com/hipe-eval/H
 
 See [ranking-hipe2020-en-nel-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-en-nel-micro-fuzzy-all.tsv) for full details.
 
+**EL hipe2020 English relaxed @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1`\]
+
+| Rank   | System                      | F1    | Precision   | Recall   |
+|:-------|:----------------------------|:------|:------------|:---------|
+| 1      | team2_bundle1_hipe2020_en_2 | 0.469 | 0.463       | 0.474    |
+| 2      | team2_bundle1_hipe2020_en_1 | 0.468 | 0.471       | 0.465    |
+
+See [ranking-hipe2020-en-nel-micro-fuzzy-relaxed-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-en-nel-micro-fuzzy-relaxed-all.tsv) for full details.
+
 **EL hipe2020 French strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
 
 | Rank   | System                      | F1    | Precision   | Recall   |
@@ -585,6 +603,15 @@ See [ranking-hipe2020-en-nel-micro-fuzzy-all.tsv](https://github.com/hipe-eval/H
 | 2      | team2_bundle1_hipe2020_fr_2 | 0.558 | 0.543       | 0.574    |
 
 See [ranking-hipe2020-fr-nel-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-fr-nel-micro-fuzzy-all.tsv) for full details.
+
+**EL hipe2020 French relaxed @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1`\]
+
+| Rank   | System                      | F1    | Precision   | Recall   |
+|:-------|:----------------------------|:------|:------------|:---------|
+| 1      | team2_bundle1_hipe2020_fr_1 | 0.578 | 0.563       | 0.594    |
+| 2      | team2_bundle1_hipe2020_fr_2 | 0.576 | 0.560       | 0.592    |
+
+See [ranking-hipe2020-fr-nel-micro-fuzzy-relaxed-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-fr-nel-micro-fuzzy-relaxed-all.tsv) for full details.
 
 ### newseye
 
@@ -603,6 +630,15 @@ See [ranking-hipe2020-fr-nel-micro-fuzzy-all.tsv](https://github.com/hipe-eval/H
 
 See [ranking-ajmc-en-nel-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-en-nel-micro-fuzzy-all.tsv) for full details.
 
+**EL ajmc English relaxed @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1`\]
+
+| Rank   | System                  | F1    | Precision   | Recall   |
+|:-------|:------------------------|:------|:------------|:---------|
+| 1      | team2_bundle1_ajmc_en_2 | 0.030 | 0.022       | 0.044    |
+| 2      | team2_bundle1_ajmc_en_1 | 0.029 | 0.022       | 0.044    |
+
+See [ranking-ajmc-en-nel-micro-fuzzy-relaxed-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-en-nel-micro-fuzzy-relaxed-all.tsv) for full details.
+
 ## EL only
 
 Relevant bundles: 5
@@ -619,6 +655,16 @@ Relevant bundles: 5
 
 See [ranking-hipe2020-de-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-de-nel-only-micro-fuzzy-all.tsv) for full details.
 
+**EL only hipe2020 German relaxed @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1`\]
+
+| Rank   | System                      | F1    | Precision   | Recall   |
+|:-------|:----------------------------|:------|:------------|:---------|
+| 1      | team5_bundle5_hipe2020_de_1 | 0.525 | 0.626       | 0.452    |
+| 2      | team5_bundle5_hipe2020_de_2 | 0.517 | 0.686       | 0.414    |
+| 3      | team2_bundle5_hipe2020_de_1 | 0.497 | 0.497       | 0.497    |
+
+See [ranking-hipe2020-de-nel-only-micro-fuzzy-relaxed-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-de-nel-only-micro-fuzzy-relaxed-all.tsv) for full details.
+
 **EL only hipe2020 English strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
 
 | Rank   | System                      | F1    | Precision   | Recall   |
@@ -629,6 +675,16 @@ See [ranking-hipe2020-de-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-e
 
 See [ranking-hipe2020-en-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-en-nel-only-micro-fuzzy-all.tsv) for full details.
 
+**EL only hipe2020 English relaxed @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1`\]
+
+| Rank   | System                      | F1    | Precision   | Recall   |
+|:-------|:----------------------------|:------|:------------|:---------|
+| 1      | team2_bundle5_hipe2020_en_1 | 0.546 | 0.546       | 0.546    |
+| 2      | team5_bundle5_hipe2020_en_2 | 0.393 | 0.503       | 0.323    |
+| 3      | team5_bundle5_hipe2020_en_1 | 0.380 | 0.481       | 0.314    |
+
+See [ranking-hipe2020-en-nel-only-micro-fuzzy-relaxed-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-en-nel-only-micro-fuzzy-relaxed-all.tsv) for full details.
+
 **EL only hipe2020 French strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
 
 | Rank   | System                      | F1    | Precision   | Recall   |
@@ -638,6 +694,16 @@ See [ranking-hipe2020-en-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-e
 | 3      | team5_bundle5_hipe2020_fr_1 | 0.562 | 0.664       | 0.487    |
 
 See [ranking-hipe2020-fr-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-fr-nel-only-micro-fuzzy-all.tsv) for full details.
+
+**EL only hipe2020 French relaxed @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1`\]
+
+| Rank   | System                      | F1    | Precision   | Recall   |
+|:-------|:----------------------------|:------|:------------|:---------|
+| 1      | team2_bundle5_hipe2020_fr_1 | 0.620 | 0.620       | 0.620    |
+| 2      | team5_bundle5_hipe2020_fr_2 | 0.616 | 0.730       | 0.532    |
+| 3      | team5_bundle5_hipe2020_fr_1 | 0.582 | 0.688       | 0.504    |
+
+See [ranking-hipe2020-fr-nel-only-micro-fuzzy-relaxed-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-hipe2020-fr-nel-only-micro-fuzzy-relaxed-all.tsv) for full details.
 
 ### newseye
 
@@ -650,6 +716,15 @@ See [ranking-hipe2020-fr-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-e
 
 See [ranking-newseye-de-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-newseye-de-nel-only-micro-fuzzy-all.tsv) for full details.
 
+**EL only newseye German relaxed @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1`\]
+
+| Rank   | System                     | F1    | Precision   | Recall   |
+|:-------|:---------------------------|:------|:------------|:---------|
+| 1      | team5_bundle5_newseye_de_1 | 0.455 | 0.535       | 0.396    |
+| 2      | team5_bundle5_newseye_de_2 | 0.405 | 0.536       | 0.326    |
+
+See [ranking-newseye-de-nel-only-micro-fuzzy-relaxed-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-newseye-de-nel-only-micro-fuzzy-relaxed-all.tsv) for full details.
+
 **EL only newseye French strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
 
 | Rank   | System                     | F1    | Precision   | Recall   |
@@ -658,6 +733,15 @@ See [ranking-newseye-de-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-ev
 | 2      | team5_bundle5_newseye_fr_2 | 0.430 | 0.528       | 0.363    |
 
 See [ranking-newseye-fr-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-newseye-fr-nel-only-micro-fuzzy-all.tsv) for full details.
+
+**EL only newseye French relaxed @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1`\]
+
+| Rank   | System                     | F1    | Precision   | Recall   |
+|:-------|:---------------------------|:------|:------------|:---------|
+| 1      | team5_bundle5_newseye_fr_1 | 0.435 | 0.539       | 0.364    |
+| 2      | team5_bundle5_newseye_fr_2 | 0.433 | 0.531       | 0.365    |
+
+See [ranking-newseye-fr-nel-only-micro-fuzzy-relaxed-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-newseye-fr-nel-only-micro-fuzzy-relaxed-all.tsv) for full details.
 
 ### sonar
 
@@ -670,6 +754,15 @@ See [ranking-newseye-fr-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-ev
 
 See [ranking-sonar-de-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-sonar-de-nel-only-micro-fuzzy-all.tsv) for full details.
 
+**EL only sonar German relaxed @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1`\]
+
+| Rank   | System                   | F1    | Precision   | Recall   |
+|:-------|:-------------------------|:------|:------------|:---------|
+| 1      | team5_bundle5_sonar_de_1 | 0.517 | 0.616       | 0.446    |
+| 2      | team5_bundle5_sonar_de_2 | 0.505 | 0.638       | 0.418    |
+
+See [ranking-sonar-de-nel-only-micro-fuzzy-relaxed-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-sonar-de-nel-only-micro-fuzzy-relaxed-all.tsv) for full details.
+
 ### topres19th
 
 **EL only topres19th English strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
@@ -680,6 +773,15 @@ See [ranking-sonar-de-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-eval
 | 2      | team5_bundle5_topres19th_en_1 | 0.649 | 0.786       | 0.552    |
 
 See [ranking-topres19th-en-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-topres19th-en-nel-only-micro-fuzzy-all.tsv) for full details.
+
+**EL only topres19th English relaxed @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1`\]
+
+| Rank   | System                        | F1    | Precision   | Recall   |
+|:-------|:------------------------------|:------|:------------|:---------|
+| 1      | team5_bundle5_topres19th_en_2 | 0.654 | 0.781       | 0.562    |
+| 2      | team5_bundle5_topres19th_en_1 | 0.650 | 0.789       | 0.553    |
+
+See [ranking-topres19th-en-nel-only-micro-fuzzy-relaxed-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-topres19th-en-nel-only-micro-fuzzy-relaxed-all.tsv) for full details.
 
 ### ajmc
 
@@ -692,6 +794,15 @@ See [ranking-topres19th-en-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe
 
 See [ranking-ajmc-de-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-de-nel-only-micro-fuzzy-all.tsv) for full details.
 
+**EL only ajmc German relaxed @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1`\]
+
+| Rank   | System                  | F1    | Precision   | Recall   |
+|:-------|:------------------------|:------|:------------|:---------|
+| 1      | team5_bundle5_ajmc_de_2 | 0.503 | 0.712       | 0.389    |
+| 2      | team5_bundle5_ajmc_de_1 | 0.471 | 0.608       | 0.384    |
+
+See [ranking-ajmc-de-nel-only-micro-fuzzy-relaxed-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-de-nel-only-micro-fuzzy-relaxed-all.tsv) for full details.
+
 **EL only ajmc English strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
 
 | Rank   | System                  | F1    | Precision   | Recall   |
@@ -701,6 +812,15 @@ See [ranking-ajmc-de-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-eval/
 
 See [ranking-ajmc-en-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-en-nel-only-micro-fuzzy-all.tsv) for full details.
 
+**EL only ajmc English relaxed @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1`\]
+
+| Rank   | System                  | F1    | Precision   | Recall   |
+|:-------|:------------------------|:------|:------------|:---------|
+| 1      | team5_bundle5_ajmc_en_2 | 0.381 | 0.578       | 0.284    |
+| 2      | team5_bundle5_ajmc_en_1 | 0.376 | 0.580       | 0.279    |
+
+See [ranking-ajmc-en-nel-only-micro-fuzzy-relaxed-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-en-nel-only-micro-fuzzy-relaxed-all.tsv) for full details.
+
 **EL only ajmc French strict @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1`\]
 
 | Rank   | System                  | F1    | Precision   | Recall   |
@@ -709,3 +829,12 @@ See [ranking-ajmc-en-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-eval/
 | 2      | team5_bundle5_ajmc_fr_2 | 0.469 | 0.617       | 0.378    |
 
 See [ranking-ajmc-fr-nel-only-micro-fuzzy-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-fr-nel-only-micro-fuzzy-all.tsv) for full details.
+
+**EL only ajmc French relaxed @1 (literal sense)** \[`NEL-LIT-micro-fuzzy-relaxed-TIME-ALL-LED-ALL-@1`\]
+
+| Rank   | System                  | F1    | Precision   | Recall   |
+|:-------|:------------------------|:------|:------------|:---------|
+| 1      | team5_bundle5_ajmc_fr_1 | 0.464 | 0.614       | 0.373    |
+| 2      | team5_bundle5_ajmc_fr_2 | 0.463 | 0.609       | 0.373    |
+
+See [ranking-ajmc-fr-nel-only-micro-fuzzy-relaxed-all.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/ranking-ajmc-fr-nel-only-micro-fuzzy-relaxed-all.tsv) for full details.
