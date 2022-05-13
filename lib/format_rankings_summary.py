@@ -77,8 +77,9 @@ def read_ranking(ranking_name: str, rankings_dir: str) -> pd.DataFrame:
         "F1",
         "P",
         "R",
-        #'run',
-        #'F1_std','P_std', 'R_std', 'TP', 'FP','FN',
+        "TP",
+        "FP",
+        "FN",
         "System",
     ]
     # print something
@@ -136,7 +137,7 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
     team_keys_mapping = read_team_keys_file(team_keys_file_path)
     team_keys_section = format_team_keys(team_keys_mapping)
 
-    h = ["Rank", "System", "F1", "Precision", "Recall"]
+    h = ["Rank", "System", "F1", "Precision", "Recall", "TP", "FP", "FN"]
 
     datasets = ["hipe2020", "newseye", "letemps", "sonar", "topres19th", "ajmc"]
 
@@ -376,7 +377,7 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
                         continue
                     summary += f"\n\n**{label} {dataset} {lang_label} {measure_label}** [`{eval_key}`]\n\n"
                     summary += tabulate(
-                        filter_ranking_df[["System", "F1", "P", "R"]],
+                        filter_ranking_df[["System", "F1", "P", "R", "TP", "FP", "FN"]],
                         headers=h,
                         tablefmt="pipe",
                         numalign="left",
