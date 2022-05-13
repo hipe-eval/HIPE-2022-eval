@@ -1,0 +1,3 @@
+System	Evaluation	Label	P	R	F1	TP	FP	FN
+team5_bundle5_ajmc_de_2	NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1	ALL	0.712	0.389	0.503	74	30	116
+team5_bundle5_ajmc_de_1	NEL-LIT-micro-fuzzy-TIME-ALL-LED-ALL-@1	ALL	0.608	0.384	0.471	73	47	117
