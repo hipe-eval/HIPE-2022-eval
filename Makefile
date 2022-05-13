@@ -108,7 +108,9 @@ eval-clean:
 	rm -f $(EVAL_LOGS_DIR)/*
 	rm -f $(gold-histonorm-files)
 
-
+#: Remove the .done file stamps only for a less intrusive cleaning
+done-clean:
+	rm -vf $(evaluation-nonorm-done-files) $($(evaluation-timenorm-done-files) $(evaluation-histonorm-done-files)
 
 ############################################################################################
 # Main ranking build goals
