@@ -48,11 +48,12 @@ make eval-full   # Creates all evaluation steps
 make eval-full-refresh
 ```
 
+If you want to build the targets incrementally:
 ```
 make eval-system-bundles
 make ranking-alldatasets-alllanguages
 make generate-rankings-summary
-make generate-rankings-summary  rankings-summary-ToC
+make generate-rankings-summary  rankings-summary-ToC 
 
 ```
 
