@@ -68,7 +68,7 @@ def read_ranking(ranking_name: str, rankings_dir: str) -> pd.DataFrame:
         for file in os.listdir(rankings_dir)
         if ranking_name in file
     ][0]
-
+    logging.info(f"Trying to open {relevant_tsv_files}")
     df = pd.read_csv(relevant_tsv_files, delimiter="\t")
 
     selected_cols = [
@@ -107,13 +107,13 @@ def format_team_keys(mapping_dict: dict) -> str:
 
 
 def filter_ranking(ranking_df: pd.DataFrame, evaluation: str) -> pd.DataFrame:
-    print(ranking_df)
+    #print(ranking_df)
     try:
         filtered = ranking_df.copy()[
             ranking_df.Evaluation.str.contains(evaluation) & (ranking_df.Label == "ALL")
             ]
     except AttributeError:
-        print(ranking_df)
+        logging.error(f"Missing Attributes: \n{ranking_df}")
         raise AttributeError
     return filtered
 
@@ -315,7 +315,7 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
                 if dataset == "letemps" and scenario_id in { "el", "el-only"}:
                     continue
                 for measure, eval_level, measure_label in measures:
-
+                    logging.info(f"Working on {(dataset,lang_id, measure, eval_level, measure_label)}")
                     if scenario_id == "nerc-coarse":
                         try:
                             ranking_filename = f"ranking-{dataset}-{lang_id}-coarse-micro-{measure}-all.tsv"
@@ -346,7 +346,7 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
                                 )
                             ranking_df = read_ranking(ranking_filename, rankings_dir)
                         except:
-                            print(f"{ranking_filename} not found")
+                            logging.warning(f"{ranking_filename} not found: Could be because of missing submissions")
                             ranking_df = None
                             continue
 
@@ -359,7 +359,7 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
                                 ranking_filename = f"ranking-{dataset}-{lang_id}-nel-only-micro-fuzzy-all.tsv"
                             ranking_df = read_ranking(ranking_filename, rankings_dir)
                         except:
-                            print(f"{ranking_filename} not found")
+                            logging.warning(f"{ranking_filename} not found: Could be because of missing submissions")
                             continue
 
                     filter_ranking_df = filter_ranking(ranking_df, eval_level)
@@ -371,7 +371,7 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
                         eval_key = list(filter_ranking_df.Evaluation.unique())[0]
                     except IndexError:
                         logging.error(
-                            f"### {label} {dataset} {lang_label} {measure_label} \[`{eval_key}`\]"
+                            f"### EMPTY INDEX {label} {dataset} {lang_label} {measure_label} \[`{eval_key}`\]"
                         )
                         continue
                     summary += f"\n\n**{label} {dataset} {lang_label} {measure_label}** \[`{eval_key}`\]\n\n"

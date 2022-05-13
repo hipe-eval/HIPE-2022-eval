@@ -369,8 +369,8 @@ build-ranking-$(DATASET)-%:  \
 		$(RANK_DIR)/ranking-$(DATASET)-%-coarse-micro-strict-all.tsv \
 		$(RANK_DIR)/ranking-$(DATASET)-%-nel-micro-fuzzy-all.tsv \
 		$(RANK_DIR)/ranking-$(DATASET)-%-nel-only-micro-fuzzy-all.tsv \
-		$(RANK_DIR)/ranking-$(DATASET)-%-nel-micro-fuzzy-relaxed.tsv \
-		$(RANK_DIR)/ranking-$(DATASET)-%-nel-only-micro-fuzzy-relaxed.tsv
+		$(RANK_DIR)/ranking-$(DATASET)-%-nel-micro-fuzzy-relaxed-all.tsv \
+		$(RANK_DIR)/ranking-$(DATASET)-%-nel-only-micro-fuzzy-relaxed-all.tsv
 	# Target $@ done
 
 $(RANK_DIR)/ranking-$(DATASET)-%-coarse-micro-fuzzy-all.tsv:
@@ -389,11 +389,11 @@ $(RANK_DIR)/ranking-$(DATASET)-%-nel-only-micro-fuzzy-all.tsv:
 	cat $(RES_DIR)/*_$(DATASET)_$*_*.tsv | head -n 1 | cut -f $(MICRO_RANKING_COLUMNS)  > $@
 	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle5_$(DATASET)_$*_*.tsv | grep -v 'relaxed'      | sort -u -t$$'\t' -k2 | sort -t$$'\t' -k2,2 -k6,6r -k2,2 -k1,1 | cut -f $(MICRO_RANKING_COLUMNS) >> $@
 
-$(RANK_DIR)/ranking-$(DATASET)-%-nel-micro-fuzzy-relaxed.tsv:
+$(RANK_DIR)/ranking-$(DATASET)-%-nel-micro-fuzzy-relaxed-all.tsv:
 	cat $(RES_DIR)/*_$(DATASET)_$*_*.tsv | head -n 1 | cut -f $(MICRO_RANKING_COLUMNS)  > $@
 	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle{1..4}_$(DATASET)_$*_?_nel_relaxed.tsv  | sort -u -t$$'\t' -k2 | sort -t$$'\t' -k2,2 -k6,6r -k2,2 -k1,1 | cut -f $(MICRO_RANKING_COLUMNS) >> $@
 
-$(RANK_DIR)/ranking-$(DATASET)-%-nel-only-micro-fuzzy-relaxed.tsv:
+$(RANK_DIR)/ranking-$(DATASET)-%-nel-only-micro-fuzzy-relaxed-all.tsv:
 	cat $(RES_DIR)/*_$(DATASET)_$*_*.tsv | head -n 1 | cut -f $(MICRO_RANKING_COLUMNS)  > $@
 	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle5_$(DATASET)_$*_?_nel_relaxed.tsv        | sort -u -t$$'\t' -k2 | sort -t$$'\t' -k2,2 -k6,6r -k2,2 -k1,1 | cut -f $(MICRO_RANKING_COLUMNS) >> $@
 
