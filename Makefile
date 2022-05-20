@@ -39,7 +39,7 @@ RES_DIR?=$(EVAL_DIR)/system-evaluations
 
 EVAL_LOGS_DIR?=$(EVAL_DIR)/system-evaluation-logs
 RANK_DIR?=$(EVAL_DIR)/system-rankings
-
+CHALLENGES_RANK_DIR?=$(EVAL_DIR)/system-rankings-challenges
 BUNDLEIDS ?= 1 2 3 4 5
 # default bundle for testing
 BUNDLE ?= 1
@@ -102,6 +102,7 @@ eval-system-bundles-%: prepare-eval
 #: Empty all derived data material (removes also material under git revision)
 eval-clean:
 	rm -f $(RANK_DIR)/*
+	rm -f $(CHALLENGES_RANK_DIR)/*
 	rm -f $(SUB_TIMENORM_DIR)/*
 	rm -f $(SUB_HISTOTIMENORM_DIR)/*
 	rm -f $(RES_DIR)/*
@@ -151,7 +152,7 @@ rankings-summary-ToC:
 
 #: create evaluation directories
 prepare-eval:
-	mkdir -p $(SUB_DIR) $(SUB_TIMENORM_DIR) $(SUB_HISTOTIMENORM_DIR) $(RES_DIR) $(EVAL_LOGS_DIR) $(RANK_DIR)
+	mkdir -p $(SUB_DIR) $(SUB_TIMENORM_DIR) $(SUB_HISTOTIMENORM_DIR) $(RES_DIR) $(EVAL_LOGS_DIR) $(RANK_DIR) $(CHALLENGES_RANK_DIR)
 
 
 ############################################################################################
@@ -446,3 +447,46 @@ create-feedback-zips-linking:
      evaluation/system-responses/submitted/$${team}*.tsv ;\
   	done
 #  include ranking? evaluation/system-rankings/ranking-{hipe2020,newseye,sonar,letemps}*coarse*all.tsv ;\
+
+
+############################################################################################
+### Evaluate all HIPE 2022 challenges
+############################################################################################
+# "MNC= Multilingual Newspaper Challenge;
+# MCC=multilingual Classical Commentary Challenge;
+# GAC=Global Adaptation Challenge.
+all-teams ?= team1 team2 team3 team4 team5
+
+all-challenges: \
+	mnc-challenge-nerc-coarse-fuzzy \
+	mcc-challenge-nerc-coarse-fuzzy \
+	gac_challenge-nerc-coarse-fuzzy
+
+# ranking-newseye-en-nel-only-micro-fuzzy-all.tsv
+mnc-challenge-nerc-coarse-fuzzy: $(CHALLENGES_RANK_DIR)/mnc-challenge-nerc-coarse-fuzzy.done
+$(CHALLENGES_RANK_DIR)/mnc-challenge-nerc-coarse-fuzzy.done: ranking-alldatasets-alllanguages
+	python lib/challenge_evaluation.py \
+	--teams $(all-teams) --bundles bundle1 bundle2 bundle3 bundle4 \
+	--infiles $(RANK_DIR)/ranking-{newseye,sonar,hipe2020,topres19th,letemps}-??-coarse-micro-fuzzy-all.tsv \
+	--outfile-challenge-team-ranking $(@:.done=-challenge-team-ranking.tsv) \
+	--outfile-dataset-team-ranking $(@:.done=-dataset-team-ranking.tsv) \
+	--challenge MNC
+
+mcc-challenge-nerc-coarse-fuzzy: $(CHALLENGES_RANK_DIR)/mcc-challenge-nerc-coarse-fuzzy.done
+$(CHALLENGES_RANK_DIR)/mcc-challenge-nerc-coarse-fuzzy.done: ranking-alldatasets-alllanguages
+	python lib/challenge_evaluation.py \
+	--teams $(all-teams) --bundles bundle1 bundle2 bundle3 bundle4 \
+	--infiles $(RANK_DIR)/ranking-ajmc-??-coarse-micro-fuzzy-all.tsv \
+	--outfile-challenge-team-ranking $(@:.done=-challenge-team-ranking.tsv) \
+	--outfile-dataset-team-ranking $(@:.done=-dataset-team-ranking.tsv) \
+	--challenge MCC
+
+gac-challenge-nerc-coarse-fuzzy: $(CHALLENGES_RANK_DIR)/gac-challenge-nerc-coarse-fuzzy.done
+$(CHALLENGES_RANK_DIR)/gac-challenge-nerc-coarse-fuzzy.done: ranking-alldatasets-alllanguages
+	python lib/challenge_evaluation.py \
+	--teams $(all-teams) --bundles bundle1 bundle2 bundle3 bundle4 \
+	--infiles $(RANK_DIR)/ranking-*-??-coarse-micro-fuzzy-all.tsv \
+	--outfile-challenge-team-ranking $(@:.done=-challenge-team-ranking.tsv) \
+	--outfile-dataset-team-ranking $(@:.done=-dataset-team-ranking.tsv) \
+	--challenge GAC
+
