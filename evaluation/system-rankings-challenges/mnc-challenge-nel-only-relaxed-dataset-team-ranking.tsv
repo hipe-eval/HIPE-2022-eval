@@ -1,4 +1,11 @@
 CHALLENGE	RANK	POINTS	TEAM	DATASET	LANGUAGE	F1	System
-MCC:EL-ONLY	1	50	team5	ajmc	de	0.503	team5_bundle5_ajmc_de_2
-MCC:EL-ONLY	1	50	team5	ajmc	en	0.381	team5_bundle5_ajmc_en_2
-MCC:EL-ONLY	1	50	team5	ajmc	fr	0.464	team5_bundle5_ajmc_fr_1
+MCC:EL-ONLY	1	50	team5	hipe2020	de	0.525	team5_bundle5_hipe2020_de_1
+MCC:EL-ONLY	2	40	team2	hipe2020	de	0.497	team2_bundle5_hipe2020_de_1
+MCC:EL-ONLY	1	50	team2	hipe2020	en	0.546	team2_bundle5_hipe2020_en_1
+MCC:EL-ONLY	2	40	team5	hipe2020	en	0.393	team5_bundle5_hipe2020_en_2
+MCC:EL-ONLY	1	50	team2	hipe2020	fr	0.620	team2_bundle5_hipe2020_fr_1
+MCC:EL-ONLY	2	40	team5	hipe2020	fr	0.616	team5_bundle5_hipe2020_fr_2
+MCC:EL-ONLY	1	50	team5	newseye	de	0.455	team5_bundle5_newseye_de_1
+MCC:EL-ONLY	1	50	team5	newseye	fr	0.435	team5_bundle5_newseye_fr_1
+MCC:EL-ONLY	1	50	team5	sonar	de	0.517	team5_bundle5_sonar_de_1
+MCC:EL-ONLY	1	50	team5	topres19th	en	0.654	team5_bundle5_topres19th_en_2

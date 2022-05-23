@@ -618,7 +618,7 @@ mnc-challenge-nel-only-relaxed: $(CHALLENGES_RANK_DIR)/mnc-challenge-nel-only-re
 $(CHALLENGES_RANK_DIR)/mnc-challenge-nel-only-relaxed.done: ranking-alldatasets-alllanguages
 	python lib/challenge_evaluation.py \
 	--teams $(mnc-teams)  --bundles bundle5  \
-	--infiles $(RANK_DIR)/ranking-ajmc-??-nel-only-micro-fuzzy-relaxed-all.tsv \
+	--infiles $(RANK_DIR)/ranking-{newseye,sonar,hipe2020,topres19th,letemps}-??-nel-only-micro-fuzzy-relaxed-all.tsv \
 	--outfile-challenge-team-ranking $(@:.done=-challenge-team-ranking.tsv) \
 	--outfile-dataset-team-ranking $(@:.done=-dataset-team-ranking.tsv) \
 	--challenge mcc:EL-Only
