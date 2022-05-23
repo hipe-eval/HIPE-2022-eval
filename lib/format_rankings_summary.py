@@ -468,7 +468,7 @@ def compile_rankings_challenges_summary(rankings_dir: str, submissions_dir: str)
 
     for challenge in challenges:
         # overall challenge ranking
-        summary += f"\n\n##{challenges[challenge]}\n\n"
+        summary += f"\n\n## {challenges[challenge]}\n\n"
 
         summary += f"\n\n### {challenges_acro[challenge]}: Overall ranking\n\n"
 

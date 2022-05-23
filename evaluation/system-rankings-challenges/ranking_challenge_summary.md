@@ -5,7 +5,7 @@ TEST
 <!--te-->
 
 
-##Multilingual Newspaper Challenge (MNC)
+## Multilingual Newspaper Challenge (MNC)
 
 
 
@@ -96,7 +96,7 @@ See [mnc-challenge-nerc-coarse-fuzzy-challenge-team-ranking.tsv](https://github.
 
 See [mnc-challenge-nerc-coarse-fuzzy-dataset-team-ranking.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/mnc-challenge-nerc-coarse-fuzzy-dataset-team-ranking.tsv) for full details.
 
-##Multilingual Classical Commentary Challenge (MCC)
+## Multilingual Classical Commentary Challenge (MCC)
 
 
 
@@ -164,7 +164,7 @@ See [mcc-challenge-nerc-coarse-fuzzy-challenge-team-ranking.tsv](https://github.
 
 See [mcc-challenge-nerc-coarse-fuzzy-dataset-team-ranking.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/mcc-challenge-nerc-coarse-fuzzy-dataset-team-ranking.tsv) for full details.
 
-##Global Adaptation Challenge (GAC)
+## Global Adaptation Challenge (GAC)
 
 
 
