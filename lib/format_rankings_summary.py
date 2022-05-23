@@ -14,10 +14,11 @@ import pandas as pd
 from docopt import docopt
 from tabulate import tabulate
 
-GH_BASE_URL = "https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings"
+GH_SYS_RANKING_URL = "https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings"
+GH_CHALLENGE_RANKING_URL = "https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings"
 date_of_creation = datetime.datetime.today().strftime('%d.%m.%Y')
 SCORER_VERSION = "[vX.X](link)"
-DATA_VERSION = "[vX.X](link)"
+DATA_VERSION = "[v2.1-test-all-unmasked](https://github.com/hipe-eval/HIPE-2022-data/releases/tag/v2.1-test-all-unmasked)"
 
 PROLOGUE = f"""
 We provide an **overview table** of the **preliminary**  results of the runs submitted by the teams.     
@@ -86,6 +87,42 @@ def read_ranking(ranking_name: str, rankings_dir: str) -> pd.DataFrame:
     df = df[~(df.F1 == 0.0)]
     # return df.reset_index()[selected_cols]
     return df[selected_cols]
+
+
+def read_ranking_challenge(ranking_file_path) -> pd.DataFrame:
+
+    logging.info(f"Trying to open {ranking_file_path}")
+
+    if "dataset" in ranking_file_path:
+        selected_cols = [
+            "CHALLENGE",
+            "RANK",
+            "POINTS",
+            "TEAM",
+            "DATASET",
+            "LANGUAGE",
+            "F1",
+            "System"
+        ]
+    else:
+        selected_cols = [
+            "CHALLENGE",
+            "RANK",
+            "POINTS",
+            "TEAM"
+        ]
+
+    try:
+        df = pd.read_csv(ranking_file_path, delimiter="\t")
+        return df[selected_cols]
+    except FileNotFoundError:
+        logging.error("File not found.")
+    except pd.errors.EmptyDataError:
+        logging.error("No data")
+    except pd.errors.ParserError:
+        logging.error("Parse error")
+    except Exception:
+        logging.error("Some other exception")
 
 
 def read_team_keys_file(team_keys_path: str):
@@ -310,11 +347,9 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
                     continue
                 if dataset == "newseye" and lang_id == "en":
                     continue
-
-
-
                 if dataset == "letemps" and scenario_id in { "el", "el-only"}:
                     continue
+
                 for measure, eval_level, measure_label in measures:
                     logging.info(f"Working on {(dataset,lang_id, measure, eval_level, measure_label)}")
                     if scenario_id == "nerc-coarse":
@@ -383,8 +418,92 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
                         numalign="left",
                         floatfmt=".3f",
                     )
-                    GH_tsv_link = os.path.join(GH_BASE_URL, ranking_filename)
+                    GH_tsv_link = os.path.join(GH_SYS_RANKING_URL, ranking_filename)
                     summary += f"\n\nSee [{ranking_filename}]({GH_tsv_link}) for full details."
+
+    summary += "\n"
+    return summary
+
+
+def compile_rankings_challenges_summary(rankings_dir: str, submissions_dir: str) -> str:
+
+    summary = ""
+
+    challenges = {"mnc-challenge": "Multilingual Newspaper Challenge (MNC)",
+                  "mcc-challenge": "Multilingual Classical Commentary Challenge (MCC)",
+                  "gac-challenge": "Global Adaptation Challenge (GAC)"}
+
+    challenges_acro = {"mnc-challenge": "MNC",
+                  "mcc-challenge": "MCC",
+                  "gac-challenge": "GAC"}
+
+    tasks = ["nel-only-relaxed",
+             "nel-relaxed",
+             "nerc-coarse-fuzzy",
+             "nerc-fine+nested-fuzzy"]
+
+    views = {"challenge": "Ranking overview",
+             "dataset": "Detailed view"}
+
+    header_dataset = [
+            "CHALLENGE",
+            "RANK",
+            "POINTS",
+            "TEAM",
+            "DATASET",
+            "LANGUAGE",
+            "F1",
+            "System"
+        ]
+    header_team = [
+            "CHALLENGE",
+            "RANK",
+            "POINTS",
+            "TEAM"
+        ]
+
+    summary += "# HIPE 2022 Challenge Evaluation Results\n"
+    summary += "TEST"
+    summary += "\n\n<!--ts-->\n<!--te-->\n"
+
+    for challenge in challenges:
+        # overall challenge ranking
+        summary += f"\n\n##{challenges[challenge]}\n\n"
+
+        summary += f"\n\n###{challenges_acro[challenge]}: Overall ranking\n\n"
+
+        overall_ranking_filename = f"{challenge}-team-ranking.tsv"
+        ranking_df = read_ranking_challenge(os.path.join(rankings_dir, overall_ranking_filename))
+        summary += tabulate(
+            ranking_df,
+            headers=header_team,
+            tablefmt="pipe",
+            numalign="left",
+            floatfmt=".3f",
+        )
+
+        for task in tasks:
+            if challenge == "mnc-challenge" and task == "nerc-fine+nested-fuzzy":
+                continue
+            if challenge == "mcc-challenge" and task == "nerc-fine+nested-fuzzy":
+                continue
+            for view in views:
+                ranking_filename = f"{challenge}-{task}-{view}-team-ranking.tsv"
+                ranking_df = read_ranking_challenge(os.path.join(rankings_dir, ranking_filename))
+
+                summary += f"\n\n###{challenges_acro[challenge]}: {views[view]} for" \
+                          f" {task} \n\n"
+
+                h = header_dataset if view == "dataset" else header_team
+                summary += tabulate(
+                    ranking_df,
+                    headers=h,
+                    tablefmt="pipe",
+                    numalign="left",
+                    floatfmt=".3f",
+                )
+                GH_tsv_link = os.path.join(GH_CHALLENGE_RANKING_URL, ranking_filename)
+                summary += f"\n\nSee [{ranking_filename}]({GH_tsv_link}) for full details."
 
     summary += "\n"
     return summary
@@ -396,6 +515,7 @@ def main(args):
     output_dir = args["--output-dir"]
     submissions_dir = args["--submissions-dir"]
 
+
     logging.basicConfig(
         filename=log_file,
         filemode="w",
@@ -403,8 +523,13 @@ def main(args):
         format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     )
 
-    md_summary_path = os.path.join(input_dir, "ranking_summary.md")
-    md_summary = compile_rankings_summary(input_dir, submissions_dir)
+    if "challenges" not in input_dir:
+        md_summary_path = os.path.join(input_dir, "ranking_summary.md")
+        md_summary = compile_rankings_summary(input_dir, submissions_dir)
+    else:
+        md_summary_path = os.path.join(input_dir, "ranking_challenge_summary.md")
+        md_summary = compile_rankings_challenges_summary(input_dir, submissions_dir)
+
     with open(md_summary_path, "w") as f:
         f.write(md_summary)
 

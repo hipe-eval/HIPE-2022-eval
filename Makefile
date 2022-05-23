@@ -149,10 +149,14 @@ generate-rankings-summary:
 rankings-summary-ToC:
 	cd $(RANK_DIR); gh-md-toc --no-backup ./ranking_summary.md ./ranking_summary.md
 
+generate-challenge-ranking-summary:
+	python3 lib/format_rankings_summary.py --input-dir=$(CHALLENGES_RANK_DIR) --output-dir=$(CHALLENGES_RANK_DIR) --submissions-dir=$(SUB_DIR)
+
 
 #: create evaluation directories
 prepare-eval:
 	mkdir -p $(SUB_DIR) $(SUB_TIMENORM_DIR) $(SUB_HISTOTIMENORM_DIR) $(RES_DIR) $(EVAL_LOGS_DIR) $(RANK_DIR) $(CHALLENGES_RANK_DIR)
+
 
 
 ############################################################################################
