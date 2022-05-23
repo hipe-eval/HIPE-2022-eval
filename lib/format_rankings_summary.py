@@ -470,7 +470,7 @@ def compile_rankings_challenges_summary(rankings_dir: str, submissions_dir: str)
         # overall challenge ranking
         summary += f"\n\n##{challenges[challenge]}\n\n"
 
-        summary += f"\n\n###{challenges_acro[challenge]}: Overall ranking\n\n"
+        summary += f"\n\n### {challenges_acro[challenge]}: Overall ranking\n\n"
 
         overall_ranking_filename = f"{challenge}-team-ranking.tsv"
         ranking_df = read_ranking_challenge(os.path.join(rankings_dir, overall_ranking_filename))
@@ -491,7 +491,7 @@ def compile_rankings_challenges_summary(rankings_dir: str, submissions_dir: str)
                 ranking_filename = f"{challenge}-{task}-{view}-team-ranking.tsv"
                 ranking_df = read_ranking_challenge(os.path.join(rankings_dir, ranking_filename))
 
-                summary += f"\n\n###{challenges_acro[challenge]}: {views[view]} for" \
+                summary += f"\n\n### {challenges_acro[challenge]}: {views[view]} for" \
                           f" {task} \n\n"
 
                 h = header_dataset if view == "dataset" else header_team

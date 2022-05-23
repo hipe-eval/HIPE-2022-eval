@@ -9,7 +9,7 @@ TEST
 
 
 
-###MNC: Overall ranking
+### MNC: Overall ranking
 
 |    | CHALLENGE   | RANK   | POINTS   | TEAM   |
 |:---|:------------|:-------|:---------|:-------|
@@ -18,7 +18,7 @@ TEST
 | 2  | MNC         | 3      | 330      | team5  |
 | 3  | MNC         | 4      | 150      | team3  |
 
-###MNC: Ranking overview for nel-only-relaxed 
+### MNC: Ranking overview for nel-only-relaxed 
 
 |    | CHALLENGE   | RANK   | POINTS   | TEAM   |
 |:---|:------------|:-------|:---------|:-------|
@@ -27,7 +27,7 @@ TEST
 
 See [mnc-challenge-nel-only-relaxed-challenge-team-ranking.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/mnc-challenge-nel-only-relaxed-challenge-team-ranking.tsv) for full details.
 
-###MNC: Detailed view for nel-only-relaxed 
+### MNC: Detailed view for nel-only-relaxed 
 
 |    | CHALLENGE   | RANK   | POINTS   | TEAM   | DATASET    | LANGUAGE   | F1    | System                        |
 |:---|:------------|:-------|:---------|:-------|:-----------|:-----------|:------|:------------------------------|
@@ -44,7 +44,7 @@ See [mnc-challenge-nel-only-relaxed-challenge-team-ranking.tsv](https://github.c
 
 See [mnc-challenge-nel-only-relaxed-dataset-team-ranking.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/mnc-challenge-nel-only-relaxed-dataset-team-ranking.tsv) for full details.
 
-###MNC: Ranking overview for nel-relaxed 
+### MNC: Ranking overview for nel-relaxed 
 
 |    | CHALLENGE   | RANK   | POINTS   | TEAM   |
 |:---|:------------|:-------|:---------|:-------|
@@ -52,7 +52,7 @@ See [mnc-challenge-nel-only-relaxed-dataset-team-ranking.tsv](https://github.com
 
 See [mnc-challenge-nel-relaxed-challenge-team-ranking.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/mnc-challenge-nel-relaxed-challenge-team-ranking.tsv) for full details.
 
-###MNC: Detailed view for nel-relaxed 
+### MNC: Detailed view for nel-relaxed 
 
 |    | CHALLENGE   | RANK   | POINTS   | TEAM   | DATASET   | LANGUAGE   | F1    | System                      |
 |:---|:------------|:-------|:---------|:-------|:----------|:-----------|:------|:----------------------------|
@@ -62,7 +62,7 @@ See [mnc-challenge-nel-relaxed-challenge-team-ranking.tsv](https://github.com/hi
 
 See [mnc-challenge-nel-relaxed-dataset-team-ranking.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/mnc-challenge-nel-relaxed-dataset-team-ranking.tsv) for full details.
 
-###MNC: Ranking overview for nerc-coarse-fuzzy 
+### MNC: Ranking overview for nerc-coarse-fuzzy 
 
 |    | CHALLENGE       | RANK   | POINTS   | TEAM   |
 |:---|:----------------|:-------|:---------|:-------|
@@ -72,7 +72,7 @@ See [mnc-challenge-nel-relaxed-dataset-team-ranking.tsv](https://github.com/hipe
 
 See [mnc-challenge-nerc-coarse-fuzzy-challenge-team-ranking.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/mnc-challenge-nerc-coarse-fuzzy-challenge-team-ranking.tsv) for full details.
 
-###MNC: Detailed view for nerc-coarse-fuzzy 
+### MNC: Detailed view for nerc-coarse-fuzzy 
 
 |    | CHALLENGE       | RANK   | POINTS   | TEAM   | DATASET    | LANGUAGE   | F1    | System                        |
 |:---|:----------------|:-------|:---------|:-------|:-----------|:-----------|:------|:------------------------------|
@@ -100,7 +100,7 @@ See [mnc-challenge-nerc-coarse-fuzzy-dataset-team-ranking.tsv](https://github.co
 
 
 
-###MCC: Overall ranking
+### MCC: Overall ranking
 
 |    | CHALLENGE   | RANK   | POINTS   | TEAM   |
 |:---|:------------|:-------|:---------|:-------|
@@ -108,7 +108,7 @@ See [mnc-challenge-nerc-coarse-fuzzy-dataset-team-ranking.tsv](https://github.co
 | 1  | MCC         | 2      | 150      | team5  |
 | 2  | MCC         | 3      | 140      | team1  |
 
-###MCC: Ranking overview for nel-only-relaxed 
+### MCC: Ranking overview for nel-only-relaxed 
 
 |    | CHALLENGE   | RANK   | POINTS   | TEAM   |
 |:---|:------------|:-------|:---------|:-------|
@@ -116,7 +116,7 @@ See [mnc-challenge-nerc-coarse-fuzzy-dataset-team-ranking.tsv](https://github.co
 
 See [mcc-challenge-nel-only-relaxed-challenge-team-ranking.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/mcc-challenge-nel-only-relaxed-challenge-team-ranking.tsv) for full details.
 
-###MCC: Detailed view for nel-only-relaxed 
+### MCC: Detailed view for nel-only-relaxed 
 
 |    | CHALLENGE   | RANK   | POINTS   | TEAM   | DATASET   | LANGUAGE   | F1    | System                  |
 |:---|:------------|:-------|:---------|:-------|:----------|:-----------|:------|:------------------------|
@@ -126,7 +126,7 @@ See [mcc-challenge-nel-only-relaxed-challenge-team-ranking.tsv](https://github.c
 
 See [mcc-challenge-nel-only-relaxed-dataset-team-ranking.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/mcc-challenge-nel-only-relaxed-dataset-team-ranking.tsv) for full details.
 
-###MCC: Ranking overview for nel-relaxed 
+### MCC: Ranking overview for nel-relaxed 
 
 |    | CHALLENGE   | RANK   | POINTS   | TEAM   |
 |:---|:------------|:-------|:---------|:-------|
@@ -134,7 +134,7 @@ See [mcc-challenge-nel-only-relaxed-dataset-team-ranking.tsv](https://github.com
 
 See [mcc-challenge-nel-relaxed-challenge-team-ranking.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/mcc-challenge-nel-relaxed-challenge-team-ranking.tsv) for full details.
 
-###MCC: Detailed view for nel-relaxed 
+### MCC: Detailed view for nel-relaxed 
 
 |    | CHALLENGE   | RANK   | POINTS   | TEAM   | DATASET   | LANGUAGE   | F1    | System                  |
 |:---|:------------|:-------|:---------|:-------|:----------|:-----------|:------|:------------------------|
@@ -142,7 +142,7 @@ See [mcc-challenge-nel-relaxed-challenge-team-ranking.tsv](https://github.com/hi
 
 See [mcc-challenge-nel-relaxed-dataset-team-ranking.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/mcc-challenge-nel-relaxed-dataset-team-ranking.tsv) for full details.
 
-###MCC: Ranking overview for nerc-coarse-fuzzy 
+### MCC: Ranking overview for nerc-coarse-fuzzy 
 
 |    | CHALLENGE       | RANK   | POINTS   | TEAM   |
 |:---|:----------------|:-------|:---------|:-------|
@@ -151,7 +151,7 @@ See [mcc-challenge-nel-relaxed-dataset-team-ranking.tsv](https://github.com/hipe
 
 See [mcc-challenge-nerc-coarse-fuzzy-challenge-team-ranking.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/mcc-challenge-nerc-coarse-fuzzy-challenge-team-ranking.tsv) for full details.
 
-###MCC: Detailed view for nerc-coarse-fuzzy 
+### MCC: Detailed view for nerc-coarse-fuzzy 
 
 |    | CHALLENGE       | RANK   | POINTS   | TEAM   | DATASET   | LANGUAGE   | F1    | System                  |
 |:---|:----------------|:-------|:---------|:-------|:----------|:-----------|:------|:------------------------|
@@ -168,14 +168,14 @@ See [mcc-challenge-nerc-coarse-fuzzy-dataset-team-ranking.tsv](https://github.co
 
 
 
-###GAC: Overall ranking
+### GAC: Overall ranking
 
 |    | CHALLENGE   | RANK   | POINTS   | TEAM   |
 |:---|:------------|:-------|:---------|:-------|
 | 0  | GAC         | 1      | 890      | team2  |
 | 1  | GAC         | 2      | 480      | team5  |
 
-###GAC: Ranking overview for nel-only-relaxed 
+### GAC: Ranking overview for nel-only-relaxed 
 
 |    | CHALLENGE   | RANK   | POINTS   | TEAM   |
 |:---|:------------|:-------|:---------|:-------|
@@ -184,7 +184,7 @@ See [mcc-challenge-nerc-coarse-fuzzy-dataset-team-ranking.tsv](https://github.co
 
 See [gac-challenge-nel-only-relaxed-challenge-team-ranking.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/gac-challenge-nel-only-relaxed-challenge-team-ranking.tsv) for full details.
 
-###GAC: Detailed view for nel-only-relaxed 
+### GAC: Detailed view for nel-only-relaxed 
 
 |    | CHALLENGE   | RANK   | POINTS   | TEAM   | DATASET    | LANGUAGE   | F1    | System                        |
 |:---|:------------|:-------|:---------|:-------|:-----------|:-----------|:------|:------------------------------|
@@ -204,7 +204,7 @@ See [gac-challenge-nel-only-relaxed-challenge-team-ranking.tsv](https://github.c
 
 See [gac-challenge-nel-only-relaxed-dataset-team-ranking.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/gac-challenge-nel-only-relaxed-dataset-team-ranking.tsv) for full details.
 
-###GAC: Ranking overview for nel-relaxed 
+### GAC: Ranking overview for nel-relaxed 
 
 |    | CHALLENGE   | RANK   | POINTS   | TEAM   |
 |:---|:------------|:-------|:---------|:-------|
@@ -212,7 +212,7 @@ See [gac-challenge-nel-only-relaxed-dataset-team-ranking.tsv](https://github.com
 
 See [gac-challenge-nel-relaxed-challenge-team-ranking.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/gac-challenge-nel-relaxed-challenge-team-ranking.tsv) for full details.
 
-###GAC: Detailed view for nel-relaxed 
+### GAC: Detailed view for nel-relaxed 
 
 |    | CHALLENGE   | RANK   | POINTS   | TEAM   | DATASET   | LANGUAGE   | F1    | System                      |
 |:---|:------------|:-------|:---------|:-------|:----------|:-----------|:------|:----------------------------|
@@ -223,7 +223,7 @@ See [gac-challenge-nel-relaxed-challenge-team-ranking.tsv](https://github.com/hi
 
 See [gac-challenge-nel-relaxed-dataset-team-ranking.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/gac-challenge-nel-relaxed-dataset-team-ranking.tsv) for full details.
 
-###GAC: Ranking overview for nerc-coarse-fuzzy 
+### GAC: Ranking overview for nerc-coarse-fuzzy 
 
 |    | CHALLENGE       | RANK   | POINTS   | TEAM   |
 |:---|:----------------|:-------|:---------|:-------|
@@ -231,7 +231,7 @@ See [gac-challenge-nel-relaxed-dataset-team-ranking.tsv](https://github.com/hipe
 
 See [gac-challenge-nerc-coarse-fuzzy-challenge-team-ranking.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/gac-challenge-nerc-coarse-fuzzy-challenge-team-ranking.tsv) for full details.
 
-###GAC: Detailed view for nerc-coarse-fuzzy 
+### GAC: Detailed view for nerc-coarse-fuzzy 
 
 |    | CHALLENGE       | RANK   | POINTS   | TEAM   | DATASET   | LANGUAGE   | F1    | System                      |
 |:---|:----------------|:-------|:---------|:-------|:----------|:-----------|:------|:----------------------------|
@@ -244,7 +244,7 @@ See [gac-challenge-nerc-coarse-fuzzy-challenge-team-ranking.tsv](https://github.
 
 See [gac-challenge-nerc-coarse-fuzzy-dataset-team-ranking.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/gac-challenge-nerc-coarse-fuzzy-dataset-team-ranking.tsv) for full details.
 
-###GAC: Ranking overview for nerc-fine+nested-fuzzy 
+### GAC: Ranking overview for nerc-fine+nested-fuzzy 
 
 |    | CHALLENGE            | RANK   | POINTS   | TEAM   |
 |:---|:---------------------|:-------|:---------|:-------|
@@ -252,7 +252,7 @@ See [gac-challenge-nerc-coarse-fuzzy-dataset-team-ranking.tsv](https://github.co
 
 See [gac-challenge-nerc-fine+nested-fuzzy-challenge-team-ranking.tsv](https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings/gac-challenge-nerc-fine+nested-fuzzy-challenge-team-ranking.tsv) for full details.
 
-###GAC: Detailed view for nerc-fine+nested-fuzzy 
+### GAC: Detailed view for nerc-fine+nested-fuzzy 
 
 |    | CHALLENGE            | RANK   | POINTS   | TEAM   | DATASET   | LANGUAGE   | F1    | System                      |
 |:---|:---------------------|:-------|:---------|:-------|:----------|:-----------|:------|:----------------------------|
