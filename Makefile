@@ -491,7 +491,7 @@ $(CHALLENGES_RANK_DIR)/mnc-challenge.done: mnc-challenge-nerc-coarse-fuzzy  mnc-
 	python lib/challenge_evaluation.py \
 	--aggregate-subchallenge-results \
 	--challenge mnc \
-	--infiles $(CHALLENGES_RANK_DIR)/mnc-challenge-{nerc-coarse,nel-only,nel}*dataset-team-ranking.tsv \
+	--infiles $(CHALLENGES_RANK_DIR)/mnc-challenge-{nerc-coarse,nel-only,nel}-*dataset-team-ranking.tsv \
 	--outfile-challenge-team-ranking $(@:.done=-team-ranking.tsv)
 
 
@@ -501,8 +501,9 @@ $(CHALLENGES_RANK_DIR)/mcc-challenge.done: mcc-challenge-nerc-coarse-fuzzy  mcc-
 	python lib/challenge_evaluation.py \
 	--aggregate-subchallenge-results \
 	--challenge mcc \
-	--infiles $(CHALLENGES_RANK_DIR)/mcc-challenge-{nerc-coarse,nel-only,nel}*dataset-team-ranking.tsv \
-	--outfile-challenge-team-ranking $(@:.done=-team-ranking.tsv)
+	--infiles $(CHALLENGES_RANK_DIR)/mcc-challenge-{nerc-coarse,nel-only,nel}-*dataset-team-ranking.tsv \
+	--outfile-challenge-team-ranking $(@:.done=-team-ranking.tsv) \
+	2> $(@:.done=-team-ranking.tsv.log) --verbose 3
 
 
 gac-challenge:  $(CHALLENGES_RANK_DIR)/gac-challenge.done

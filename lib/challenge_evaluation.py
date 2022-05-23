@@ -39,6 +39,7 @@ class ChallengeEvaluation(object):
 
     def __init__(self, args):
         self.args = args
+        self.args.infiles = sorted(set(self.args.infiles))
         self.challenge = self.args.challenge.upper()
         self.teams = set(self.args.teams) if self.args.teams else set()
         self.datasets = set()
