@@ -152,6 +152,11 @@ rankings-summary-ToC:
 generate-challenge-ranking-summary:
 	python3 lib/format_rankings_summary.py --input-dir=$(CHALLENGES_RANK_DIR) --output-dir=$(CHALLENGES_RANK_DIR) --submissions-dir=$(SUB_DIR)
 
+rankings-challenges-summary-ToC:
+	cd $(CHALLENGES_RANK_DIR); gh-md-toc --no-backup ./ranking_challenge_summary.md ./ranking_challenge_summary.md
+
+combine-rankings:
+	cat $(RANK_DIR)/ranking_summary.md $(CHALLENGES_RANK_DIR)/ranking_challenge_summary.md > HIPE_2022_evaluation_results.md
 
 #: create evaluation directories
 prepare-eval:

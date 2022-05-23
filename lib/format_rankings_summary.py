@@ -17,11 +17,28 @@ from tabulate import tabulate
 GH_SYS_RANKING_URL = "https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings"
 GH_CHALLENGE_RANKING_URL = "https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings"
 date_of_creation = datetime.datetime.today().strftime('%d.%m.%Y')
-SCORER_VERSION = "[vX.X](link)"
+SCORER_VERSION = "[v2.0](https://github.com/hipe-eval/HIPE-scorer/releases/tag/2.0)"
 DATA_VERSION = "[v2.1-test-all-unmasked](https://github.com/hipe-eval/HIPE-2022-data/releases/tag/v2.1-test-all-unmasked)"
 
 PROLOGUE = f"""
-We provide an **overview table** of the **preliminary**  results of the runs submitted by the teams.     
+We provide a complete overview of the results of the HIPE-2022 evaluation campaign.         
+
+For more information about the tasks and challenges, see this [schema](https://github.com/hipe-eval/HIPE-2022-data#hipe-2022-evaluation) and  the [participation guidelines](https://doi.org/10.5281/zenodo.6045662) pages 13-18.
+
+**Team keys (in numerical order)**
+
+| Team key | Team name   | Team affiliation                                             |
+| -------- | ----------- | ------------------------------------------------------------ |
+| team1     | HISTeria    | Ludwig-Maximilians-Universität and Bayerische Staatsbibliothek München, Munich, Germany |
+| team2    | L3i         | La Rochelle University, La Rochelle, France                  |
+| team3    | WLV    | University of Wolverhampton, Wolverhampton, UK |
+| team4   | aauzh         | Machine Learning MA class, Zurich University, Switzerland  |
+| team5   | SBB         | Berlin State Library, Berlin, Germany    |
+
+
+## Track Evaluation results
+
+We provide an **overview table** of the **preliminary** results of the runs submitted by the teams.     
 It also includes a neural baseline created by the organizers. A non-neural CRF-based baseline will be added soon for NERC.
 
 - Date: {date_of_creation}.
@@ -31,34 +48,20 @@ It also includes a neural baseline created by the organizers. A non-neural CRF-b
 - The current results for NEL can still change as we may extend the list of equivalent wikidata IDs. 
 - Detailed results for all systems can be found in the corresponding .tsv file (link provided below each table).
 - Detailed results for each team's runs are sent privately.
-- System name composition is: teamID_bundle_dataset_lang_run.
+- System name composition is: `teamID_bundle_dataset_lang_run`.
 - F1 scores of 0.0 are excluded from the table.
 - Results are ordered by F1 scores.
 
-**About the evaluation (reminder)**
+### About the evaluation (reminder)
 
 - NERC and Entity Linking (EL) are evaluated in terms of macro and micro Precision, Recall, F1-measure. Here only micro is reported.
 
-- Evaluation scenarios for **NERC**:    
-       - **Strict**: exact boundary matching.    
-       - **Fuzzy**: fuzzy (=overlap) boundary matching.    
+- NERC evaluation includes **strict** (exact boundary matching) and **fuzzy** (boundary overlap) scenarios.
 
-- Evaluation scenarios for **EL**:    
-In terms of boundaries, NEL is only evaluated according to fuzzy boundary matching in all scenarios. What is of interest is the capacity to provide the correct link rather than the correct boundaries (NERC task).         
-        - **Strict**: The system's top link prediction (NIL or QID) must be identical with the gold standard annotation.    
-        - **Relaxed**: The set of system's predictions is expanded with a set of historically related entities QIDs, e.g "Germany" is expended with the more specific "Confederation of the Rhine" and both are considered as valid answers. Systems are therefore evaluated more generously.  For this scenario, we additionally report F@1/3/5 in the .tsv files.    
+- For **EL**, the definition of strict and fuzzy regimes differs. In terms of boundaries, EL is always evaluated according to overlapping boundaries (what is of interest is the capacity to provide the correct link rather
+than the correct boundaries). EL **strict regime** considers only the system's top link prediction (NIL or QID), while the **fuzzy/relaxed regime** expands system predictions
+with a set of historically related entity QIDs. We additionally report F@1/3/5 in the .tsv files.    
 
-**Team keys**
-
-*(in numerical order)*
-
-| Team key | Team name   | Team affiliation                                             |
-| -------- | ----------- | ------------------------------------------------------------ |
-| team1     | HISTeria    | Ludwig-Maximilians-Universität and Bayerische Staatsbibliothek München, Munich, Germany |
-| team2    | L3i         | La Rochelle University, La Rochelle, France                  |
-| team3    | WLV    | University of Wolverhampton, Wolverhampton, UK |
-| team4   | aauzh         | Machine Learning MA class, Zurich University, Switzerland  |
-| team5   | SBB         | Berlin State Library, Berlin, Germany    |
 
 """
 
@@ -462,8 +465,7 @@ def compile_rankings_challenges_summary(rankings_dir: str, submissions_dir: str)
             "TEAM"
         ]
 
-    summary += "# HIPE 2022 Challenge Evaluation Results\n"
-    summary += "TEST"
+    summary += "## HIPE 2022 Challenge Evaluation Results\n"
     summary += "\n\n<!--ts-->\n<!--te-->\n"
 
     for challenge in challenges:
