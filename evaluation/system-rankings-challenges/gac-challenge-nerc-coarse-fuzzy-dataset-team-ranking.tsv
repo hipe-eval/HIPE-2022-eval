@@ -1,0 +1,7 @@
+CHALLENGE	RANK	POINTS	TEAM	DATASET	LANGUAGE	F1	System
+GAC:NERC-COARSE	1	50	team2	ajmc	de	0.952	team2_bundle3_ajmc_de_2
+GAC:NERC-COARSE	1	50	team2	ajmc	en	0.894	team2_bundle1_ajmc_en_1
+GAC:NERC-COARSE	1	50	team2	ajmc	fr	0.872	team2_bundle3_ajmc_fr_2
+GAC:NERC-COARSE	1	50	team2	hipe2020	de	0.876	team2_bundle3_hipe2020_de_1
+GAC:NERC-COARSE	1	50	team2	hipe2020	en	0.788	team2_bundle1_hipe2020_en_1
+GAC:NERC-COARSE	1	50	team2	hipe2020	fr	0.907	team2_bundle1_hipe2020_fr_2

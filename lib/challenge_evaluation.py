@@ -39,21 +39,91 @@ class ChallengeEvaluation(object):
 
     def __init__(self, args):
         self.args = args
-        self.teams = set(self.args.teams)
+        self.challenge = self.args.challenge.upper()
+        self.teams = set(self.args.teams) if self.args.teams else set()
         self.datasets = set()
         self.languages = set()
-        self.valid_bundles = set(self.args.bundles)
+        self.valid_bundles = set(self.args.bundles) if self.args.bundles else set()
         self.relevant_rankings = collections.defaultdict(
             list
         )  # Dict[Tuple[str, str],List[List[str]]]
+        self.dataset_subchallenge_results = []  # List[Dict[str,str]
 
     def run(self) -> None:
         log.warning(self.args)
-        for f in self.args.infiles:
-            self.read_ranking_file(f)
-        log.debug(self.relevant_rankings)
-        self.output_challenge_tsv()
-        self.output_challlenge_team_rankings()
+
+        if self.args.aggregate_subchallenge_results:
+            for f in self.args.infiles:
+                self.read_dataset_team_ranking(f)
+            self.output_challenge_team_rankings()
+        else:
+            for f in self.args.infiles:
+                self.read_ranking_file(f)
+            log.debug(self.relevant_rankings)
+            self.output_subchallenge_tsv()
+            self.output_subchallenge_team_rankings()
+
+    def read_dataset_team_ranking(self,filename:str) -> None:
+        """Read dataset team ranking files
+
+        e.g.
+        CHALLENGE	RANK	POINTS	TEAM	DATASET	LANGUAGE	F1	System
+MCC:NERC-Coarse	1	50	team2	ajmc	de	0.952	team2_bundle3_ajmc_de_2
+MCC:NERC-Coarse	2	40	team1	ajmc	de	0.945	team1_bundle4_ajmc_de_2
+MCC:NERC-Coarse	1	50	team1	ajmc	en	0.910	team1_bundle4_ajmc_en_2
+MCC:NERC-Coarse	2	40	team2	ajmc	en	0.894	team2_bundle1_ajmc_en_1
+MCC:NERC-Coarse	1	50	team1	ajmc	fr	0.888	team1_bundle4_ajmc_fr_1
+MCC:NERC-Coarse	2	40	team2	ajmc	fr	0.872	team2_bundle3_ajmc_fr_2
+
+
+        """
+        with open(filename, "r") as f:
+
+            reader = csv.DictReader(
+                f, delimiter="\t", quotechar="", quoting=csv.QUOTE_NONE
+            )
+            logging.info(f"Reading results from {filename}")
+            for r in reader:
+                self.dataset_subchallenge_results.append(r)
+        log.info(f"Team subchallenge dataset rankings read in {len(self.dataset_subchallenge_results)}")
+        log.debug(f"Dataset results {self.dataset_subchallenge_results}")
+
+    def output_challenge_team_rankings(self):
+        """Output the challenge team rankings"""
+
+        outstream = (
+            open(self.args.outfile_challenge_team_ranking, "w")
+            if self.args.outfile_challenge_team_ranking
+            else None
+        )
+        team2points = collections.Counter()
+
+
+        last_points = 10000000
+        last_rank = 0
+        current_ties = 0
+
+        fieldnames = ["CHALLENGE", "RANK", "POINTS", "TEAM"]
+        print("\t".join(fieldnames), file=outstream)
+
+        # Accumulate the points
+        for r in self.dataset_subchallenge_results:
+            team2points[r["TEAM"]] += int(r["POINTS"])
+
+        for rank, (team, points) in enumerate(team2points.most_common(), 1):
+            if points == last_points:
+                logging.debug(f"Tie at {points} point by {team}: last rank {last_rank} last points {last_points} ")
+                rank = last_rank
+                current_ties += 1
+            else:
+                current_ties = 0
+                last_rank = rank
+                last_points = points
+
+            print(self.challenge, rank, points, team, sep="\t", file=outstream)
+
+        if outstream:
+            outstream.close()
 
     def read_ranking_file(self, filename: str) -> None:
         """Read files like this and filter out
@@ -97,7 +167,7 @@ class ChallengeEvaluation(object):
                     continue
                 else:
                     seen_teams.add(team)
-                    row["CHALLENGE"] = self.args.challenge
+                    row["CHALLENGE"] = self.challenge
                     row["RANK"] = rank + 1
                     row["TEAM"] = team
                     row["DATASET"] = dataset
@@ -160,7 +230,7 @@ class ChallengeEvaluation(object):
         log.debug(f"Sorted NE-FINE-LIT-NE-NESTED SORTED {sorted_runs}")
         return sorted_runs
 
-    def output_challenge_tsv(self) -> None:
+    def output_subchallenge_tsv(self) -> None:
         """Output the detailed challenge results"""
         fieldnames = [
             "CHALLENGE",
@@ -185,7 +255,7 @@ class ChallengeEvaluation(object):
         if outstream:
             outstream.close()
 
-    def output_challlenge_team_rankings(self) -> None:
+    def output_subchallenge_team_rankings(self) -> None:
         """Output Team Rankings"""
         outstream = (
             open(self.args.outfile_challenge_team_ranking, "w")
@@ -203,7 +273,7 @@ class ChallengeEvaluation(object):
                             team2points[team] += r["POINTS"]
 
         for rank, (team, points) in enumerate(team2points.most_common(), 1):
-            print(self.args.challenge, rank, points, team, sep="\t", file=outstream)
+            print(self.challenge, rank, points, team, sep="\t", file=outstream)
         if outstream:
             outstream.close()
 
@@ -244,7 +314,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--outfile-challenge-team-ranking",
         metavar="CHALLENGE_TEAM_RANKING.tsv",
-        help="file path for the challenge team ranking table (default stdout)",
+        help="file path for the (sub-)challenge team ranking table (default stdout)",
     )
     parser.add_argument(
         "--outfile-dataset-team-ranking",
@@ -258,14 +328,20 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--challenge",
-        choices=["MNC", "MCC", "GAC", "UNSPECIFIED"],
+        choices=[c+":"+e for c in ["mnc", "mcc", "gac"] for e in ["NERC-Coarse","NERC-Fine+Nested","EL","EL-Only" ]]+["mnc","mcc","gac", "UNSPECIFIED"],
         default="UNSPECIFIED",
         help=(
             "the challenge acronym used for labelling the result table: "
             "MNC= Multilingual Newspaper Challenge; MCC=multilingual Classical Commentary Challenge; GAC=Global Adaptation Challenge. "
             "Note that no automatic matching between files and challenges happens. The caller of this script must provide correct input files for the correct challenge!"
-        ),
+        )
     )
+    parser.add_argument(
+        "--aggregate-subchallenge-results",
+        action= "store_true",
+        help="Aggregate the points per subchallenge; Note that no automatic matching between files and challenges happens. The caller of this script must provide correct input files for the correct challenge!",
+    )
+
 
     arguments = parser.parse_args()
 

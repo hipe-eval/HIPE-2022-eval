@@ -1,0 +1,4 @@
+CHALLENGE	RANK	POINTS	TEAM	DATASET	LANGUAGE	F1	System
+MNC:EL	1	50	team2	hipe2020	de	0.464	team2_bundle1_hipe2020_de_2
+MNC:EL	1	50	team2	hipe2020	en	0.469	team2_bundle1_hipe2020_en_2
+MNC:EL	1	50	team2	hipe2020	fr	0.578	team2_bundle1_hipe2020_fr_1

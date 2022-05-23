@@ -1,0 +1,4 @@
+CHALLENGE	RANK	POINTS	TEAM	DATASET	LANGUAGE	F1	System
+MCC:EL-ONLY	1	50	team5	ajmc	de	0.503	team5_bundle5_ajmc_de_2
+MCC:EL-ONLY	1	50	team5	ajmc	en	0.381	team5_bundle5_ajmc_en_2
+MCC:EL-ONLY	1	50	team5	ajmc	fr	0.464	team5_bundle5_ajmc_fr_1
