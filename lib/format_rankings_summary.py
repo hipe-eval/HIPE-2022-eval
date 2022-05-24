@@ -21,7 +21,7 @@ SCORER_VERSION = "[v2.0](https://github.com/hipe-eval/HIPE-scorer/releases/tag/2
 DATA_VERSION = "[v2.1-test-all-unmasked](https://github.com/hipe-eval/HIPE-2022-data/releases/tag/v2.1-test-all-unmasked)"
 
 PROLOGUE = f"""
-We provide a complete overview of the results of the HIPE-2022 evaluation campaign.         
+We provide a complete overview of the results of the HIPE-2022 evaluation campaign. :checkered_flag:        
 
 For more information about the tasks and challenges, see this [schema](https://github.com/hipe-eval/HIPE-2022-data#hipe-2022-evaluation) and  the [participation guidelines](https://doi.org/10.5281/zenodo.6045662) pages 13-18.
 
@@ -36,7 +36,7 @@ For more information about the tasks and challenges, see this [schema](https://g
 | team5   | SBB         | Berlin State Library, Berlin, Germany    |
 
 
-## Track Evaluation results
+## HIPE 2022 Track Evaluation results
 
 We provide an **overview table** of the **preliminary** results of the runs submitted by the teams.     
 It also includes a neural baseline created by the organizers. A non-neural CRF-based baseline will be added soon for NERC.
@@ -185,7 +185,8 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
         {
             "desc": "Relevant bundles: 1-4",
             "id": "nerc-coarse",
-            "label": "NERC coarse",
+            "label": "NERC-Coarse",
+            "shortlabel": "NERC-Coarse",
             "measures": [
                 (
                     "strict",
@@ -212,7 +213,8 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
         {
             "desc": "Relevant bundles: 1, 3",
             "id": "nerc-fine",
-            "label": "NERC fine",
+            "label": "NERC-Fine",
+            "shortlabel": "NERC-Fine",
             "measures": [
                 (
                     "strict",
@@ -259,7 +261,8 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
         {
             "desc": "Relevant bundles: 1, 2",
             "id": "el",
-            "label": "EL",
+            "label": "Entity Linking (end-to-end EL)",
+            "shortlabel": "End-to-end EL",
             "measures": [
                 (
                     "strict",
@@ -286,7 +289,8 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
         {
             "desc": "Relevant bundles: 5",
             "id": "el-only",
-            "label": "EL only",
+            "label": "Entity Linking only (EL-only)",
+            "shortlabel": "EL-only",
             "measures": [
                 (
                     "strict",
@@ -322,6 +326,7 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
         desc = scenario["desc"]
         scenario_id = scenario["id"]
         label = scenario["label"]
+        shortlabel = scenario["shortlabel"]
         measures = scenario["measures"]
         summary += f"\n\n## {label}\n\n{desc}"
 
@@ -335,7 +340,7 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
             if dataset == "topres19th" and scenario_id == "nerc-fine":
                 continue
 
-            summary += f"\n\n### {dataset}"
+            summary += f"\n\n### Dataset: {dataset}"
 
             for lang_id, lang_label in languages:
                 if dataset == "topres19th" and lang_id != "en":
@@ -413,7 +418,7 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
                             f"### EMPTY INDEX {label} {dataset} {lang_label} {measure_label} [`{eval_key}`]"
                         )
                         continue
-                    summary += f"\n\n**{label} {dataset} {lang_label} {measure_label}** [`{eval_key}`]\n\n"
+                    summary += f"\n\n**{shortlabel} {dataset} {lang_label} {measure_label}** [`{eval_key}`]\n\n"
                     summary += tabulate(
                         filter_ranking_df[["System", "F1", "P", "R", "TP", "FP", "FN"]],
                         headers=h,
@@ -424,7 +429,10 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
                     GH_tsv_link = os.path.join(GH_SYS_RANKING_URL, ranking_filename)
                     summary += f"\n\nSee [{ranking_filename}]({GH_tsv_link}) for full details."
 
+        summary += "\n\n [BACK TO TRACK TOP SECTION](#hipe-2022-track-evaluation-results)\n\n"
+
     summary += "\n"
+    summary += "\n\n [BACK TO TOP](#)\n\n"
     return summary
 
 
@@ -446,7 +454,7 @@ def compile_rankings_challenges_summary(rankings_dir: str, submissions_dir: str)
              "nerc-fine+nested-fuzzy"]
 
     views = {"challenge": "Ranking overview",
-             "dataset": "Detailed view"}
+             "dataset": "Per dataset view"}
 
     header_dataset = [
             "CHALLENGE",
@@ -478,6 +486,7 @@ def compile_rankings_challenges_summary(rankings_dir: str, submissions_dir: str)
         ranking_df = read_ranking_challenge(os.path.join(rankings_dir, overall_ranking_filename))
         summary += tabulate(
             ranking_df,
+            showindex=False,
             headers=header_team,
             tablefmt="pipe",
             numalign="left",
@@ -493,12 +502,12 @@ def compile_rankings_challenges_summary(rankings_dir: str, submissions_dir: str)
                 ranking_filename = f"{challenge}-{task}-{view}-team-ranking.tsv"
                 ranking_df = read_ranking_challenge(os.path.join(rankings_dir, ranking_filename))
 
-                summary += f"\n\n### {challenges_acro[challenge]}: {views[view]} for" \
-                          f" {task} \n\n"
+                summary += f"\n\n### {challenges_acro[challenge]}: {views[view]} for {task} \n\n"
 
                 h = header_dataset if view == "dataset" else header_team
                 summary += tabulate(
                     ranking_df,
+                    showindex=False,
                     headers=h,
                     tablefmt="pipe",
                     numalign="left",
@@ -506,8 +515,13 @@ def compile_rankings_challenges_summary(rankings_dir: str, submissions_dir: str)
                 )
                 GH_tsv_link = os.path.join(GH_CHALLENGE_RANKING_URL, ranking_filename)
                 summary += f"\n\nSee [{ranking_filename}]({GH_tsv_link}) for full details."
+            summary += "\n\n[BACK TO CHALLENGE TOP SECTION](#hipe-2022-challenge-evaluation-results)\n\n"
 
     summary += "\n"
+    summary += "\n\n [BACK TO TOP](#)\n\n"
+
+
+
     return summary
 
 
