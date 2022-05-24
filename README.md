@@ -1,15 +1,15 @@
 # HIPE-2022 Evaluation Toolkit
 
-The HIPE-2022 Evaluation Toolkit contains the **results of the HIPE-2022 [shared task](https://hipe-eval.github.io/HIPE-2022/)** on NE processing of historical documents, as well as the necessary material for **replicating** them:
+The HIPE-2022 Evaluation Toolkit contains the **results of the HIPE-2022 [shared task](https://hipe-eval.github.io/HIPE-2022/)** on NE processing of historical documents, as well as the necessary material for **replicating** them, namely:
 
 - the test data;
 - the submitted system responses;
-- the [HIPE-scorer](https://github.com/hipe-eval/HIPE-scorer) (as a submodule);
+- the [HIPE-scorer](https://github.com/hipe-eval/HIPE-scorer) (as a submodule, commit [6605770](https://github.com/hipe-eval/HIPE-scorer/commit/66057705c26e662081ebb5dd576d323858e22ef0));
 - a Makefile to run the whole evaluation process.
 
-**For more information, also have a look at: **
+**For more information, also have a look at:**
 
-- :checkered_flag: HIPE-2022 results in [HIPE_2022_evaluation_results](https://github.com/hipe-eval/HIPE-2022-eval/blob/main/HIPE_2022_evaluation_results.md) and on the [website](https://hipe-eval.github.io/HIPE-2022/results).
+- :checkered_flag: HIPE-2022 results in [HIPE_2022_evaluation_results.md](https://github.com/hipe-eval/HIPE-2022-eval/blob/main/HIPE_2022_evaluation_results.md) and on the [website](https://hipe-eval.github.io/HIPE-2022/results).
 - :computer: HIPE-2022 [website](https://hipe-eval.github.io/HIPE-2022/);
 - :open_file_folder: Official HIPE-2022 [data releases](https://github.com/impresso/CLEF-HIPE-2020/tree/master/data);
 - :low_brightness: HIPE-2022 [baselines](https://github.com/hipe-eval/HIPE-2022-baseline);
