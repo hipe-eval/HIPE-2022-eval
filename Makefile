@@ -113,6 +113,8 @@ eval-clean:
 done-clean:
 	rm -vf $(evaluation-nonorm-done-files) $($(evaluation-timenorm-done-files) $(evaluation-histonorm-done-files)
 
+
+
 ############################################################################################
 # Main ranking build goals
 ############################################################################################
@@ -139,7 +141,12 @@ ranking-alldatasets-alllanguages: eval-system-bundles
 ### Generate a detailed Markdown summary of rankings
 ############################################################################################
 
-rankings-summary: generate-rankings-summary rankings-summary-ToC
+rankings-summary: \
+	generate-rankings-summary \
+	rankings-summary-ToC \
+	generate-challenge-ranking-summary \
+ 	rankings-challenges-summary-ToC \
+ 	combine-rankings
 
 generate-rankings-summary:
 	python3 lib/format_rankings_summary.py --input-dir=$(RANK_DIR) --output-dir=$(RANK_DIR) --submissions-dir=$(SUB_DIR)
@@ -161,6 +168,19 @@ combine-rankings:
 #: create evaluation directories
 prepare-eval:
 	mkdir -p $(SUB_DIR) $(SUB_TIMENORM_DIR) $(SUB_HISTOTIMENORM_DIR) $(RES_DIR) $(EVAL_LOGS_DIR) $(RANK_DIR) $(CHALLENGES_RANK_DIR)
+
+# Still some manual edit so that ToC works on both GH and website
+#fix-GH-ToC-links:
+	#perl -pei.back 's/\.\/ranking_summary\.md/\.\/HIPE_2022_evaluation_results\.md/' HIPE_2022_evaluation_results.md
+
+# manual
+# for GH:
+# put top level section on top of file
+# sed -i.bak 's/\.\/ranking_summary\.md/\.\/HIPE_2022_evaluation_results\.md/' HIPE_2022_evaluation_results.md
+# sed -i.bak 's/\.\/ranking_challenge_summary\.md/\.\/HIPE_2022_evaluation_results\.md/' HIPE_2022_evaluation_results.md
+# For webiste
+# cp HIPE_2022_evaluation_results.md HIPE_2022_evaluation_results_website.md
+# sed -i.bak 's/\.\/HIPE_2022_evaluation_results\.md/\.\/results\.md/' HIPE_2022_evaluation_results_website.md
 
 
 
@@ -190,6 +210,8 @@ $(GROUND_TRUTH_DIR)/%_histonorm.tsv: $(GROUND_TRUTH_DIR)/%.tsv
 build-gold-histonorm-files: $(gold-histonorm-files)
 clean-gold-histonorm-files:
 	rm -fv $(gold-histonorm-files)
+
+
 
 ############################################################################################
 # Dealing with submissions and derived variants
@@ -232,6 +254,8 @@ clean-submission-histonorm-files:
 $(SUB_HISTOTIMENORM_DIR)/%.tsv: $(SUB_DIR)/%.tsv
 	python3 $(SCORER_DIR)/normalize_linking.py -i $< -o $@ --norm-time --norm-histo -m $(FILE_NEL_MAPPING) -e hipe-2022
 	@echo "HISTOTIMENORM CHANGED LINES in $< $$(diff -wy --suppress-common-lines $@ $< | wc -l)" | tee  $@.log
+
+
 
 ############################################################################################
 # Creating evaluation output for submitted runs
@@ -293,6 +317,8 @@ else ifeq ($(BUNDLE),5)
 	touch $@
 endif
 
+
+
 ############################################################################################
 # Creating time-normalized evaluation (NOT USED in 2022)
 ############################################################################################
@@ -306,6 +332,7 @@ $(info )
 endif
 
 build-evaluation-timenorm-done-files: $(evaluation-timenorm-done-files)
+
 
 
 ############################################################################################
@@ -357,6 +384,7 @@ endif
 	# Not applicable for BUNDLE $(BUNDLE)
 
 
+
 ############################################################################################
 # Ranking the systems based on their evaluation files
 # - only the most relevant analytics are used
@@ -370,8 +398,6 @@ $(RANK_DIR)/ranking-$(DATASET)-%-fine-micro-fuzzy-all.tsv:
 $(RANK_DIR)/ranking-$(DATASET)-%-fine-micro-strict-all.tsv:
 	cat $(RES_DIR)/*_$(DATASET)_$*_*.tsv | head -n 1 | cut -f $(MICRO_RANKING_COLUMNS) > $@
 	grep -Ehs '(NE-FINE|NE-NESTED).*micro-strict.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv| cut -f $(MICRO_RANKING_COLUMNS) | sort -u -t$$'\t' -k2 | sort -t$$'\t' -k3,3 -k6,6r -k2,2 -k1,1 >> $@
-
-
 
 # produce rankings per language, task, sorted by F1-score of micro fuzzy across labels
 # bundle 5 goes into separate table as they have gold annotations
@@ -409,6 +435,8 @@ $(RANK_DIR)/ranking-$(DATASET)-%-nel-only-micro-fuzzy-relaxed-all.tsv:
 	cat $(RES_DIR)/*_$(DATASET)_$*_*.tsv | head -n 1 | cut -f $(MICRO_RANKING_COLUMNS)  > $@
 	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle5_$(DATASET)_$*_?_nel_relaxed.tsv        | sort -u -t$$'\t' -k2 | sort -t$$'\t' -k2,2 -k6,6r -k2,2 -k1,1 | cut -f $(MICRO_RANKING_COLUMNS) >> $@
 
+
+
 ############################################################################################
 # Legacy material from 2022
 ############################################################################################
@@ -416,6 +444,7 @@ $(RANK_DIR)/ranking-$(DATASET)-%-nel-only-micro-fuzzy-relaxed-all.tsv:
 # produce the plots of the system performance on noisy and diachronic data also shown in the paper
 plots-paper: ranking-de ranking-fr ranking-en
 	python3 lib/eval_robustness.py --input-dir $(RANK_DIR) --output-dir $(EVAL_DIR)/robustness --log-file eval_robustness.log
+
 
 
 
@@ -488,6 +517,7 @@ all-challenges: \
 	gac-challenge
 
 
+
 ############################################################################################
 ### Main challenges: mnc mcc gac
 #   - They are build from the results of the subchallenge tables
@@ -523,6 +553,8 @@ $(CHALLENGES_RANK_DIR)/gac-challenge.done: gac-challenge-nerc-coarse-fuzzy  gac-
 	--challenge gac \
 	--infiles $(CHALLENGES_RANK_DIR)/gac-challenge-{nerc-coarse,nerc-fine+nested,nel-only,nel}*dataset-team-ranking.tsv \
 	--outfile-challenge-team-ranking $(@:.done=-team-ranking.tsv)
+
+
 
 ############################################################################################
 ### NERC-Coarse for mnc mcc gac
