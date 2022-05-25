@@ -14,13 +14,31 @@ import pandas as pd
 from docopt import docopt
 from tabulate import tabulate
 
-GH_BASE_URL = "https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings"
+GH_SYS_RANKING_URL = "https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings"
+GH_CHALLENGE_RANKING_URL = "https://github.com/hipe-eval/HIPE-2022-eval/blob/master/evaluation/system-rankings"
 date_of_creation = datetime.datetime.today().strftime('%d.%m.%Y')
-SCORER_VERSION = "[vX.X](link)"
-DATA_VERSION = "[vX.X](link)"
+SCORER_VERSION = "[v2.0](https://github.com/hipe-eval/HIPE-scorer/releases/tag/2.0)"
+DATA_VERSION = "[v2.1-test-all-unmasked](https://github.com/hipe-eval/HIPE-2022-data/releases/tag/v2.1-test-all-unmasked)"
 
 PROLOGUE = f"""
-We provide an **overview table** of the **preliminary**  results of the runs submitted by the teams.     
+We provide a complete overview of the results of the HIPE-2022 evaluation campaign. :checkered_flag:        
+
+For more information about the tasks and challenges, see this [schema](https://github.com/hipe-eval/HIPE-2022-data#hipe-2022-evaluation) and  the [participation guidelines](https://doi.org/10.5281/zenodo.6045662) pages 13-18.
+
+**Team keys (in numerical order)**
+
+| Team key | Team name   | Team affiliation                                             |
+| -------- | ----------- | ------------------------------------------------------------ |
+| team1     | HISTeria    | Ludwig-Maximilians-Universität and Bayerische Staatsbibliothek München, Munich, Germany |
+| team2    | L3i         | La Rochelle University, La Rochelle, France                  |
+| team3    | WLV    | University of Wolverhampton, Wolverhampton, UK |
+| team4   | aauzh         | Machine Learning MA class, Zurich University, Switzerland  |
+| team5   | SBB         | Berlin State Library, Berlin, Germany    |
+
+
+## HIPE 2022 Track Evaluation results
+
+We provide an **overview table** of the **preliminary** results of the runs submitted by the teams.     
 It also includes a neural baseline created by the organizers. A non-neural CRF-based baseline will be added soon for NERC.
 
 - Date: {date_of_creation}.
@@ -30,34 +48,20 @@ It also includes a neural baseline created by the organizers. A non-neural CRF-b
 - The current results for NEL can still change as we may extend the list of equivalent wikidata IDs. 
 - Detailed results for all systems can be found in the corresponding .tsv file (link provided below each table).
 - Detailed results for each team's runs are sent privately.
-- System name composition is: teamID_bundle_dataset_lang_run.
+- System name composition is: `teamID_bundle_dataset_lang_run`.
 - F1 scores of 0.0 are excluded from the table.
 - Results are ordered by F1 scores.
 
-**About the evaluation (reminder)**
+### About the evaluation (reminder)
 
 - NERC and Entity Linking (EL) are evaluated in terms of macro and micro Precision, Recall, F1-measure. Here only micro is reported.
 
-- Evaluation scenarios for **NERC**:    
-       - **Strict**: exact boundary matching.    
-       - **Fuzzy**: fuzzy (=overlap) boundary matching.    
+- NERC evaluation includes **strict** (exact boundary matching) and **fuzzy** (boundary overlap) scenarios.
 
-- Evaluation scenarios for **EL**:    
-In terms of boundaries, NEL is only evaluated according to fuzzy boundary matching in all scenarios. What is of interest is the capacity to provide the correct link rather than the correct boundaries (NERC task).         
-        - **Strict**: The system's top link prediction (NIL or QID) must be identical with the gold standard annotation.    
-        - **Relaxed**: The set of system's predictions is expanded with a set of historically related entities QIDs, e.g "Germany" is expended with the more specific "Confederation of the Rhine" and both are considered as valid answers. Systems are therefore evaluated more generously.  For this scenario, we additionally report F@1/3/5 in the .tsv files.    
+- For **EL**, the definition of strict and fuzzy regimes differs. In terms of boundaries, EL is always evaluated according to overlapping boundaries (what is of interest is the capacity to provide the correct link rather
+than the correct boundaries). EL **strict regime** considers only the system's top link prediction (NIL or QID), while the **fuzzy/relaxed regime** expands system predictions
+with a set of historically related entity QIDs. We additionally report F@1/3/5 in the .tsv files.    
 
-**Team keys**
-
-*(in numerical order)*
-
-| Team key | Team name   | Team affiliation                                             |
-| -------- | ----------- | ------------------------------------------------------------ |
-| team1     | HISTeria    | Ludwig-Maximilians-Universität and Bayerische Staatsbibliothek München, Munich, Germany |
-| team2    | L3i         | La Rochelle University, La Rochelle, France                  |
-| team3    | WLV    | University of Wolverhampton, Wolverhampton, UK |
-| team4   | aauzh         | Machine Learning MA class, Zurich University, Switzerland  |
-| team5   | SBB         | Berlin State Library, Berlin, Germany    |
 
 """
 
@@ -86,6 +90,42 @@ def read_ranking(ranking_name: str, rankings_dir: str) -> pd.DataFrame:
     df = df[~(df.F1 == 0.0)]
     # return df.reset_index()[selected_cols]
     return df[selected_cols]
+
+
+def read_ranking_challenge(ranking_file_path) -> pd.DataFrame:
+
+    logging.info(f"Trying to open {ranking_file_path}")
+
+    if "dataset" in ranking_file_path:
+        selected_cols = [
+            "CHALLENGE",
+            "RANK",
+            "POINTS",
+            "TEAM",
+            "DATASET",
+            "LANGUAGE",
+            "F1",
+            "System"
+        ]
+    else:
+        selected_cols = [
+            "CHALLENGE",
+            "RANK",
+            "POINTS",
+            "TEAM"
+        ]
+
+    try:
+        df = pd.read_csv(ranking_file_path, delimiter="\t")
+        return df[selected_cols]
+    except FileNotFoundError:
+        logging.error("File not found.")
+    except pd.errors.EmptyDataError:
+        logging.error("No data")
+    except pd.errors.ParserError:
+        logging.error("Parse error")
+    except Exception:
+        logging.error("Some other exception")
 
 
 def read_team_keys_file(team_keys_path: str):
@@ -145,7 +185,8 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
         {
             "desc": "Relevant bundles: 1-4",
             "id": "nerc-coarse",
-            "label": "NERC coarse",
+            "label": "NERC-Coarse",
+            "shortlabel": "NERC-Coarse",
             "measures": [
                 (
                     "strict",
@@ -172,7 +213,8 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
         {
             "desc": "Relevant bundles: 1, 3",
             "id": "nerc-fine",
-            "label": "NERC fine",
+            "label": "NERC-Fine",
+            "shortlabel": "NERC-Fine",
             "measures": [
                 (
                     "strict",
@@ -219,7 +261,8 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
         {
             "desc": "Relevant bundles: 1, 2",
             "id": "el",
-            "label": "EL",
+            "label": "Entity Linking (end-to-end EL)",
+            "shortlabel": "End-to-end EL",
             "measures": [
                 (
                     "strict",
@@ -246,7 +289,8 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
         {
             "desc": "Relevant bundles: 5",
             "id": "el-only",
-            "label": "EL only",
+            "label": "Entity Linking only (EL-only)",
+            "shortlabel": "EL-only",
             "measures": [
                 (
                     "strict",
@@ -282,6 +326,7 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
         desc = scenario["desc"]
         scenario_id = scenario["id"]
         label = scenario["label"]
+        shortlabel = scenario["shortlabel"]
         measures = scenario["measures"]
         summary += f"\n\n## {label}\n\n{desc}"
 
@@ -295,7 +340,7 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
             if dataset == "topres19th" and scenario_id == "nerc-fine":
                 continue
 
-            summary += f"\n\n### {dataset}"
+            summary += f"\n\n### Dataset: {dataset}"
 
             for lang_id, lang_label in languages:
                 if dataset == "topres19th" and lang_id != "en":
@@ -310,11 +355,9 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
                     continue
                 if dataset == "newseye" and lang_id == "en":
                     continue
-
-
-
                 if dataset == "letemps" and scenario_id in { "el", "el-only"}:
                     continue
+
                 for measure, eval_level, measure_label in measures:
                     logging.info(f"Working on {(dataset,lang_id, measure, eval_level, measure_label)}")
                     if scenario_id == "nerc-coarse":
@@ -375,7 +418,7 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
                             f"### EMPTY INDEX {label} {dataset} {lang_label} {measure_label} [`{eval_key}`]"
                         )
                         continue
-                    summary += f"\n\n**{label} {dataset} {lang_label} {measure_label}** [`{eval_key}`]\n\n"
+                    summary += f"\n\n**{shortlabel} {dataset} {lang_label} {measure_label}** [`{eval_key}`]\n\n"
                     summary += tabulate(
                         filter_ranking_df[["System", "F1", "P", "R", "TP", "FP", "FN"]],
                         headers=h,
@@ -383,10 +426,102 @@ def compile_rankings_summary(rankings_dir: str, submissions_dir: str) -> str:
                         numalign="left",
                         floatfmt=".3f",
                     )
-                    GH_tsv_link = os.path.join(GH_BASE_URL, ranking_filename)
+                    GH_tsv_link = os.path.join(GH_SYS_RANKING_URL, ranking_filename)
                     summary += f"\n\nSee [{ranking_filename}]({GH_tsv_link}) for full details."
 
+        summary += "\n\n [BACK TO TRACK TOP SECTION](#hipe-2022-track-evaluation-results)\n\n"
+
     summary += "\n"
+    summary += "\n\n [BACK TO TOP](#)\n\n"
+    return summary
+
+
+def compile_rankings_challenges_summary(rankings_dir: str, submissions_dir: str) -> str:
+
+    summary = ""
+
+    challenges = {"mnc-challenge": "Multilingual Newspaper Challenge (MNC)",
+                  "mcc-challenge": "Multilingual Classical Commentary Challenge (MCC)",
+                  "gac-challenge": "Global Adaptation Challenge (GAC)"}
+
+    challenges_acro = {"mnc-challenge": "MNC",
+                  "mcc-challenge": "MCC",
+                  "gac-challenge": "GAC"}
+
+    tasks = ["nel-only-relaxed",
+             "nel-relaxed",
+             "nerc-coarse-fuzzy",
+             "nerc-fine+nested-fuzzy"]
+
+    views = {"challenge": "Ranking overview",
+             "dataset": "Per dataset view"}
+
+    header_dataset = [
+            "CHALLENGE",
+            "RANK",
+            "POINTS",
+            "TEAM",
+            "DATASET",
+            "LANGUAGE",
+            "F1",
+            "System"
+        ]
+    header_team = [
+            "CHALLENGE",
+            "RANK",
+            "POINTS",
+            "TEAM"
+        ]
+
+    summary += "## HIPE 2022 Challenge Evaluation Results\n"
+    summary += "\n\n<!--ts-->\n<!--te-->\n"
+
+    for challenge in challenges:
+        # overall challenge ranking
+        summary += f"\n\n## {challenges[challenge]}\n\n"
+
+        summary += f"\n\n### {challenges_acro[challenge]}: Overall ranking\n\n"
+
+        overall_ranking_filename = f"{challenge}-team-ranking.tsv"
+        ranking_df = read_ranking_challenge(os.path.join(rankings_dir, overall_ranking_filename))
+        summary += tabulate(
+            ranking_df,
+            showindex=False,
+            headers=header_team,
+            tablefmt="pipe",
+            numalign="left",
+            floatfmt=".3f",
+        )
+
+        for task in tasks:
+            if challenge == "mnc-challenge" and task == "nerc-fine+nested-fuzzy":
+                continue
+            if challenge == "mcc-challenge" and task == "nerc-fine+nested-fuzzy":
+                continue
+            for view in views:
+                ranking_filename = f"{challenge}-{task}-{view}-team-ranking.tsv"
+                ranking_df = read_ranking_challenge(os.path.join(rankings_dir, ranking_filename))
+
+                summary += f"\n\n### {challenges_acro[challenge]}: {views[view]} for {task} \n\n"
+
+                h = header_dataset if view == "dataset" else header_team
+                summary += tabulate(
+                    ranking_df,
+                    showindex=False,
+                    headers=h,
+                    tablefmt="pipe",
+                    numalign="left",
+                    floatfmt=".3f",
+                )
+                GH_tsv_link = os.path.join(GH_CHALLENGE_RANKING_URL, ranking_filename)
+                summary += f"\n\nSee [{ranking_filename}]({GH_tsv_link}) for full details."
+            summary += "\n\n[BACK TO CHALLENGE TOP SECTION](#hipe-2022-challenge-evaluation-results)\n\n"
+
+    summary += "\n"
+    summary += "\n\n [BACK TO TOP](#)\n\n"
+
+
+
     return summary
 
 
@@ -396,6 +531,7 @@ def main(args):
     output_dir = args["--output-dir"]
     submissions_dir = args["--submissions-dir"]
 
+
     logging.basicConfig(
         filename=log_file,
         filemode="w",
@@ -403,8 +539,13 @@ def main(args):
         format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     )
 
-    md_summary_path = os.path.join(input_dir, "ranking_summary.md")
-    md_summary = compile_rankings_summary(input_dir, submissions_dir)
+    if "challenges" not in input_dir:
+        md_summary_path = os.path.join(input_dir, "ranking_summary.md")
+        md_summary = compile_rankings_summary(input_dir, submissions_dir)
+    else:
+        md_summary_path = os.path.join(input_dir, "ranking_challenge_summary.md")
+        md_summary = compile_rankings_challenges_summary(input_dir, submissions_dir)
+
     with open(md_summary_path, "w") as f:
         f.write(md_summary)
 

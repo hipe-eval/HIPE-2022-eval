@@ -39,7 +39,7 @@ RES_DIR?=$(EVAL_DIR)/system-evaluations
 
 EVAL_LOGS_DIR?=$(EVAL_DIR)/system-evaluation-logs
 RANK_DIR?=$(EVAL_DIR)/system-rankings
-
+CHALLENGES_RANK_DIR?=$(EVAL_DIR)/system-rankings-challenges
 BUNDLEIDS ?= 1 2 3 4 5
 # default bundle for testing
 BUNDLE ?= 1
@@ -102,6 +102,7 @@ eval-system-bundles-%: prepare-eval
 #: Empty all derived data material (removes also material under git revision)
 eval-clean:
 	rm -f $(RANK_DIR)/*
+	rm -f $(CHALLENGES_RANK_DIR)/*
 	rm -f $(SUB_TIMENORM_DIR)/*
 	rm -f $(SUB_HISTOTIMENORM_DIR)/*
 	rm -f $(RES_DIR)/*
@@ -111,6 +112,8 @@ eval-clean:
 #: Remove the .done file stamps only for a less intrusive cleaning
 done-clean:
 	rm -vf $(evaluation-nonorm-done-files) $($(evaluation-timenorm-done-files) $(evaluation-histonorm-done-files)
+
+
 
 ############################################################################################
 # Main ranking build goals
@@ -138,7 +141,12 @@ ranking-alldatasets-alllanguages: eval-system-bundles
 ### Generate a detailed Markdown summary of rankings
 ############################################################################################
 
-rankings-summary: generate-rankings-summary rankings-summary-ToC
+rankings-summary: \
+	generate-rankings-summary \
+	rankings-summary-ToC \
+	generate-challenge-ranking-summary \
+ 	rankings-challenges-summary-ToC \
+ 	combine-rankings
 
 generate-rankings-summary:
 	python3 lib/format_rankings_summary.py --input-dir=$(RANK_DIR) --output-dir=$(RANK_DIR) --submissions-dir=$(SUB_DIR)
@@ -148,10 +156,32 @@ generate-rankings-summary:
 rankings-summary-ToC:
 	cd $(RANK_DIR); gh-md-toc --no-backup ./ranking_summary.md ./ranking_summary.md
 
+generate-challenge-ranking-summary:
+	python3 lib/format_rankings_summary.py --input-dir=$(CHALLENGES_RANK_DIR) --output-dir=$(CHALLENGES_RANK_DIR) --submissions-dir=$(SUB_DIR)
+
+rankings-challenges-summary-ToC:
+	cd $(CHALLENGES_RANK_DIR); gh-md-toc --no-backup ./ranking_challenge_summary.md ./ranking_challenge_summary.md
+
+combine-rankings:
+	cat $(RANK_DIR)/ranking_summary.md $(CHALLENGES_RANK_DIR)/ranking_challenge_summary.md > HIPE_2022_evaluation_results.md
 
 #: create evaluation directories
 prepare-eval:
-	mkdir -p $(SUB_DIR) $(SUB_TIMENORM_DIR) $(SUB_HISTOTIMENORM_DIR) $(RES_DIR) $(EVAL_LOGS_DIR) $(RANK_DIR)
+	mkdir -p $(SUB_DIR) $(SUB_TIMENORM_DIR) $(SUB_HISTOTIMENORM_DIR) $(RES_DIR) $(EVAL_LOGS_DIR) $(RANK_DIR) $(CHALLENGES_RANK_DIR)
+
+# Still some manual edit so that ToC works on both GH and website
+#fix-GH-ToC-links:
+	#perl -pei.back 's/\.\/ranking_summary\.md/\.\/HIPE_2022_evaluation_results\.md/' HIPE_2022_evaluation_results.md
+
+# manual
+# for GH:
+# put top level section on top of file
+# sed -i.bak 's/\.\/ranking_summary\.md/\.\/HIPE_2022_evaluation_results\.md/' HIPE_2022_evaluation_results.md
+# sed -i.bak 's/\.\/ranking_challenge_summary\.md/\.\/HIPE_2022_evaluation_results\.md/' HIPE_2022_evaluation_results.md
+# For webiste
+# cp HIPE_2022_evaluation_results.md HIPE_2022_evaluation_results_website.md
+# sed -i.bak 's/\.\/HIPE_2022_evaluation_results\.md/\.\/results\.md/' HIPE_2022_evaluation_results_website.md
+
 
 
 ############################################################################################
@@ -180,6 +210,8 @@ $(GROUND_TRUTH_DIR)/%_histonorm.tsv: $(GROUND_TRUTH_DIR)/%.tsv
 build-gold-histonorm-files: $(gold-histonorm-files)
 clean-gold-histonorm-files:
 	rm -fv $(gold-histonorm-files)
+
+
 
 ############################################################################################
 # Dealing with submissions and derived variants
@@ -222,6 +254,8 @@ clean-submission-histonorm-files:
 $(SUB_HISTOTIMENORM_DIR)/%.tsv: $(SUB_DIR)/%.tsv
 	python3 $(SCORER_DIR)/normalize_linking.py -i $< -o $@ --norm-time --norm-histo -m $(FILE_NEL_MAPPING) -e hipe-2022
 	@echo "HISTOTIMENORM CHANGED LINES in $< $$(diff -wy --suppress-common-lines $@ $< | wc -l)" | tee  $@.log
+
+
 
 ############################################################################################
 # Creating evaluation output for submitted runs
@@ -283,6 +317,8 @@ else ifeq ($(BUNDLE),5)
 	touch $@
 endif
 
+
+
 ############################################################################################
 # Creating time-normalized evaluation (NOT USED in 2022)
 ############################################################################################
@@ -296,6 +332,7 @@ $(info )
 endif
 
 build-evaluation-timenorm-done-files: $(evaluation-timenorm-done-files)
+
 
 
 ############################################################################################
@@ -347,6 +384,7 @@ endif
 	# Not applicable for BUNDLE $(BUNDLE)
 
 
+
 ############################################################################################
 # Ranking the systems based on their evaluation files
 # - only the most relevant analytics are used
@@ -360,8 +398,6 @@ $(RANK_DIR)/ranking-$(DATASET)-%-fine-micro-fuzzy-all.tsv:
 $(RANK_DIR)/ranking-$(DATASET)-%-fine-micro-strict-all.tsv:
 	cat $(RES_DIR)/*_$(DATASET)_$*_*.tsv | head -n 1 | cut -f $(MICRO_RANKING_COLUMNS) > $@
 	grep -Ehs '(NE-FINE|NE-NESTED).*micro-strict.*ALL' $(RES_DIR)/*_$(DATASET)_$*_*.tsv| cut -f $(MICRO_RANKING_COLUMNS) | sort -u -t$$'\t' -k2 | sort -t$$'\t' -k3,3 -k6,6r -k2,2 -k1,1 >> $@
-
-
 
 # produce rankings per language, task, sorted by F1-score of micro fuzzy across labels
 # bundle 5 goes into separate table as they have gold annotations
@@ -399,6 +435,8 @@ $(RANK_DIR)/ranking-$(DATASET)-%-nel-only-micro-fuzzy-relaxed-all.tsv:
 	cat $(RES_DIR)/*_$(DATASET)_$*_*.tsv | head -n 1 | cut -f $(MICRO_RANKING_COLUMNS)  > $@
 	grep -hs 'NEL.*micro-fuzzy' $(RES_DIR)/*_bundle5_$(DATASET)_$*_?_nel_relaxed.tsv        | sort -u -t$$'\t' -k2 | sort -t$$'\t' -k2,2 -k6,6r -k2,2 -k1,1 | cut -f $(MICRO_RANKING_COLUMNS) >> $@
 
+
+
 ############################################################################################
 # Legacy material from 2022
 ############################################################################################
@@ -406,6 +444,7 @@ $(RANK_DIR)/ranking-$(DATASET)-%-nel-only-micro-fuzzy-relaxed-all.tsv:
 # produce the plots of the system performance on noisy and diachronic data also shown in the paper
 plots-paper: ranking-de ranking-fr ranking-en
 	python3 lib/eval_robustness.py --input-dir $(RANK_DIR) --output-dir $(EVAL_DIR)/robustness --log-file eval_robustness.log
+
 
 
 
@@ -446,3 +485,212 @@ create-feedback-zips-linking:
      evaluation/system-responses/submitted/$${team}*.tsv ;\
   	done
 #  include ranking? evaluation/system-rankings/ranking-{hipe2020,newseye,sonar,letemps}*coarse*all.tsv ;\
+
+
+############################################################################################
+### Evaluate all HIPE 2022 challenges
+############################################################################################
+# "MNC= Multilingual Newspaper Challenge;
+# MCC=multilingual Classical Commentary Challenge;
+# GAC=Global Adaptation Challenge.
+all-teams ?= team1 team2 team3 team4 team5
+mcc-teams ?= team1 team2             team5
+mnc-teams ?=       team2 team3 team4 team5
+gac-teams ?=       team2             team5
+
+
+
+
+all-challenges: \
+	mnc-challenge-nerc-coarse-fuzzy \
+	mcc-challenge-nerc-coarse-fuzzy \
+	gac-challenge-nerc-coarse-fuzzy \
+	gac-challenge-nerc-fine+nested-fuzzy \
+	mnc-challenge-nel-relaxed \
+	mcc-challenge-nel-relaxed \
+	gac-challenge-nel-relaxed \
+	mnc-challenge-nel-only-relaxed \
+	mcc-challenge-nel-only-relaxed \
+	gac-challenge-nel-only-relaxed \
+	mnc-challenge \
+	mcc-challenge \
+	gac-challenge
+
+
+
+############################################################################################
+### Main challenges: mnc mcc gac
+#   - They are build from the results of the subchallenge tables
+############################################################################################
+
+# Evaluating the main challenges
+mnc-challenge:  $(CHALLENGES_RANK_DIR)/mnc-challenge.done
+
+$(CHALLENGES_RANK_DIR)/mnc-challenge.done: mnc-challenge-nerc-coarse-fuzzy  mnc-challenge-nel-relaxed mnc-challenge-nel-only-relaxed
+	python lib/challenge_evaluation.py \
+	--aggregate-subchallenge-results \
+	--challenge mnc \
+	--infiles $(CHALLENGES_RANK_DIR)/mnc-challenge-{nerc-coarse,nel-only,nel}-*dataset-team-ranking.tsv \
+	--outfile-challenge-team-ranking $(@:.done=-team-ranking.tsv)
+
+
+mcc-challenge:  $(CHALLENGES_RANK_DIR)/mcc-challenge.done
+
+$(CHALLENGES_RANK_DIR)/mcc-challenge.done: mcc-challenge-nerc-coarse-fuzzy  mcc-challenge-nel-relaxed mcc-challenge-nel-only-relaxed
+	python lib/challenge_evaluation.py \
+	--aggregate-subchallenge-results \
+	--challenge mcc \
+	--infiles $(CHALLENGES_RANK_DIR)/mcc-challenge-{nerc-coarse,nel-only,nel}-*dataset-team-ranking.tsv \
+	--outfile-challenge-team-ranking $(@:.done=-team-ranking.tsv) \
+	2> $(@:.done=-team-ranking.tsv.log) --verbose 3
+
+
+gac-challenge:  $(CHALLENGES_RANK_DIR)/gac-challenge.done
+
+$(CHALLENGES_RANK_DIR)/gac-challenge.done: gac-challenge-nerc-coarse-fuzzy  gac-challenge-nel-relaxed gac-challenge-nel-only-relaxed gac-challenge-nerc-fine+nested-fuzzy
+	python lib/challenge_evaluation.py \
+	--aggregate-subchallenge-results \
+	--challenge gac \
+	--infiles $(CHALLENGES_RANK_DIR)/gac-challenge-{nerc-coarse,nerc-fine+nested,nel-only,nel}*dataset-team-ranking.tsv \
+	--outfile-challenge-team-ranking $(@:.done=-team-ranking.tsv)
+
+
+
+############################################################################################
+### NERC-Coarse for mnc mcc gac
+############################################################################################
+
+# ranking-newseye-en-nel-only-micro-fuzzy-all.tsv
+mnc-challenge-nerc-coarse-fuzzy: $(CHALLENGES_RANK_DIR)/mnc-challenge-nerc-coarse-fuzzy.done
+
+$(CHALLENGES_RANK_DIR)/mnc-challenge-nerc-coarse-fuzzy.done: ranking-alldatasets-alllanguages
+	python lib/challenge_evaluation.py \
+	--teams $(mnc-teams) --bundles bundle1 bundle2 bundle3 bundle4 \
+	--infiles $(RANK_DIR)/ranking-{newseye,sonar,hipe2020,topres19th,letemps}-??-coarse-micro-fuzzy-all.tsv \
+	--outfile-challenge-team-ranking $(@:.done=-challenge-team-ranking.tsv) \
+	--outfile-dataset-team-ranking $(@:.done=-dataset-team-ranking.tsv) \
+	--challenge mnc:NERC-Coarse
+
+mcc-challenge-nerc-coarse-fuzzy: $(CHALLENGES_RANK_DIR)/mcc-challenge-nerc-coarse-fuzzy.done
+
+$(CHALLENGES_RANK_DIR)/mcc-challenge-nerc-coarse-fuzzy.done: ranking-alldatasets-alllanguages
+	python lib/challenge_evaluation.py \
+	--teams $(mcc-teams)   --bundles bundle1 bundle2 bundle3 bundle4 \
+	--infiles $(RANK_DIR)/ranking-ajmc-??-coarse-micro-fuzzy-all.tsv \
+	--outfile-challenge-team-ranking $(@:.done=-challenge-team-ranking.tsv) \
+	--outfile-dataset-team-ranking $(@:.done=-dataset-team-ranking.tsv) \
+	--challenge mcc:NERC-Coarse
+
+gac-challenge-nerc-coarse-fuzzy: $(CHALLENGES_RANK_DIR)/gac-challenge-nerc-coarse-fuzzy.done
+
+$(CHALLENGES_RANK_DIR)/gac-challenge-nerc-coarse-fuzzy.done: ranking-alldatasets-alllanguages
+	python lib/challenge_evaluation.py \
+	--teams $(gac-teams)   --bundles bundle1 bundle2 bundle3 bundle4 \
+	--infiles $(RANK_DIR)/ranking-*-??-coarse-micro-fuzzy-all.tsv \
+	--outfile-challenge-team-ranking $(@:.done=-challenge-team-ranking.tsv) \
+	--outfile-dataset-team-ranking $(@:.done=-dataset-team-ranking.tsv) \
+	--challenge gac:NERC-Coarse
+
+
+############################################################################################
+### NERC-Fine+Nested for gac
+############################################################################################
+
+
+gac-challenge-nerc-fine+nested-fuzzy: $(CHALLENGES_RANK_DIR)/gac-challenge-nerc-fine+nested-fuzzy.done
+
+$(CHALLENGES_RANK_DIR)/gac-challenge-nerc-fine+nested-fuzzy.done: ranking-alldatasets-alllanguages
+	python lib/challenge_evaluation.py \
+	--avg-ne-fine-nested-lit \
+	--teams $(gac-teams)  --bundles bundle1 bundle2 bundle3 bundle4 \
+	--infiles $(RANK_DIR)/ranking-*-??-fine-micro-fuzzy-all.tsv \
+	--outfile-challenge-team-ranking $(@:.done=-challenge-team-ranking.tsv) \
+	--outfile-dataset-team-ranking $(@:.done=-dataset-team-ranking.tsv) \
+	--challenge gac:NERC-Fine+Nested
+
+
+############################################################################################
+### EL for mnc mcc gac
+############################################################################################
+
+## e.g. ranking-newseye-de-nel-micro-fuzzy-relaxed-all.tsv
+mcc-challenge-nel-relaxed: $(CHALLENGES_RANK_DIR)/mcc-challenge-nel-relaxed.done
+
+$(CHALLENGES_RANK_DIR)/mcc-challenge-nel-relaxed.done: ranking-alldatasets-alllanguages
+	python lib/challenge_evaluation.py \
+	--teams $(mcc-teams) --bundles bundle1 bundle2 bundle4 \
+	--infiles $(RANK_DIR)/ranking-ajmc-??-nel-micro-fuzzy-relaxed-all.tsv \
+	--outfile-challenge-team-ranking $(@:.done=-challenge-team-ranking.tsv) \
+	--outfile-dataset-team-ranking $(@:.done=-dataset-team-ranking.tsv) \
+	--challenge mcc:EL
+
+## e.g. ranking-newseye-de-nel-micro-fuzzy-relaxed-all.tsv
+mnc-challenge-nel-relaxed: $(CHALLENGES_RANK_DIR)/mnc-challenge-nel-relaxed.done
+
+$(CHALLENGES_RANK_DIR)/mnc-challenge-nel-relaxed.done: ranking-alldatasets-alllanguages
+	python lib/challenge_evaluation.py \
+	--teams $(mnc-teams) --bundles bundle1 bundle2 bundle4  \
+	--infiles $(RANK_DIR)/ranking-{newseye,sonar,hipe2020,topres19th,letemps}-??-nel-micro-fuzzy-relaxed-all.tsv \
+	--outfile-challenge-team-ranking $(@:.done=-challenge-team-ranking.tsv) \
+	--outfile-dataset-team-ranking $(@:.done=-dataset-team-ranking.tsv) \
+	--challenge mnc:EL
+
+
+## e.g. ranking-newseye-de-nel-micro-fuzzy-relaxed-all.tsv
+gac-challenge-nel-relaxed: $(CHALLENGES_RANK_DIR)/gac-challenge-nel-relaxed.done
+
+$(CHALLENGES_RANK_DIR)/gac-challenge-nel-relaxed.done: ranking-alldatasets-alllanguages
+	python lib/challenge_evaluation.py \
+	--teams $(gac-teams) --bundles bundle1 bundle2 bundle4   \
+	--infiles $(RANK_DIR)/ranking-*-??-nel-micro-fuzzy-relaxed-all.tsv \
+	--outfile-challenge-team-ranking $(@:.done=-challenge-team-ranking.tsv) \
+	--outfile-dataset-team-ranking $(@:.done=-dataset-team-ranking.tsv) \
+	--challenge gac:EL
+
+
+
+############################################################################################
+### EL-Only for mnc mcc gac
+############################################################################################
+
+## e.g. ranking-newseye-de-nel-micro-fuzzy-relaxed-all.tsv
+mnc-challenge-nel-only-relaxed: $(CHALLENGES_RANK_DIR)/mnc-challenge-nel-only-relaxed.done
+
+
+$(CHALLENGES_RANK_DIR)/mnc-challenge-nel-only-relaxed.done: ranking-alldatasets-alllanguages
+	python lib/challenge_evaluation.py \
+	--teams $(mnc-teams)  --bundles bundle5  \
+	--infiles $(RANK_DIR)/ranking-{newseye,sonar,hipe2020,topres19th,letemps}-??-nel-only-micro-fuzzy-relaxed-all.tsv \
+	--outfile-challenge-team-ranking $(@:.done=-challenge-team-ranking.tsv) \
+	--outfile-dataset-team-ranking $(@:.done=-dataset-team-ranking.tsv) \
+	--challenge mcc:EL-Only
+
+
+## e.g. ranking-newseye-de-nel-micro-fuzzy-relaxed-all.tsv
+mcc-challenge-nel-only-relaxed: $(CHALLENGES_RANK_DIR)/mcc-challenge-nel-only-relaxed.done
+
+
+$(CHALLENGES_RANK_DIR)/mcc-challenge-nel-only-relaxed.done: ranking-alldatasets-alllanguages
+	python lib/challenge_evaluation.py \
+	--teams $(mcc-teams)  --bundles bundle5  \
+	--infiles $(RANK_DIR)/ranking-ajmc-??-nel-only-micro-fuzzy-relaxed-all.tsv \
+	--outfile-challenge-team-ranking $(@:.done=-challenge-team-ranking.tsv) \
+	--outfile-dataset-team-ranking $(@:.done=-dataset-team-ranking.tsv) \
+	--challenge mcc:EL-Only
+
+
+## e.g. ranking-newseye-de-nel-micro-fuzzy-relaxed-all.tsv
+gac-challenge-nel-only-relaxed: $(CHALLENGES_RANK_DIR)/gac-challenge-nel-only-relaxed.done
+
+
+$(CHALLENGES_RANK_DIR)/gac-challenge-nel-only-relaxed.done: ranking-alldatasets-alllanguages
+	python lib/challenge_evaluation.py \
+	--teams $(gac-teams)  --bundles bundle5  \
+	--infiles $(RANK_DIR)/ranking-*-??-nel-only-micro-fuzzy-relaxed-all.tsv \
+	--outfile-challenge-team-ranking $(@:.done=-challenge-team-ranking.tsv) \
+	--outfile-dataset-team-ranking $(@:.done=-dataset-team-ranking.tsv) \
+	--challenge gac:EL-Only
+
+
+
+
