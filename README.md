@@ -54,13 +54,35 @@ make generate-rankings-summary  rankings-summary-ToC
 
 ## References
 
-**Participant Working Notes papers**
+### Participant Working Notes papers
 
 _to be completed in Sept 2022._
 
-**About HIPE-2022**
+### About HIPE-2022
 
-- M. Ehrmann, M. Romanello, A. Doucet, and S. Clematide, S. (2022). [Introducing the HIPE 2022 Shared Task: Named Entity Recognition and Linking in Multilingual Historical Documents](https://doi.org/10.1007/978-3-030-99739-7_44). In: Advances in Information Retrieval. ECIR 2022. Lecture Notes in Computer Science, vol 13186. Springer, Cham (link to [postprint](https://github.com/hipe-eval/HIPE-2022/blob/main/assets/pdf/HIPE2022_ECIR_shortpaper_postprint.pdf)).
+- **CEUR HIPE-2020 extended overview paper:**
+
+_information to come soon._     
+
+- **LNCS HIPE-2020 condensed overview paper:**
+
+M. Ehrmann, M. Romanello, S. Najem-Meyer, A. Doucet, and S. Clematide (2022). [Overview of HIPE-2022: Named Entity Recognition and Linking in Multilingual Historical Documents](). In: Experimental IR Meets Multilinguality, Multimodality, and Interaction. Proceedings of the Thirteenth International Conference of the CLEF Association (CLEF 2022). Lecture Notes in Computer Science. Springer, Cham (link to [preprint]() soon to come).
+
+```
+@inproceedings{hipe2022_condensed_2022,
+    title = {{Overview of HIPE-2022: Named Entity Recognition and Linking in Multilingual Historical Documents}},
+    booktitle = {{Experimental IR Meets Multilinguality, Multimodality, and Interaction. Proceedings of the Thirteenth International Conference of the CLEF Association (CLEF 2022)}},
+     series    = {Lecture Notes in Computer Science (LNCS)},
+  publisher = {Springer},
+    author    = {Ehrmann, Maud and Romanello, Matteo and Najem-Meyer, Sven and Doucet, Antoine and Clematide, Simon},
+    year = {2022},
+    editor = {Barrón-Cedeño, Alberto and Da San Martino, Giovanni and Degli Esposti, Mirko and Sebastiani, Fabrizio and Macdonald, Craig and Pasi, Gabriella and Hanbury, Allan and Potthast, Martin and Faggioli, Guglielmo and Ferro, Nicola
+}
+```
+
+- **ECIR-2022 short paper:**    
+
+M. Ehrmann, M. Romanello, A. Doucet, and S. Clematide (2022). [Introducing the HIPE 2022 Shared Task: Named Entity Recognition and Linking in Multilingual Historical Documents](https://doi.org/10.1007/978-3-030-99739-7_44). In: Advances in Information Retrieval. ECIR 2022. Lecture Notes in Computer Science, vol 13186. Springer, Cham (link to [postprint](https://github.com/hipe-eval/HIPE-2022/blob/main/assets/pdf/HIPE2022_ECIR_shortpaper_postprint.pdf)).
 
 ```
 @inproceedings{ehrmann_introducing_2022,
