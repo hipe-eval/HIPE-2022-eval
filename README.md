@@ -64,9 +64,9 @@ _to be completed in Sept 2022._
 
 _information to come soon._     
 
-- **LNCS HIPE-2020 condensed overview paper:**
+- **LNCS HIPE-2020 Condensed Lab Overview Paper:**
 
-M. Ehrmann, M. Romanello, S. Najem-Meyer, A. Doucet, and S. Clematide (2022). [Overview of HIPE-2022: Named Entity Recognition and Linking in Multilingual Historical Documents](). In: Experimental IR Meets Multilinguality, Multimodality, and Interaction. Proceedings of the Thirteenth International Conference of the CLEF Association (CLEF 2022). Lecture Notes in Computer Science. Springer, Cham (link to [preprint]() soon to come).
+M. Ehrmann, M. Romanello, S. Najem-Meyer, A. Doucet, and S. Clematide (2022). [Overview of HIPE-2022: Named Entity Recognition and Linking in Multilingual Historical Documents](). In: Experimental IR Meets Multilinguality, Multimodality, and Interaction. Proceedings of the Thirteenth International Conference of the CLEF Association (CLEF 2022). Lecture Notes in Computer Science. Springer, Cham (link to [accepted version](https://github.com/hipe-eval/HIPE-2022/blob/main/assets/pdf/IPE_2022_LNCS_CondensedLabOverview_accepted_version.pdf)).
 
 ```
 @inproceedings{hipe2022_condensed_2022,
@@ -80,7 +80,7 @@ M. Ehrmann, M. Romanello, S. Najem-Meyer, A. Doucet, and S. Clematide (2022). [O
 }
 ```
 
-- **ECIR-2022 short paper:**    
+- **ECIR-2022 Introduction Short Paper:**    
 
 M. Ehrmann, M. Romanello, A. Doucet, and S. Clematide (2022). [Introducing the HIPE 2022 Shared Task: Named Entity Recognition and Linking in Multilingual Historical Documents](https://doi.org/10.1007/978-3-030-99739-7_44). In: Advances in Information Retrieval. ECIR 2022. Lecture Notes in Computer Science, vol 13186. Springer, Cham (link to [postprint](https://github.com/hipe-eval/HIPE-2022/blob/main/assets/pdf/HIPE2022_ECIR_shortpaper_postprint.pdf)).
 
