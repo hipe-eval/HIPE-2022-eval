@@ -11,7 +11,7 @@ The HIPE-2022 Evaluation Toolkit contains the **results of the HIPE-2022 [shared
 
 - :checkered_flag: HIPE-2022 results in [HIPE_2022_evaluation_results.md](https://github.com/hipe-eval/HIPE-2022-eval/blob/main/HIPE_2022_evaluation_results.md) and on the [website](https://hipe-eval.github.io/HIPE-2022/results).
 - :computer: HIPE-2022 [website](https://hipe-eval.github.io/HIPE-2022/);
-- :open_file_folder: Official HIPE-2022 [data releases](https://github.com/impresso/CLEF-HIPE-2020/tree/master/data);
+- :open_file_folder: Official HIPE-2022 [data releases](https://github.com/hipe-eval/HIPE-2022-data);
 - :low_brightness: HIPE-2022 [baselines](https://github.com/hipe-eval/HIPE-2022-baseline);
 - :books: HIPE evaluation campaigns [zenodo community](https://zenodo.org/communities/hipe-eval/?page=1&size=20).
 
