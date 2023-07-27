@@ -1,4 +1,4 @@
-# HIPE-2022 Evaluation Toolkit
+<h1 align="center" style="margin-top: 0px;">HIPE-2022 Evaluation Toolkit</h1>
 
 The HIPE-2022 Evaluation Toolkit contains the **results of the HIPE-2022 [shared task](https://hipe-eval.github.io/HIPE-2022/)** on NE processing of historical documents, as well as the necessary material for **replicating** them, namely:
 
@@ -56,17 +56,33 @@ make generate-rankings-summary  rankings-summary-ToC
 
 ### Participant Working Notes papers
 
-_to be completed in Sept 2022._
+Look at the HIPE section of the [Proceedings of the Working Notes of CLEF 2022](https://ceur-ws.org/Vol-3180/) - Conference and Labs of the Evaluation Forum, Bologna, Italy, September 5th to 8th, 2022.
 
 ### About HIPE-2022
 
-- **CEUR HIPE-2020 extended overview paper:**
+- **CEUR HIPE-2022 extended overview paper:**
 
-_information to come soon._     
+M. Ehrmann, M. Romanello, S. Najem-Meyer, A. Doucet, and S. Clematide (2022). [Extended Overview of HIPE-2022: Named Entity Recognition and Linking in Multilingual Historical Documents](https://www.zora.uzh.ch/id/eprint/230656/). In: Faggioli, Gulielmo; Ferro, Nicola; Hanbury, Alan; Potthast, Martin. Working Notes of CLEF 2022 - Conference and Labs of the Evaluation Forum (CLEF). Aachen: CEUR-WS, 1038-1063.   
 
-- **LNCS HIPE-2020 Condensed Lab Overview Paper:**
+```
+@incollection{hipe2022_extended_2022,
+           title = {{Extended Overview of HIPE-2022: Named Entity Recognition and Linking in Multilingual Historical Documents}},
+          author = {Maud Ehrmann and Matteo Romanello and Sven Najem-Meyer and Antoine Doucet and Simon Clematide},
+          series = {CEUR Workshop Proceedings},
+       booktitle = {Working Notes of CLEF 2022 - Conference and Labs of the Evaluation Forum (CLEF)},
+          editor = {Gulielmo Faggioli and Nicola Ferro and Alan Hanbury and Martin Potthast},
+         address = {Aachen},
+       publisher = {CEUR-WS},
+            year = {2022},
+           pages = {1038--1063},
+             url = {https://doi.org/10.5167/uzh-230656},
+            issn = {1613-0073}
+}
+```
 
-M. Ehrmann, M. Romanello, S. Najem-Meyer, A. Doucet, and S. Clematide (2022). [Overview of HIPE-2022: Named Entity Recognition and Linking in Multilingual Historical Documents](). In: Experimental IR Meets Multilinguality, Multimodality, and Interaction. Proceedings of the Thirteenth International Conference of the CLEF Association (CLEF 2022). Lecture Notes in Computer Science. Springer, Cham (link to [accepted version](https://github.com/hipe-eval/HIPE-2022/blob/main/assets/pdf/HIPE_2022_LNCS_CondensedLabOverview_accepted_version.pdf)).
+- **LNCS HIPE-2022 Condensed Lab Overview Paper:**
+
+M. Ehrmann, M. Romanello, S. Najem-Meyer, A. Doucet, and S. Clematide (2022). [Overview of HIPE-2022: Named Entity Recognition and Linking in Multilingual Historical Documents](https://link.springer.com/chapter/10.1007/978-3-031-13643-6_26). In: Experimental IR Meets Multilinguality, Multimodality, and Interaction. Proceedings of the Thirteenth International Conference of the CLEF Association (CLEF 2022). Lecture Notes in Computer Science. Springer, Cham (link to [accepted version](https://github.com/hipe-eval/HIPE-2022/blob/main/assets/pdf/HIPE_2022_LNCS_CondensedLabOverview_accepted_version.pdf)).
 
 ```
 @inproceedings{hipe2022_condensed_2022,
